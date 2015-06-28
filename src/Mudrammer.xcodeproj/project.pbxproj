@@ -47,7 +47,7 @@
 		5E786E6818220FED00557673 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E6418220FEC00557673 /* UIApplication+Additions.m */; };
 		5E786E741822100300557673 /* Alias.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E6B1822100300557673 /* Alias.m */; };
 		5E786E751822100300557673 /* Gag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E6D1822100300557673 /* Gag.m */; };
-		5E786E761822100300557673 /* SSMagicManagedObject+Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E6F1822100300557673 /* SSMagicManagedObject+Matching.m */; };
+		5E786E761822100300557673 /* NSString+SPLMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E6F1822100300557673 /* NSString+SPLMatching.m */; };
 		5E786E771822100300557673 /* Trigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E711822100300557673 /* Trigger.m */; };
 		5E786E781822100300557673 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E731822100300557673 /* World.m */; };
 		5E786E7E1822102700557673 /* SSMUDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E786E7B1822102700557673 /* SSMUDSocket.m */; };
@@ -322,8 +322,8 @@
 		5E786E6B1822100300557673 /* Alias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alias.m; sourceTree = "<group>"; };
 		5E786E6C1822100300557673 /* Gag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gag.h; sourceTree = "<group>"; };
 		5E786E6D1822100300557673 /* Gag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gag.m; sourceTree = "<group>"; };
-		5E786E6E1822100300557673 /* SSMagicManagedObject+Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSMagicManagedObject+Matching.h"; sourceTree = "<group>"; };
-		5E786E6F1822100300557673 /* SSMagicManagedObject+Matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSMagicManagedObject+Matching.m"; sourceTree = "<group>"; };
+		5E786E6E1822100300557673 /* NSString+SPLMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SPLMatching.h"; sourceTree = "<group>"; };
+		5E786E6F1822100300557673 /* NSString+SPLMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SPLMatching.m"; sourceTree = "<group>"; };
 		5E786E701822100300557673 /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
 		5E786E711822100300557673 /* Trigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trigger.m; sourceTree = "<group>"; };
 		5E786E721822100300557673 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
@@ -820,8 +820,8 @@
 				5E786E6B1822100300557673 /* Alias.m */,
 				5E786E6C1822100300557673 /* Gag.h */,
 				5E786E6D1822100300557673 /* Gag.m */,
-				5E786E6E1822100300557673 /* SSMagicManagedObject+Matching.h */,
-				5E786E6F1822100300557673 /* SSMagicManagedObject+Matching.m */,
+				5E786E6E1822100300557673 /* NSString+SPLMatching.h */,
+				5E786E6F1822100300557673 /* NSString+SPLMatching.m */,
 				5E786E87182210FF00557673 /* SSModels.h */,
 				5EEFA588197B1F7900B62F26 /* Ticker.h */,
 				5EEFA589197B1F7900B62F26 /* Ticker.m */,
@@ -1545,7 +1545,7 @@
 				5E004DAB194D569B00EE1448 /* SSSessionLogger.m in Sources */,
 				5E786ED11822122B00557673 /* SSConnectButton.m in Sources */,
 				E9451AFE1A7EB3040010045B /* NSAttributedString+SPLAdditions.m in Sources */,
-				5E786E761822100300557673 /* SSMagicManagedObject+Matching.m in Sources */,
+				5E786E761822100300557673 /* NSString+SPLMatching.m in Sources */,
 				5E5AEC5D17FBE1D50090604B /* SSFormAppearance.m in Sources */,
 				5E786E851822104900557673 /* UIViewController+Additions.m in Sources */,
 				E9BDF8AA1A8C7BED0011069E /* SPLTerminalDataSource.m in Sources */,

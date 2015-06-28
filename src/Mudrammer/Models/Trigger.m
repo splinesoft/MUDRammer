@@ -7,7 +7,7 @@
 //
 
 #import "Trigger.h"
-#import "SSMagicManagedObject+Matching.h"
+#import "NSString+SPLMatching.h"
 
 @implementation Trigger
 
@@ -70,13 +70,12 @@ static NSRegularExpression *triggerSubMatcher;
     if( [self.trigger length] == 0 )
         return NO;
 
-    return [Trigger matchPattern:self.trigger
-                     matchesLine:line];
+    return [line spl_matchesPattern:self.trigger];
 }
 
 - (NSArray *)triggerCommandsForLine:(NSString *)line {
     // Splits our command lines by semicolon, handles &N syntax, etc
-    NSArray *userCommands = [World commandsFromUserInput:self.commands];
+    NSArray *userCommands = [self.commands spl_commandsFromUserInput];
 
     NSMutableArray *outputCommands = [NSMutableArray array];
 
@@ -84,9 +83,8 @@ static NSRegularExpression *triggerSubMatcher;
         if( [userCommand length] == 0 )
             return;
 
-        NSString *cmd = [Trigger commandForMatchPattern:self.trigger
-                                            userCommand:userCommand
-                                              inputLine:line];
+        NSString *cmd = [self.trigger spl_commandForUserCommand:userCommand
+                                                      inputLine:line];
 
         if( [cmd length] > 0 )
             [outputCommands addObject:cmd];

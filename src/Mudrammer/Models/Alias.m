@@ -7,7 +7,7 @@
 //
 
 #import "Alias.h"
-#import "SSMagicManagedObject+Matching.h"
+#import "NSString+SPLMatching.h"
 
 @implementation Alias
 
@@ -50,7 +50,7 @@
 }
 
 - (NSArray *)aliasCommandsForInput:(NSString *)input {
-    NSArray *commands = [World commandsFromUserInput:self.commands];
+    NSArray *commands = [self.commands spl_commandsFromUserInput];
     NSArray *inputWords = [input componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *targetInput = nil;
 

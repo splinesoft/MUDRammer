@@ -7,7 +7,6 @@
 //
 
 #import "Gag.h"
-#import "SSMagicManagedObject+Matching.h"
 
 @implementation Gag
 

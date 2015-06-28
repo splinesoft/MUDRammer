@@ -18,7 +18,7 @@ MUDRammer is a modern MUD client for iPhone and iPad focused on speed, accessibi
 
 [MUDs (Multi-User Dungeons)](https://en.wikipedia.org/wiki/MUD) are online multiplayer text-based games. Thousands of players today are on hundreds of MUDs in all manner of worlds: fantasy, absurdist, sci-fi, horror, and more. Many MUDs have been continuously online for decades! MUDRammer includes a `DefaultWorlds.plist` with a few interesting default worlds you can try, or you can add your own.
 
-MUDRammer is available for sale on the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8). Although this repository will allow you to build and run MUDRammer from source, please purchase MUDRammer on the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) to support continued development.
+MUDRammer is available for sale on the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8). Although this repository will allow you to build and run MUDRammer from source, please purchase [MUDRammer on the App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) to support continued development.
 
 [![MUDRammer for iPhone](https://github.com/splinesoft/MUDRammer/raw/master/AppStore/Screenshots/51.png)](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8)
 
@@ -29,9 +29,19 @@ You'll need Xcode 6.3 or newer.
 1. [Install Homebrew](http://brew.sh) if needed, and then `brew update && brew install objc-codegenutils`
 2. Clone this repo: `git clone git@github.com:splinesoft/MUDRammer.git && cd MUDRammer`
 3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should periodically run `rake setup` to ensure you're up to date with all dependencies.
-4. `rake test` builds MUDRammer and runs all tests (minimalistic RSpec-style output).
-5. `rake lint` lints MUDRammer with various static analyzers. [FauxPas.app](http://fauxpasapp.com) is required for one of the linting steps.
-6. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
+4. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
+
+Additional `rake` tasks include:
+
+| Task | Description |
+| ---- | ----- |
+| `rake gems` | Installs RubyGems. |
+| `rake pods` | Installs CocoaPods. |
+| `rake setup` | Runs `rake gems` and `rake pods` and wipes the build output folder. |
+| `rake test` | Builds MUDRammer and runs all tests (minimalistic RSpec-style output). |
+| `rake lint` | Lints MUDRammer with various static analyzers. [FauxPas.app](http://fauxpasapp.com) is required for one of the linting steps. |
+| `rake code` | Generates and prints a single code redeemable on the iTunes store for a free copy of MUDRammer. |
+| `rake ws` | Strips trailing whitespace from all project source files. Requires [these Swift playgrounds](https://github.com/jhersh/playgrounds). |
 
 ## Notes
 
@@ -57,7 +67,7 @@ Fonts, images, and sounds bundled with MUDRammer are licensed free for commercia
 
 ## About the Name
 
-I've been very fortunate to meet people from all over the world in my years of mudding. One of my more colorful Dutch mudding acquaintances has played for years with a character named "Mudrammer". It is a ridiculous and silly name, but it still makes me :laughing:
+I've been very fortunate in my years of mudding to have met people from all over the world. One of my more colorful Dutch mudding acquaintances has played for years with a character named "Mudrammer". It is a ridiculous and silly name, but it still makes me :laughing:
 
 ## Contact
 

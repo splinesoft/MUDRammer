@@ -64,7 +64,7 @@ pod 'VTAcknowledgementsViewController', '0.14'
 post_install do |installer_representation|
     installer_representation.project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '7.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
         end
     end
 end

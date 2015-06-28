@@ -7,7 +7,6 @@
 //
 
 #import "UIColor+SPLANSI.h"
-#import "SSThemes.h"
 
 CGFloat const kBrightColorBrightness = 1.0f;
 CGFloat const kBrightColorSaturation = 0.4f;

@@ -52,7 +52,7 @@
 #pragma mark - init
 
 - (instancetype)initWithSocket:(GCDAsyncSocket *)socket
-                      delegate:(id<SSMUDSocketDelegate>)delegate {
+                      delegate:(id <SSMUDSocketDelegate>)delegate {
 
     if ((self = [super init])) {
         _dataCache = [NSMutableString string];
@@ -62,7 +62,7 @@
         _socket = socket;
         self.socket.delegate = self;
         self.socket.delegateQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        self.SSdelegate = delegate;
+        _SSdelegate = delegate;
     }
 
     return self;

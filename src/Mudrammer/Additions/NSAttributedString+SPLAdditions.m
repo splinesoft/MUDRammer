@@ -8,7 +8,6 @@
 
 #import "NSAttributedString+SPLAdditions.h"
 #import "UIColor+SPLANSI.h"
-#import "SSThemes.h"
 @import CoreText;
 
 @implementation NSAttributedString (SPLAdditions)

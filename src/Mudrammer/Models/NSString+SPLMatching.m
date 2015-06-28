@@ -1,12 +1,12 @@
 //
-//  SSMagicManagedObject+Matching.m
+//  NSString+SPLMatching.m
 //  Mudrammer
 //
 //  Created by Jonathan Hersh on 9/24/13.
 //  Copyright (c) 2013 Jonathan Hersh. All rights reserved.
 //
 
-#import "SSMagicManagedObject+Matching.h"
+#import "NSString+SPLMatching.h"
 
 NSString * const kPatternRandom = @"\\#(\\d{1,6})\\#";
 NSString * const kPatternCommandIndex = @"\\$\\d{1,2}(\\$)?";
@@ -17,15 +17,15 @@ static NSRegularExpression *randomRegex;
 static NSCharacterSet *splitChars;
 static NSCharacterSet *nonDecimalCharacterSet;
 
-@interface SSMagicManagedObject (Matching_Private)
+@interface NSString (Matching_Private)
 
 + (NSRegularExpression *) regexForPattern:(NSString *)pattern;
 
 @end
 
-@implementation SSMagicManagedObject (Matching)
+@implementation NSString (SPLMatching)
 
-+ (NSArray *)commandsFromUserInput:(NSString *)input {
+- (NSArray *)spl_commandsFromUserInput {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSMutableCharacterSet *charSet = [NSMutableCharacterSet characterSetWithCharactersInString:@";"];
@@ -38,10 +38,11 @@ static NSCharacterSet *nonDecimalCharacterSet;
                                                                   error:NULL];
     });
 
-    if( [input length] == 0 )
+    if ([self length] == 0) {
         return nil;
+    }
 
-    NSMutableString *matchString = [NSMutableString stringWithString:input];
+    NSMutableString *matchString = [NSMutableString stringWithString:self];
     NSMutableArray *rangeMatches = [NSMutableArray array];
 
     [randomRegex enumerateMatchesInString:matchString
@@ -88,7 +89,7 @@ static NSCharacterSet *nonDecimalCharacterSet;
             }];
 }
 
-+ (NSDictionary *)commandLocationsForPattern:(NSString *)pattern {
+- (NSDictionary *)spl_commandLocationsForPattern {
     static dispatch_once_t onceTriggerToken;
     dispatch_once(&onceTriggerToken, ^{
         patternLocationMatcher = [NSRegularExpression regularExpressionWithPattern:kPatternCommandIndex
@@ -97,12 +98,13 @@ static NSCharacterSet *nonDecimalCharacterSet;
         nonDecimalCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     });
 
-    if( [pattern length] == 0 )
+    if([self length] == 0) {
         return nil;
+    }
 
     NSMutableDictionary *ret = [NSMutableDictionary dictionary];
 
-    NSArray *words = [pattern componentsSeparatedByCharactersInSet:
+    NSArray *words = [self componentsSeparatedByCharactersInSet:
                       [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     [words enumerateObjectsUsingBlock:^(NSString *aWord,
@@ -139,7 +141,7 @@ static NSCharacterSet *nonDecimalCharacterSet;
 
     // Replace all instances of the match pattern ($1, $2, etc)
     // with the word pattern (/w)
-    NSDictionary *commandLocations = [self commandLocationsForPattern:toMatch];
+    NSDictionary *commandLocations = [toMatch spl_commandLocationsForPattern];
     NSMutableArray *words = [NSMutableArray arrayWithArray:
                              [toMatch componentsSeparatedByCharactersInSet:
                               [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
@@ -160,43 +162,44 @@ static NSCharacterSet *nonDecimalCharacterSet;
                                                        error:NULL];
 }
 
-+ (BOOL) matchPattern:(NSString *)pattern matchesLine:(NSString *)line {
+- (BOOL)spl_matchesPattern:(NSString *)pattern {
     // Replace all instances of the match pattern ($1, $2, etc)
     // with the word pattern (\w+)
-    NSDictionary *commandLocations = [self commandLocationsForPattern:pattern];
+    NSDictionary *commandLocations = [pattern spl_commandLocationsForPattern];
 
     // In the simple case, the pattern contains no match indexes.
     // If so, we do a simple literal string comparison.
-    if( [commandLocations count] == 0 )
-        return [line stringContainsString:pattern];
+    if ([commandLocations count] == 0) {
+        return [self stringContainsString:pattern];
+    }
 
-    NSRegularExpression *lineMatcher = [self regexForPattern:pattern];
+    NSRegularExpression *lineMatcher = [self.class regexForPattern:pattern];
 
     if( !lineMatcher )
         return NO;
 
-    NSUInteger matchCount = [lineMatcher numberOfMatchesInString:line
+    NSUInteger matchCount = [lineMatcher numberOfMatchesInString:self
                                                          options:kNilOptions
-                                                           range:NSMakeRange(0, [line length])];
+                                                           range:NSMakeRange(0, [self length])];
 
     return (BOOL)(matchCount > 0);
 }
 
-+ (NSString *)commandForMatchPattern:(NSString *)pattern userCommand:(NSString *)command inputLine:(NSString *)line {
-
-    NSDictionary *patternLocations = [self commandLocationsForPattern:pattern];
+- (NSString *)spl_commandForUserCommand:(NSString *)command inputLine:(NSString *)line {
+    NSDictionary *patternLocations = [self spl_commandLocationsForPattern];
 
     if( [patternLocations count] == 0 ) {
         // Simple case - no pattern matches in this line
         return command;
     }
 
-    NSDictionary *commandLocations = [self commandLocationsForPattern:command];
+    NSDictionary *commandLocations = [command spl_commandLocationsForPattern];
 
-    NSRegularExpression *lineMatcher = [self regexForPattern:pattern];
+    NSRegularExpression *lineMatcher = [self.class regexForPattern:self];
 
-    if( !lineMatcher )
+    if (!lineMatcher) {
         return nil;
+    }
 
     NSArray *matches = [lineMatcher matchesInString:line
                                             options:kNilOptions

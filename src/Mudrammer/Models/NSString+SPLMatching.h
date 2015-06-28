@@ -1,21 +1,21 @@
 //
-//  SSMagicManagedObject+Matching.h
+//  NSString+SPLMatching.h
 //  Mudrammer
 //
 //  Created by Jonathan Hersh on 9/24/13.
 //  Copyright (c) 2013 Jonathan Hersh. All rights reserved.
 //
 
-#import "SSMagicManagedObject.h"
+@import Foundation;
 
-@interface SSMagicManagedObject (Matching)
+@interface NSString (SPLMatching)
 
 /**
  * The user has entered some input.
  * We split the input by semicolons and newlines,
  * and perform random number insertion via the &N syntax.
  */
-+ (NSArray *)commandsFromUserInput:(NSString *)input;
+- (NSArray *)spl_commandsFromUserInput;
 
 /**
  Given a match pattern that has some command-indexes ($1, $2, etc),
@@ -23,16 +23,15 @@
  Keys are the indexes of the word in the line at which each pattern occurs.
  Values are an NSNumber representation of each index.
  */
-+ (NSDictionary *) commandLocationsForPattern:(NSString *)pattern;
+- (NSDictionary *)spl_commandLocationsForPattern;
 
 /**
  Given a match pattern that has some command-indexes ($1, $2, etc),
  determines if a given input string matches the pattern.
 */
-+ (BOOL) matchPattern:(NSString *)pattern matchesLine:(NSString *)line;
+- (BOOL)spl_matchesPattern:(NSString *)pattern;
 
 /**
- * @param pattern - a pattern that has some command-indexes ($1, $2, etc)
  * @param command - a user command that contains command-indexes
  * @param line - a received line of text
  *
@@ -48,7 +47,6 @@
  *
  * Returns: 'say hello bob and thor'
  */
-+ (NSString *) commandForMatchPattern:(NSString *)pattern
-                          userCommand:(NSString *)command
-                            inputLine:(NSString *)line;
+- (NSString *)spl_commandForUserCommand:(NSString *)command
+                              inputLine:(NSString *)line;
 @end

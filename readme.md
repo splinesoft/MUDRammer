@@ -27,10 +27,10 @@ MUDRammer is available for sale on the [App Store](https://itunes.apple.com/us/a
 You'll need Xcode 6.3 or newer.
 
 1. [Install Homebrew](http://brew.sh) if needed, and then `brew update && brew install objc-codegenutils`
-2. Clone this repo: `git clone git@github.com:jhersh/MUDRammer.git && cd MUDRammer`
+2. Clone this repo: `git clone git@github.com:splinesoft/MUDRammer.git && cd MUDRammer`
 3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should periodically run `rake setup` to ensure you're up to date with all dependencies.
-4. `rake test` will build MUDRammer and run all tests (minimalistic RSpec-style output).
-5. `rake lint` will lint MUDRammer with various static analyzers. [FauxPas.app](http://fauxpasapp.com) is required for one of the linting steps.
+4. `rake test` builds MUDRammer and run all tests (minimalistic RSpec-style output).
+5. `rake lint` lints MUDRammer with various static analyzers. [FauxPas.app](http://fauxpasapp.com) is required for one of the linting steps.
 6. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
 
 ## Notes

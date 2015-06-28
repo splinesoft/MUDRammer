@@ -1,0 +1,41 @@
+//
+//  Mudrammer-Prefix.pch
+//  Mudrammer
+//
+//  Created by Jonathan Hersh on 7/20/14.
+//  Copyright (c) 2014 Jonathan Hersh. All rights reserved.
+//
+
+#ifdef __OBJC__
+    @import Foundation;
+    @import UIKit;
+
+    // Pods
+    #import <SPLCore.h>
+    #import <SSDataSources.h>
+    #import <SSOperations.h>
+    #import <ARAnalytics.h>
+    #import <FBKVOController.h>
+    #import <BlocksKit+MessageUI.h>
+    #import <BlocksKit.h>
+    #import <Availability.h>
+
+    // Categories
+    #import "UIViewController+Additions.h"
+    #import "UIApplication+Additions.h"
+    #import "UINavigationController+SPLAdditions.h"
+
+    // Assetgen
+    #import "SPLImagesCatalog.h"
+
+    // Core Data
+    #import "SSMagicManagedObject.h"
+
+    // Models
+    #import "SSModels.h"
+
+    // Mudrammer
+    #import "SSAppDelegate.h"
+    #import "SSMRConstants.h"
+    #import "SSThemes.h"
+#endif

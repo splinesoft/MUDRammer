@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+
+        <dict>
+            <key>name</key>  <string>Nanvaent</string>
+            <key>hostname</key>  <string>nanvaent.org</string>
+            <key>port</key>  <integer>23</integer>
+            <key>isDefault</key> <integer>1</integer>
+            <key>id</key> <integer>1</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Achaea</string>
+            <key>hostname</key>  <string>achaea.com</string>
+            <key>port</key>  <integer>23</integer>
+            <key>id</key> <integer>2</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Valhalla</string>
+            <key>hostname</key>  <string>valhalla.com</string>
+            <key>port</key>  <integer>4242</integer>
+            <key>id</key> <integer>3</integer>
+        </dict>
+
+        <dict>
+            <key>name</key>  <string>Adventures Unlimited</string>
+            <key>hostname</key>  <string>tharel.net</string>
+            <key>port</key>  <integer>5005</integer>
+            <key>id</key> <integer>4</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Aardwolf</string>
+            <key>hostname</key>  <string>aardmud.org</string>
+            <key>port</key>  <integer>4010</integer>
+            <key>id</key> <integer>5</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Discworld</string>
+            <key>hostname</key>  <string>discworld.starturtle.net</string>
+            <key>port</key>  <integer>23</integer>
+            <key>id</key> <integer>7</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Lusternia</string>
+            <key>hostname</key>  <string>lusternia.com</string>
+            <key>port</key>  <integer>23</integer>
+            <key>id</key> <integer>8</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Star Wars MUD</string>
+            <key>hostname</key>  <string>swmud.org</string>
+            <key>port</key>  <integer>6666</integer>
+            <key>id</key> <integer>9</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Federation II</string>
+            <key>hostname</key>  <string>fed2.ibgames.net</string>
+            <key>port</key>  <integer>30003</integer>
+            <key>id</key> <integer>10</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>8bit MUSH</string>
+            <key>hostname</key>  <string>8bit.fansi.org</string>
+            <key>port</key>  <integer>4201</integer>
+            <key>id</key> <integer>11</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Where No One Has Gone Before</string>
+            <key>hostname</key>  <string>game.wnohgb.org</string>
+            <key>port</key>  <integer>1701</integer>
+            <key>id</key> <integer>12</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Phoenix</string>
+            <key>hostname</key>  <string>phoenix-mud.com</string>
+            <key>port</key>  <integer>6716</integer>
+            <key>id</key> <integer>13</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Furscape</string>
+            <key>hostname</key>  <string>furscape.com</string>
+            <key>port</key>  <integer>2001</integer>
+            <key>id</key> <integer>14</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Avalon: The Legend Lives</string>
+            <key>hostname</key>  <string>avalon-rpg.com</string>
+            <key>port</key>  <integer>23</integer>
+            <key>id</key> <integer>15</integer>
+        </dict>
+        
+        <dict>
+            <key>name</key>  <string>Ancient Anguish</string>
+            <key>hostname</key>  <string>ancient.anguish.org</string>
+            <key>port</key>  <integer>2222</integer>
+            <key>id</key> <integer>16</integer>
+        </dict>
+    </array>
+</plist>

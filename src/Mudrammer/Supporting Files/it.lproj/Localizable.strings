@@ -1,0 +1,302 @@
+"ABOUT_HELP" = "Informazioni su MUDRammer";
+"ACTIVE_WORLDS" = "Attivo";
+"ADD_CONNECTION" = "Aggiungi nuova connessione";
+"ADVANCED" = "Avanzate";
+
+"ACK_HEADER" = "MUDRammer is grateful for the following libraries and projects:";
+
+/* Separate multiple actions with a semicolon (;). */
+"ALIAS_EDIT_HELP" = "Separate multiple commands with semicolons (;) or newlines.\n\n#N# in a command generates a random number from 1-N.\n\nSample Alias // Sample Command(s)\nYou Type => Command(s) sent\n\nrando // say I am #50#!\nrando => say I am 37!\n\nsh // cast shield;bow\nsh seuss => cast shield seuss;bow seuss\n\nrd // use rod $2$ at $1$\nrd orc 3 => use rod 3 at orc\n\np // page $1$=$*$\np bob hello sir! => page bob=hello sir!";
+
+/* Create commands that expand into one or more actions. */
+"ALIAS_HELP" = "Usa un alias per inviare uno o più comandi.";
+
+"AUTOCORRECT_ENABLED" = "Autocorrezione del testo digitato";
+
+/* Aliases */
+"ALIAS" = "Alias";
+"ALIASES" = "Alias";
+
+"AUTOCAPITALIZE" = "Maiuscola automatica";
+
+
+"BTKEYBOARD" = "Tastiera Bluetooth";
+"BTKEYBOARD_HELP" = "Abilita questa opzione se hai collegato una tastiera Bluetooth. La tastiera software verrà ignorata da MUDRammer.";
+
+/* Cancel */
+"CANCEL" = "Annulla";
+
+"CHARACTER_BAR" = "Barra caratteri";
+"CHARACTER_BAR_HELP" = "Accesso rapido a caratteri speciali durante la digitazione.";
+
+"COMMANDS" = "Comando/i";
+
+"COMMAND_STASH" = "Tipizzazione scorta";
+
+"COPYRIGHT" = "MMXV splinesoft.net";
+
+/* Connect */
+"CONNECT" = "Connetti";
+
+/* Connected */
+"CONNECTED" = " Connessione riuscita!";
+
+/* Connecting */
+"CONNECTING" = "Connessione in corso";
+
+/* Connecting to */
+"CONNECTING_TO_%@" = "Connessione a %@";
+"CONNECTING_TO_%@_%@" = "Connessione a %@:%@...";
+
+"CONTACT_US" = "Feedback e supporto";
+
+"CONNECT_ON_STARTUP" = "Connetti all'avvio";
+
+/* Delete Alias */
+"DELETE_ALIAS" = "Cancella alias";
+
+/* Delete Gag */
+"DELETE_GAG" = "Cancella omissione";
+
+/* Delete Trigger */
+"DELETE_TRIGGER" = "Cancella trigger";
+
+/* Disconnect */
+"DISCONNECT" = "Disconnetti";
+"DISCONNECT_FROM_%@" = "Stai per disconnetterti da %@.";
+
+/* Disconnected */
+"DISCONNECTED" = "Disconnesso";
+
+/* Edit Alias */
+"EDIT_ALIAS" = "Modifica alias";
+
+/* Edit Gag */
+"EDIT_GAG" = "Modifica omissione";
+
+"EDIT_WORLD" = "Modifica mondo";
+
+/* Edit Trigger */
+"EDIT_TRIGGER" = "Modifica trigger";
+
+"ENABLED" = "Abilitato";
+
+/* Font */
+"FONT" = "Font";
+
+/* Font Size */
+"FONT_SIZE" = "Dimensione del font";
+
+/* Separate multiple actions with a semicolon (;). */
+"GAG_EDIT_HELP" = "Il testo da omettere distingue fra maiuscole e minuscole.\nAggiungiun’omissione vuota per non mostrare tutte le righe vuote.";
+"GAG_EMPTY" = "[Ometto tutte le righe vuote]";
+
+/* Prevents specified text from appearing on screen. */
+"GAG_HELP" = "Do Non mostrare il testo, proveniente da questo mondo, se corrisponde al testo di un'omissione.";
+
+/* Gags */
+"GAGS" = "Omissioni";
+
+"HISTORY_BACK" = "Storia indietro";
+"HISTORY_FORWARD" = "Storia in avanti";
+
+/* Host Name */
+"HOSTNAME" = "Host";
+
+/* Ticker interval */
+"INTERVAL" = "Intervallo (secondi)";
+
+"KEEP_TEXT" = "Mantieni il testo digitato";
+"KEEP_TEXT_HELP" = "Mantieni il testo digitato dopo aver inviato un comando.";
+
+"KEYBOARD_APPEARANCE" = "Tastiera scura";
+
+"LEFT" = "Sinistra";
+
+"LINE_CONTAINS" = "La riga contiene";
+"LINE_HIGHLIGHT" = "Evidenzia";
+
+"LOCAL_ECHO" = "Mostra i comandi digitati";
+
+"LOG_FOOTER" = "\nMUDRammer - a Modern MUD client for iPhone and iPad\nhttps://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8";
+"LOGGING_PREF" = "Registra log della sessione";
+
+/* Mail Session Log */
+"MAIL_LOG" = "Log principale della sessione";
+"MAIL_LOG_ENABLE_EMAIL" = " Configura almeno un account su mail.app per poter inviare via mail i log delle sessioni.";
+
+"MADE_IN" = "Creato a San Francisco";
+
+"MOVE_CONTROL" = "Movimento";
+
+/* World Name */
+"NAME" = "Nickname";
+
+/* New Alias */
+"NEW_ALIAS" = "Nuovo alias";
+
+/* New Gag */
+"NEW_GAG" = "Nuova omissione";
+
+/* New Trigger */
+"NEW_TRIGGER" = "Nuovo trigger";
+
+/* New World */
+"NEW_WORLD" = "Nuovo mondo";
+
+"NO_WORLDS" = "Nessun mondo presente";
+
+"ON" = "Attivato";
+"OFF" = "No";
+
+"OPTIONAL" = "Opzionale";
+
+/* Open World */
+"OPEN_WORLD" = "Apri mondo";
+
+"PATTERN" = "Pattern";
+
+/* World Port */
+"PORT" = "Porta";
+
+"RIGHT" = "Destra";
+
+"REMOVE" = "Rimuovi";
+
+/* Save this world for next time? */
+"SAVE_WORLD" = "Salva";
+
+/* Your session will timeout in two minutes. */
+"SESSION_TIMEOUT" = "La tua sessione di MUDRammer potrebbe scadere a breve.";
+
+"SERVER_STATUS" = "Server Status";
+
+"SEMICOLON_CMDS" = "Comandi separati da punto e virgola";
+"SEMICOLON_CMDS_HELP" = "Digita ; per inviare comandi multipli.";
+
+"SIMPLE_TELNET" = "Modalità Telnet semplice";
+"SIMPLE_TELNET_DESC" = "Nella modalità Telnet semplice, MUDRammer non negozierá le opzioni Telnet.";
+
+"SEND" = "Invia";
+
+"SESSION_SELECT" = "Selezionare una sessione";
+
+/* Settings */
+"SETTINGS" = "Impostazioni";
+
+"START_OF_LINE" = "Inizio riga";
+
+"STRING_ENCODING" = "Codifica";
+"STRING_ENCODING_HELP" = "Codifica da applicare a tutto il testo inviato e ricevuto. La maggior parte dei mondo supporta l’ASCII.";
+
+"SSL_SUCCESS" = "Connessione sicura stabilita!\n";
+"SSL_HANDSHAKE_ERR" = " (Handshake SSL fallito. Forse questo mondo non supporta l’SSL. Prova a modificarne le impostazioni disattivando l’SSL.)";
+
+"TICKERS" = "Intervalli";
+"NEW_TICKER" = "Nuovo intervallo";
+"TICKER_STATUS_INTERVAL_%@_%@" = "%@ (%@ sec.)";
+"DELETE_TICKER" = "Cancella intervallo";
+"EDIT_TICKER" = "Modifica intervallo";
+"TICKER_HELP" = "Esegui dei comandi o un alias,  e/o riproduci un suono ad intervalli regolari.";
+
+/* Themes */
+"THEMES" = "Temi";
+"THEME_ASPHALT" = "Asphalt";
+"THEME_BLACK" = "Midnight";
+"THEME_WHITE" = "Snowblind";
+"THEME_BLUE" = "Baby Blue";
+"THEME_JOLIE" = "Jolie";
+"THEME_ROSE" = "Rose";
+"THEME_AUTUMNAL" = "Autumnal";
+"THEME_PLUM" = "Plum";
+"THEME_HOMEBREW" = "Homebrew";
+"THEME_HUMANE" = "Humane";
+"THEME_ASSASSIN" = "Underdark";
+"THEME_REDSANDS" = "Red Sands";
+"THEME_GRASS" = "Grass";
+"THEME_SILVER" = "Aerogel";
+"THEME_CHOCOLATE" = "Chocolate";
+"THEME_BECCA" = "Becca's Purple";
+"THEME_AHLEENA" = "Ahleena";
+"THEME_AVIATOR" = "Aviator";
+"THEME_SUMMONER" = "Summoner";
+
+/* Separate multiple actions with a semicolon (;). */
+"TRIGGER_EDIT_HELP" = "Separate multiple commands with semicolons (;) or newlines. You can use Aliases for commands!\n\n#N# in a command generates a random number from 1-N.\n\nSample Pattern // Sample Command(s)\n\nA $1 eats your $2 // say a $1 ate my $2!\npings you // say There are #4# lights!\nswirls restlessly // cast cloak of clouds\nattacks you // focus dodging;dodge";
+
+"TOP_BAR_VISIBLE" = "Barra superiore sempre visibile";
+
+/* Fire some actions whenever specified text is received. */
+"TRIGGER_HELP" = "Esegui dei comandi se il testo ricevuto  da questo mondo corrisponde a quello di un trigger.";
+
+/* Triggers */
+"TRIGGERS" = "Trigger";
+
+/* Triggers (Inactive) */
+"TRIGGERS_INACTIVE" = "Trigger (non attivi)";
+
+"TYPE" = "Tipo";
+
+/* Welcome to MUDRammer */
+"WELCOME" = "Benvenuto in MUDRammer";
+
+/* MUDRammer is a modern MUD client for iPhone and iPad. Let's get started with NANVAENT, one of the oldest and (in this humble developer's opinion) greatest MUDs around today. Say hi to me (Seuss)!\n\nOr, connect to your own favorite MUD. */
+"WELCOME_TEXT" = "MUDRammer è un Mud Client moderno per iPhone e iPad.\n\nPer aggiungere un Mud, tocca Fine, Poi premi il pulsante nell’angolo in alto a sinistra.";
+
+/* Worlds */
+"WORLDS" = "Mondi";
+
+/* Radial control */
+"RADIAL" = "Controllo radiale";
+"RADIAL_CONTROL" = "Controllo radiale";
+"RADIAL_ENABLE_HELP" = "Un controllo a gesti, totalmente personalizzabile,,  situato dalla parte opposta sullo schermo rispetto al controllo di movimento.";
+"RADIAL_COMMANDS" = "Comandi del controllo radiale";
+"RADIAL_EXTRA_HELP" = "Poi anche includere degli alias nel controllo radiale. Inoltre, se hai abilitato la separazione dei comandi tramite punto e virgola nelle impostazioni avanzate, puoi utilizzarli.";
+
+/* Sounds */
+"SOUND" = "Suono";
+"SOUNDS" = "Suoni";
+"SOUND_DOOROPEN" = "Door Open";
+"SOUND_DOORCLOSE" = "Door Close";
+"SOUND_CAT" = "Cat";
+"SOUND_THUMP" = "Thump";
+"SOUND_ARROW" = "Arrow";
+"SOUND_HIT" = "Hit";
+"SOUND_LIGHT" = "Light";
+"SOUND_WHOOSH" = "Whoosh";
+"SOUND_FIRE" = "Fireball";
+"SOUND_WIND" = "Wind";
+"SOUND_HAMMER" = "Hammer";
+"SOUND_ICELANCE" = "Ice Lance";
+"SOUND_ZAP" = "Zap";
+"SOUND_ZOOM" = "Zoom";
+"SOUND_WATER" = "Water";
+"SOUND_HARP" = "Harp";
+"SOUND_SPLASH" = "Splash";
+"SOUND_WARNING" = "Warning";
+"SOUND_FREEZE" = "Freeze";
+"SOUND_BOUCHEARRIVE" = "Bouche's Arrival";
+"SOUND_BOUCHEPEWPEW" = "Bouche's Pong";
+"SOUND_BOUCHEQUAD" = "Bouche's Quadtone";
+"SOUND_BOUCHEFIFTH" = "Bouche's Five";
+"SOUND_BOUCHESENSOR" = "Bouche's Tricorder";
+"SOUND_SHIELDFAIL" = "Shield Failure";
+"SOUND_WEAKEN" = "Weakened";
+"SOUND_DISPELMAGIC" = "Dispel Magic";
+"SOUND_ICEBOLT" = "Ice Bolt";
+"SOUND_MAGICMISSILE" = "Magic Missile";
+"SOUND_GREATERFIREBALL" = "Fireball (Greater)";
+"SOUND_DOUBLEALERT" = "Double Alert";
+"SOUND_THUNDER" = "Thunder";
+"SOUND_POWERDOWN" = "Power Down";
+"SOUND_RUBBERBAND" = "Rubber Band";
+"SOUND_ANIMATEDEAD" = "Animate Dead";
+"SOUND_AUCTION" = "Auction";
+"SOUND_DISARMED" = "Disarmed";
+"SOUND_ARMORDOWN" = "Armor Failure";
+"SOUND_HORSE" = "Horse";
+"SOUND_BOUCHEGONG" = "Bouche's Gong";
+"SOUND_BOUCHELIGHT" = "Bouche's Light";
+"SOUND_BOUCHEDISPATCH" = "Bouche's Dispatch";
+"SOUND_BOUCHEDUO" = "Bouche's Duo";
+"SOUND_BOUCHECHIME" = "Bouche's Chime";

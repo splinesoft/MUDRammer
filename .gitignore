@@ -1,0 +1,26 @@
+#Ignore the Mac OS X .DS_Store files
+.DS_Store
+
+xcuserdata
+*.xccheckout
+
+src/build
+.gitattributes
+
+xcuserdata/
+
+DerivedData
+DerivedSources
+
+output/
+build/
+.idea/
+*.swp
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.moved-aside
+
+vendor/bundle
+.bundle
+src/Pods/CocoaPodsKeys

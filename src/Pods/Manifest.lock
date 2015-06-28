@@ -1,0 +1,136 @@
+PODS:
+  - ARAnalytics/CoreIOS (3.6.2)
+  - ARAnalytics/HockeyApp (3.6.2):
+    - ARAnalytics/CoreIOS
+    - HockeySDK-Source
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - CocoaAsyncSocket (7.3.5)
+  - DAKeyboardControl (2.4.0)
+  - Expecta (1.0.0)
+  - FXForms (1.2.13)
+  - HockeySDK-Source (3.7.1)
+  - IFTTTLaunchImage (0.4.1)
+  - JASidePanels (1.3.2)
+  - JSQSystemSoundPlayer (4.0.0)
+  - JTSImageViewController (1.4)
+  - Keys (1.0.0)
+  - KVOController (1.0.3)
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libtelnet (HEAD based on 0.21)
+  - MagicalRecord (2.3.0)
+  - Masonry (0.6.1)
+  - MyLilTimer (0.1.0)
+  - OCMock (3.1.2)
+  - OSCache (1.1.1)
+  - QuickDialog/Core (1.0)
+  - QuickDialog/Extras (1.0)
+  - SAMRateLimit (0.2.0)
+  - SPLCore (1.0.1):
+    - BlocksKit (~> 2.2)
+    - libextobjc/EXTScope (~> 0.4.1)
+    - libextobjc/RuntimeExtensions (~> 0.4.1)
+    - MagicalRecord (~> 2.3.0)
+  - SPLUserActivity (0.1.2)
+  - SSAccessibility (0.2.0)
+  - SSApplication (0.3.0)
+  - SSDataSources (0.8.5)
+  - SSOperations (0.1.0)
+  - TOWebViewController (2.0.17)
+  - TTTAttributedLabel (1.13.1)
+  - uservoice-iphone-sdk (3.2.3)
+  - VTAcknowledgementsViewController (0.14)
+
+DEPENDENCIES:
+  - ARAnalytics/HockeyApp (= 3.6.2)
+  - CocoaAsyncSocket (= 7.3.5)
+  - DAKeyboardControl (= 2.4.0)
+  - Expecta
+  - FXForms (= 1.2.13)
+  - IFTTTLaunchImage (= 0.4.1)
+  - JASidePanels (= 1.3.2)
+  - JSQSystemSoundPlayer (= 4.0.0)
+  - JTSImageViewController (= 1.4)
+  - Keys (from `Pods/CocoaPodsKeys`)
+  - KVOController (= 1.0.3)
+  - libtelnet (HEAD)
+  - Masonry (= 0.6.1)
+  - MyLilTimer (= 0.1.0)
+  - OCMock
+  - OSCache (= 1.1.1)
+  - QuickDialog/Core (from `https://github.com/escoz/QuickDialog.git`, commit `c5891e6d63def55af5b7f5f5efe8d64330d3a4fd`)
+  - QuickDialog/Extras (from `https://github.com/escoz/QuickDialog.git`, commit `c5891e6d63def55af5b7f5f5efe8d64330d3a4fd`)
+  - SAMRateLimit (= 0.2.0)
+  - SPLCore (= 1.0.1)
+  - SPLUserActivity (= 0.1.2)
+  - SSAccessibility (= 0.2.0)
+  - SSApplication (= 0.3.0)
+  - SSDataSources (= 0.8.5)
+  - SSOperations (= 0.1.0)
+  - TOWebViewController (= 2.0.17)
+  - TTTAttributedLabel (= 1.13.1)
+  - uservoice-iphone-sdk (= 3.2.3)
+  - VTAcknowledgementsViewController (= 0.14)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+  QuickDialog:
+    :commit: c5891e6d63def55af5b7f5f5efe8d64330d3a4fd
+    :git: https://github.com/escoz/QuickDialog.git
+
+CHECKOUT OPTIONS:
+  QuickDialog:
+    :commit: c5891e6d63def55af5b7f5f5efe8d64330d3a4fd
+    :git: https://github.com/escoz/QuickDialog.git
+
+SPEC CHECKSUMS:
+  ARAnalytics: 697797d915d0afadf27f79563b262557cbe3d378
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaAsyncSocket: 94c582a5bef4bb0f51b6ebf3e1b561d9091a68ba
+  DAKeyboardControl: 9d9bca22a5cc3c1d3cc61e24fbd208c3e84a3d2d
+  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
+  FXForms: 22d5ceafd8ca44d2f2be4827afcf00aaf80184a5
+  HockeySDK-Source: d620f330b23691017c141de6e25e5cdc8c67848c
+  IFTTTLaunchImage: af0c8f2f366efcdb54cc971f54ccceed32dbf0a7
+  JASidePanels: c8f5b130e18d51ee3de988d1c1fad2f88e0b0d21
+  JSQSystemSoundPlayer: a367c3eba71068e304ef37e5fd6355fb4cd2a258
+  JTSImageViewController: 6a367b144e257db02cdfacdba78d684377d3777b
+  Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
+  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  libtelnet: c6f24ca59ed18f23459381234fee2632a63e02e1
+  MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  MyLilTimer: f74fd102e4704ab858f10331cae8f20dd05bb2b2
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  OSCache: 02f48fd38f006da222f3c455f6c8ebd0fc46353e
+  QuickDialog: c15166b0041a30ce2d304ff6ce374805f9506051
+  SAMRateLimit: ba2d40ccb3a4bf04e425035ef1ca88751d969e47
+  SPLCore: a78d9846959e3c9393ed5016ef8656db4860779b
+  SPLUserActivity: 32c59c4dbb0fdbbf428f3ee46d02e609ab2e3119
+  SSAccessibility: 04f44a34d4a2ef3d6ec789e630d863027e48c6df
+  SSApplication: a3eb1254ba6b7a11d1c022fd060041f3d4b1fee8
+  SSDataSources: b01170fb23b82acf0649194e9189b0bf5f702681
+  SSOperations: 004a233cdc5f0b6ffb736fc5796dbea0dd285b2a
+  TOWebViewController: aada427e7eba199bbaee77ddee3243c8172f4053
+  TTTAttributedLabel: 0a9e524c8d78301506c26affffc827429b833b25
+  uservoice-iphone-sdk: 349d9ef36d3c43939d28390b9e86bb32b65fe983
+  VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
+
+COCOAPODS: 0.37.2

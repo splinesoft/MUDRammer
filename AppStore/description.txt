@@ -1,0 +1,36 @@
+MUDRammer is a modern MUD client for iPhone and iPad focused on speed, readability, and flexibility.
+
+MUDs are online multiplayer text-based games. There are thousands, set in fantasy, medieval, Sci-Fi, absurdist, and many other worlds.
+
+◆ Background support - maintains your connection!
+◆ Connect up to four simultaneous sessions!
+◆ A gesture control for rapid player movement plus a customizable gesture control for your own commands.
+◆ 22 fabulous Fonts and 19 thrilling Themes.
+◆ Add Triggers, Aliases, Tickers, and Gags to any connection.
+◆ 82 sounds to play when your Triggers and Tickers fire!
+◆ MUDRammer compresses network traffic on supported MUDs, saving your data plan and speeding up your gameplay.
+◆ MUDRammer supports terminal type (TTYPE) and window size (NAWS) on supported MUDs.
+◆ Enable the Character Bar for fast access to special characters while you're typing.
+◆ Beautiful ANSI color rendering in all orientations.
+◆ Support for xterm-256 colors!
+◆ Syncs your preferences with iCloud across devices.
+◆ VoiceOver automatically speaks new lines as they come in and announces connects and disconnects.
+◆ Tap to open links, emails, and preview images in-app.
+◆ Unlimited command history.
+◆ Typing stash! Stash text you've typed, type and send a new command, then tap to restore your stashed text.
+
+Plus:
+
+◆ Support for SSL/TLS connections!
+◆ Encodings! First-class support for encodings like Big5 and KOI8.
+◆ Connect your device to iTunes to download session logs to your desktop.
+◆ Send full session logs over email.
+◆ MUDRammer can open telnet:// links from other apps.
+◆ Enable/disable typing autocorrect at any time.
+◆ Client-side text wrapping with font size control. Computer, enhance!
+◆ Enable simple telnet mode for Simutronics and other special connections.
+
+If you have issues with a specific MUD, please use the in-app feedback link or contact admin@splinesoft.net.
+
+> get mudrammer from app store
+You pick up the MUDRammer. You're an unstoppable force for righteousness (or evil) wherever you are! 

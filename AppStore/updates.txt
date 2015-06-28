@@ -1,0 +1,319 @@
+1.8.7
+
++ Bluetooth keyboard commands for switching sessions! Control+` (back-tick) will switch to the next World. Control+1,2,3, or 4 will switch to that World.
++ Bluetooth keyboard movement commands have been tweaked for better compatibility with VoiceOver. The new keys are: Command+←→↑↓ for W/E/N/S, and Command+Control+←→↑↓ for SW/NE/NW/SE.
++ Restored the Bluetooth Keyboard preference and removed some faulty auto-detection logic. When you have an external Bluetooth connected, enable Settings → Advanced → Bluetooth Keyboard.
++ Session logs are now saved as plain text files, both for emailing within MUDRammer as well as downloading via iTunes.
++ Worlds should no longer be marked as unread if the only change is a line that was suppressed by one of your Gags.
++ Fixed an issue when attempting to copy a blank line of text.
++ Fixed another crash related to processing cursor-position commands.
+
+1.8.6
+
++ Fixed a crash related to processing screen-clear commands. MUDRammer is deeply embarrassed and shrinks into its shell, forfeiting two full levels of experience.
++ VoiceOver should now only speak text related to the currently visible world.
+
+Previously in MUDRammer 1.8.5:
+
+MUDRammer has discovered an ancient tome of arcane knowledge!
+
+New abilities unlocked:
++ Tap a row of text to quickly add a new Trigger or Gag for that text!
++ Set a custom command separator for multiple commands in your Triggers, Tickers, and text inputs. No longer semicolons only!
++ MUDRammer will now process text and run triggers and gags for all connected Worlds, not only the visible World.
++ 12 new Trigger and Ticker sounds from the Mirani sound pack!
++ Handoff support! iOS 8 users can start browsing a web page in MUDRammer and continue browsing on another device on the same iCloud account.
++ Added asterisk (*) to the character bar. Enable it in Settings → Advanced → Character Bar.
+
+Plus:
++ Restored the missing Copy action when tapping on a row of text. 
++ Aliases and Gags on the World editor list are now sorted alphabetically (previously by last modified date).
++ Improved file names for session logs to include the World's hostname and a human-readable date (e.g. "nanvaent.org - 3-15-15, 12:00pm")
++ Simple Telnet Mode will now also ignore cursor positioning, line clear, and screen clear commands. 
++ Increased the delay for World connect commands from 3 to 5 seconds.
++ Switched NE/SE/NW/SW Bluetooth keyboard commands from CONTROL+OPTION+←→↑↓ to CONTROL+COMMAND+←→↑↓ for better compatibility with VoiceOver.
++ Squashed some extra blank lines that appeared when 'Echo Typing' is disabled.
+
+MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.8.5
+
+MUDRammer has discovered an ancient tome of arcane knowledge!
+
+New abilities unlocked:
++ Tap a row of text to quickly add a new Trigger or Gag for that text!
++ Set a custom command separator for multiple commands in your Triggers, Tickers, and text inputs. No longer semicolons only!
++ MUDRammer will now process text and run triggers and gags for all connected Worlds, not only the visible World.
++ 12 new Trigger and Ticker sounds from the Mirani sound pack!
++ Handoff support! iOS 8 users can start browsing a web page in MUDRammer and continue browsing on another device on the same iCloud account.
++ Added asterisk (*) to the character bar. Enable it in Settings → Advanced → Character Bar.
+
+Plus:
++ Restored the missing Copy action when tapping on a row of text. 
++ Aliases and Gags on the World editor list are now sorted alphabetically (previously by last modified date).
++ Improved file names for session logs to include the World's hostname and a human-readable date (e.g. "nanvaent.org - 3-15-15, 12:00pm")
++ Simple Telnet Mode will now also ignore cursor positioning, line clear, and screen clear commands. 
++ Increased the delay for World connect commands from 3 to 5 seconds.
++ Switched NE/SE/NW/SW Bluetooth keyboard commands from CONTROL+OPTION+←→↑↓ to CONTROL+COMMAND+←→↑↓ for better compatibility with VoiceOver.
++ Squashed some extra blank lines that appeared when 'Echo Typing' is disabled.
+
+MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.8.4
+
+MUDRammer has leveled up its STRENGTH, DEXTERITY, and INTELLIGENCE.
+
+STRENGTH:
++ MUDRammer has a powerful and fast new ANSI parser with new support for cursor positioning. Newly supported CSI codes include: cursor up, cursor down, cursor forward, cursor back, cursor next line, cursor previous line, cursor horizontal absolute, cursor position, erase display, and erase in line.
+
+DEXTERITY:
++ New connect commands! Save one or more commands with your World that will be sent 3 seconds after connecting.
++ 4 new sounds for your Triggers and Tickers!
+
+INTELLIGENCE:
++ Bluetooth Keyboard movement keys! If you have a Bluetooth keyboard connected, you may use CONTROL+←→↑↓ to move w/e/n/s and CONTROL+OPTION+←→↑↓ to move sw/ne/nw/se.
++ MUDRammer is smarter about detecting whether you've connected a Bluetooth keyboard. Accordingly, the Bluetooth Keyboard setting in Advanced Preferences has been removed.
++ MUDRammer is more forgiving about detecting taps on URLs and links. If you're still having trouble tapping on links, try increasing your font size in Settings → Themes.
++ Accessibility: as you scroll up and down, MUDRammer will now announce your page offset (e.g. Page 2 of 4).
++ Accessibility: scrolling up will focus VoiceOver on the last row of the new page. Scrolling down will focus VoiceOver on the first row of the new page.
++ Accessibility: MUDRammer should be smarter about VoiceOver timeouts and not skipping text.
+
+MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.8.3
+
++ MUDRammer will try to detect when you tap on an image link and display it in a shiny fullscreen preview.
++ Deep clone a World with all of its Triggers, Aliases, Tickers, and Gags.
++ Restored a version of the Simple Telnet Preference that was removed in 1.8.2, as a compatibility mode for certain MU*s.
++ Two new Sounds for your Tickers and Triggers!
++ A new Font, Skyhook Mono!
+
+1.8.2
+
++ MSSP (MUD Server Status Protocol) support! If your MUD supports MSSP, you can tap the header after connecting to view current server status.
++ MUDRammer has a powerful and fast new telnet library, libtelnet.
++ Fixed an issue in IRE MUDs like Achaea and Lusternia that may corrupt the connection shortly after connecting.
+
+1.8.1
+
+> cast cacophony of 22 new Trigger/Ticker sounds!
+> add Fira Mono font
+> fix some issues for our VoiceOver-using MUDbuds
+
+1.8
+
+> invoke iOS 8 incantation
+> recite ritual of iPhone 6 and iPhone 6 Plus support
+> add Italian localization. Bongiorno!
+
+1.7.7
+
+◆ Tickers! Fire at regular intervals some commands or Aliases and play a sound.
+◆ MUDRammer en Français! Our first full localization. Can you help translate MUDRammer? Get in touch!
++ Three new Themes!
++ Two new Fonts!
+
+1.7.6
+
+◆ New Bluetooth Keyboard advanced preference. Enable if you play with a hardware keyboard.
+◆ 5 new Trigger sounds from the inimitable DJ Bouche.
++ Added a number of additional DOS encoding options in Settings -> Advanced -> Encoding.
+
+Dear MUDbud, MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.7.5
+
+◆ 15 new Trigger sounds from the Dime and Phoenix sound packs!
+◆ iCloud should now correctly sync many more of your preferences between all of your devices with MUDRammer.
+◆ A new style for the Character Bar. Added "-" to the bar.
++ A new Theme for Becca: #663399.
++ Fixed an issue with Session Logging and multiple connected worlds.
++ Updated to the latest Fleksy SDK.
+
+1.7.4
+
+◆ Fixes an issue where VoiceOver would not speak selected text! 
+
+1.7.3
+
+◆ Two new Themes!
+◆ New Advanced preference to keep the top bar always visible.
+◆ New Advanced preference for sentence autocapitalization.
+◆ Our great color experiment is over: reverted MUDRammer's ANSI text colors to their 1.6.4-and-earlier values. If it ain't broke...
+> cast Gauth's Gradual Gradient at multi-connection circles
++ Added ISO-8859-1 encoding.
+
+Dear MUDbud, MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.7.2
+
+◆ The Radial Control! An additional fully-customizable gesture control. Starts with in/out, up/down, and look. Make it your own!
+◆ The multiconnection button shows the status of all your connected Worlds -- no need to open the sidebar.
+◆ Improved telnet option handling. This should also resolve some issues with CJK characters.
+◆ A new font!
+◆ Two new sounds from the inimitable DJ Bouche.
++ Updated to the latest Fleksy and UserVoice SDKs.
+
+1.7.1
+
+◆ MUDRammer supports xterm-256 colors!
+◆ MUDRammer has a powerful new text engine that can display background (highlight) colors, underlined text, and strike-through.
+◆ MUDRammer supports FANSI! In Settings -> Advanced, switch to the new CP 437 encoding option.
+◆ MUDRammer is an arm64 binary for 64-bit devices!
+◆ Three new Fonts!
+◆ Three new sounds for your Triggers! Contributed by the inimitable DJ Bouche.
+◆ Several new encodings: DOS Latin (CP 437), EUC JP, GB (Chinese).
+◆ Updated to the latest Fleksy keyboard SDK.
++ Commands from the move gesture control and Trigger commands are no longer added to your command history.
+
+As always, dear MUDbud, MUDRammer will never interrupt you while you're mudding and is crafted in one person's spare time. If you enjoy MUDRammer, please consider leaving a review -- it really helps. Thanks!
+
+1.7
+
+If you're reading these notes, dear MUDbud, perhaps you're the type who would be interested to know that MUDRammer is designed and developed by one person in his spare time. If you enjoy MUDRammer, please consider leaving a review. Thanks!
+
+◆ NEW: Type with Fleksy, a new keyboard for iOS! To use Fleksy with MUDRammer, you must first download the Fleksy app (free on the App Store). Then open MUDRammer, long press on the text input area, and choose Fleksy. You can switch back to the standard keyboard at any time.
+◆ NEW: The MUDRammer knowledge base and feedback forum! Tap Settings -> Feedback & Support to suggest and follow ideas and browse the knowledge base.
+◆ New Advanced Setting to use the dark iOS keyboard style.
+◆ You can now slide open the multiple-connection drawer by swiping left from the right edge of the screen.
+◆ Added ' (single quote) to the character bar. Settings -> Advanced -> Character Bar.
+◆ Added HZ GB (Chinese) encoding. Settings -> Advanced -> Encoding.
+◆ Fixed some layout issues with the character counter.
+◆ Fixed up/down arrow keys on your Bluetooth keyboard not properly moving back/forward in your command history.
+
+1.6.4
+
+◆ Support for SSL/TLS connections! Edit your World and flip the SSL switch.
+◆ More Trigger sounds! Pick a sound on the Trigger edit page.
+◆ A new font: Menlo. It's so good that it's now the default.
+◆ Three new Themes!
+◆ MUDRammer correctly captures the KEEPALIVE character sent by some MUSHes.
+◆ Remove panning left to open the multi-connection picker, which was easy to do accidentally. You'll now need to tap the button on the top bar.
+◆ Added EUCKR encoding. Settings -> Advanced -> Encoding.
+
+1.6.3 - 12/15/2013
+
+◆ Pick a sound to play when your Trigger fires!
+◆ Encodings! Specify your string encoding manually in Advanced Settings. First-class support for encodings like Big5 and KOI8. 
+
+1.6.2
+
+◆ A new world switcher for multiple active connections!
+◆ A new font!
++ Fixed the 'Keep Input Text' preference not keeping text with the keyboard button.
+> cast disintegrate at bugs
+
+1.6.1
+
+◆ Copy is back! Long press on a line of text to show a Copy action.
+◆ Got a Bluetooth keyboard? You can now use the up and down arrows to navigate your command history!
+◆ The gesture movement control can now fire Aliases! Create an Alias for e.g. 'n' or 'w' and add some custom commands!
+◆ MUDRammer once again speaks with standard VoiceOver instead of iOS 7's synthesizer. Set your preferred speaking rate in Settings.app.
+
++ Fixed input bar layout when the in-call status bar is showing.
++ Fixed missing <bracketed> <text> in emailed session logs.
++ Added a character counter for your text input.
++ MUDRammer properly supports multiple telnet TTYPEs and will first identify itself as "MUDRAMMER", then "ANSI".
+
+> cast Larloch's minor drain at file-size (MUDRammer is a smaller download!)
+
+1.6
+
+◆ MUDRammer is optimized for iOS 7.
+◆ Rebuilt text rendering for speedier performance and improved link coloring. This comes at the cost, for now, of losing text selection.
+◆ Triggers now support variables! A trigger with pattern '$1 eats your $2' can fire a command like 'say $1 ate my $2!'
++ Add #N# as part of a command in any Alias or Trigger to generate a random number between 1-N.
++ New preference to enable automatically connecting on startup. Default ON.
+
+1.5 - 8/24/13
+If you have multiple devices and iCloud, it would be best to update all at once to MUDRammer 1.5.
+
+◆ Four new fonts and a new theme!
+◆ Add highlight color to the lines that cause your Triggers to fire! Commands are no longer required for Triggers - you can make Triggers just for highlights.
+◆ New preference to enable session logging. Default OFF.
++ Typing with the Character Bar properly accounts for selection ranges.
++ Added ^ to the Character Bar.
++ Improved display of very long hostnames on the title bar.
++ iPad: more title bar spacing.
++ iPad: improved support for split and undocked keyboards.
++ iPad: improved launch animations for landscape and portrait upside-down orientations.
+
+1.4.2 - 7/22/13
+◆ Swipe on the character bar to reveal a row of numbers! Enable it in Advanced settings.
+◆ Improved scrolling and rotation performance. My apologies, dear MUDbuds.
+> Increased average gnome height
+
+1.4.1 - 7/11/13
+◆ Connect your device to iTunes to download all historical session logs!
+◆ New preference to enable/disable semicolons sending multiple commands.
+◆ Simply scroll to show and hide the top bar. Removed the double-tap gesture.
++ Fix a display issue when certain characters appeared in the emailed session log.
+> cast Slevin's Spell of the Seventy-Seven
+
+1.4 - 6/26/13
+◆ Send full session logs via email.
+◆ Dedicated send button.
+◆ Stash icon indicates when your stash contains text.
+◆ Send multiple commands at once with semicolons - e;e;e;cast shield
+◆ iPhone: simply scroll to dismiss the keyboard.
+◆ Save an empty Gag to suppress all blank lines received.
+> perform song of ice and fire
+> NED NOOOOOOOO
+
+1.3.2 - 6/8/13
+◆ Revised keyboard handling; a better experience if you play with a bluetooth keyboard.
+◆ Addresses an issue experienced by some users when saving Triggers, Aliases, and Gags.
+> recite litany of miscellaneous fixes
+
+1.3.1 - 5/26/13
+◆ Enable the Character Bar for fast access to special characters while you're typing.
+◆ Typing stash! Stash text you've typed, type and send a new command, then tap to restore your stashed text.
+◆ Enable simple telnet mode for Simutronics and other special connections.
+◆ Support for UTF-8!
+◆ New option to retain text in the input bar after sending a command.
+> cast larloch's minor drain at file-size (MUDRammer is now 20% smaller!)
+
+1.3 - 5/4/13
+◆ Connect up to four simultaneous sessions! 
+◆ Open links in your favorite browser. MUDRammer supports Chrome, Opera Mini, and 1Password. 
+◆ A new Font! 
+◆ Tap the title bar to search 1Password for logins for your current connection. 
+> cast disintegrate at bugs
+
+1.2.1 - 4/19/13 
+★ One-tap access to edit your current World. 
+> use rod of smiting at bugs 
+> cast cantrip of minor improvements
+
+1.2 - 4/10/13
+★ Seven fantastic Fonts.
+★ Voiceover automatically reads new lines as they come in and announces connects and disconnects.
+★ Faster access to edit your current World.
+★ Navigation improvements for Voiceover users.
+☂ Bug fixes and improvements.
+
+1.1.2 - 3/27/13
+★ New preference to hide the move control.
+★ Improvements for editing Aliases, Triggers, and Gags.
+★ Accessibility updates.
+☂ Bug fixes and improvements.
+
+1.1.1 - 3/16/13
+★ Advanced Aliases with variables and fills.
+★ Compression support on supported MUDs for a much faster connection.
+★ New preference to disable local echo.
+☂ Bug fixes and minor improvements.
+
+1.1 - 2/22/13
+★ A new gesture-based control for rapid player movement.
+★ Accessibility improvements.
+☆ A new theme - Homebrew - and darkened Autumnal theme.
+☂ Numerous bug fixes and minor improvements.
+
+1.0.1 - 2/20/13
+★ A gorgeous new font, Courier Prime.
+★ Improvements for editing Worlds, Aliases, Triggers, and Gags.
+☆ Removed the app rating nag-box. Sorry MUDbuds, I should've known better.
+☂ Numerous bug fixes.
+
+MUD on!

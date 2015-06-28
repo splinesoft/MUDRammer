@@ -1,0 +1,1 @@
+PODS_SPLCORE_OTHER_LDFLAGS = -framework "AudioToolbox" -framework "CoreData" -framework "QuartzCore" -framework "UIKit"

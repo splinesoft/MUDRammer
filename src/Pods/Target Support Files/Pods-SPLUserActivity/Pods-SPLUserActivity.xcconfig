@@ -1,0 +1,1 @@
+PODS_SPLUSERACTIVITY_OTHER_LDFLAGS = -framework "Foundation" -framework "UIKit" -framework "WebKit"

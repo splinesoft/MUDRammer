@@ -1,0 +1,1 @@
+../../../ARAnalytics/Providers/HockeyAppProvider.h

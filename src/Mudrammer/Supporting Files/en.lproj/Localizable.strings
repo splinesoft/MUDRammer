@@ -1,0 +1,354 @@
+"ABOUT_HELP" = "About MUDRammer";
+"ACTIVE_WORLDS" = "Active";
+"ADD_CONNECTION" = "Add Connection";
+"ADVANCED" = "Advanced";
+
+"ACK_HEADER" = "MUDRammer is grateful for the following libraries and projects:";
+
+/* Separate multiple actions with a semicolon (;). */
+"ALIAS_EDIT_HELP" = "Separate multiple commands with semicolons (;) or newlines.\n\n#N# in a command generates a random number from 1-N.\n\nSample Alias // Sample Command(s)\nYou Type => Command(s) sent\n\nrando // say I am #50#!\nrando => say I am 37!\n\nsh // cast shield;bow\nsh seuss => cast shield seuss;bow seuss\n\nrd // use rod $2$ at $1$\nrd orc 3 => use rod 3 at orc\n\np // page $1$=$*$\np bob hello sir! => page bob=hello sir!";
+
+/* Create commands that expand into one or more actions. */
+"ALIAS_HELP" = "Type an Alias to send one or more other commands.";
+
+"AUTOCORRECT_ENABLED" = "Autocorrect Typing";
+
+/* Aliases */
+"ALIAS" = "Alias";
+"ALIASES" = "Aliases";
+
+"AUTOCAPITALIZE" = "Autocapitalize Sentences";
+
+
+"BTKEYBOARD" = "Bluetooth Keyboard";
+"BTKEYBOARD_HELP" = "Enable if you have a hardware Bluetooth keyboard connected. MUDRammer's UI will ignore the software keyboard.";
+
+/* Cancel */
+"CANCEL" = "Cancel";
+
+"CHARACTER_BAR" = "Character Bar";
+"CHARACTER_BAR_HELP" = "Fast access to special keys while typing.";
+
+"COMMANDS" = "Command(s)";
+
+"COMMAND_STASH" = "Typing stash";
+
+"COPYRIGHT" = "MMXV splinesoft.net";
+
+/* Connect */
+"CONNECT" = "Connect";
+
+/* Connected */
+"CONNECTED" = " Connected!";
+
+/* Connecting */
+"CONNECTING" = "Connecting";
+
+/* Connecting to */
+"CONNECTING_TO_%@" = "Connecting to %@";
+"CONNECTING_TO_%@_%@" = "Connecting to %@:%@...";
+
+"CONTACT_US" = "Feedback & Support";
+
+"CONNECT_ON_STARTUP" = "Connect on Launch";
+
+/* Delete Alias */
+"DELETE_ALIAS" = "Delete Alias";
+
+/* Delete Gag */
+"DELETE_GAG" = "Delete Gag";
+
+/* Delete Trigger */
+"DELETE_TRIGGER" = "Delete Trigger";
+
+/* Disconnect */
+"DISCONNECT" = "Disconnect";
+"DISCONNECT_FROM_%@" = "This will disconnect %@.";
+
+/* Disconnected */
+"DISCONNECTED" = "Disconnected";
+
+/* Edit Alias */
+"EDIT_ALIAS" = "Edit Alias";
+
+/* Edit Gag */
+"EDIT_GAG" = "Edit Gag";
+
+/* Edit Trigger */
+"EDIT_TRIGGER" = "Edit Trigger";
+
+"EDIT_WORLD" = "Edit World";
+
+"ENABLED" = "Enabled";
+
+/* Font */
+"FONT" = "Font";
+
+/* Font Size */
+"FONT_SIZE" = "Font Size";
+
+/* Separate multiple actions with a semicolon (;). */
+"GAG_EDIT_HELP" = "Gag text is case sensitive.\nSave an empty gag to suppress all blank lines.";
+"GAG_EMPTY" = "[Gagging all empty lines]";
+
+/* Prevents specified text from appearing on screen. */
+"GAG_HELP" = "Do not display text received from this World that matches a Gag.";
+
+/* Gags */
+"GAGS" = "Gags";
+
+"HISTORY_BACK" = "History Back";
+"HISTORY_FORWARD" = "History Forward";
+
+/* Host Name */
+"HOSTNAME" = "Host";
+
+/* Ticker interval */
+"INTERVAL" = "Interval (Seconds)";
+
+"KEEP_TEXT" = "Keep Input Text";
+"KEEP_TEXT_HELP" = "Retain text after sending a command.";
+
+"KEYBOARD_APPEARANCE" = "Dark Keyboard Style";
+
+"LEFT" = "LEFT";
+
+"LINE_CONTAINS" = "Line Contains";
+"LINE_EQUALS" = "Line Equals";
+"LINE_HIGHLIGHT" = "Highlight";
+
+"LOCAL_ECHO" = "Echo Typing";
+
+"LOG_FOOTER" = "\nMUDRammer - a Modern MUD client for iPhone and iPad\nhttps://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8";
+"LOGGING_PREF" = "Session Logging";
+
+/* Mail Session Log */
+"MAIL_LOG" = "Mail Session Log";
+"MAIL_LOG_ENABLE_EMAIL" = "Set up at least one Mail.app account to email session logs.";
+
+"MADE_IN" = "Made in San Francisco";
+
+"MOVE_CONTROL" = "Move Control";
+
+/* World Name */
+"NAME" = "Nickname";
+
+/* New Alias */
+"NEW_ALIAS" = "New Alias";
+
+/* New Gag */
+"NEW_GAG" = "New Gag";
+
+/* New Trigger */
+"NEW_TRIGGER" = "New Trigger";
+
+/* New World */
+"NEW_WORLD" = "New World";
+
+"NO_WORLDS" = "No Worlds";
+
+"ON" = "ON";
+"OFF" = "OFF";
+
+"OPTIONAL" = "Optional";
+
+/* Open World */
+"OPEN_WORLD" = "Open World";
+
+"PATTERN" = "Pattern";
+
+/* World Port */
+"PORT" = "Port";
+
+"RIGHT" = "RIGHT";
+
+"REMOVE" = "Remove";
+
+/* Save this world for next time? */
+"SAVE_WORLD" = "Save";
+
+/* Your session will timeout in two minutes. */
+"SESSION_TIMEOUT" = "Your MUDRammer session may time out soon.";
+
+"SEMICOLON_CMDS" = "Semicolon Commands";
+"SEMICOLON_CMDS_DELIMITER" = "Command Separator";
+"SEMICOLON_CMDS_HELP" = "Type ; or a custom separator to send multiple commands.";
+
+"SIMPLE_TELNET" = "Simple Telnet Mode";
+"SIMPLE_TELNET_DESC" = "In simple mode, MUDRammer will not send telnet options to the server.";
+
+"SEND" = "Send";
+
+"SESSION_SELECT" = "Session select";
+
+/* Settings */
+"SETTINGS" = "Settings";
+
+"SERVER_STATUS" = "Server Status";
+
+"START_OF_LINE" = "Start of Line";
+
+"STRING_ENCODING" = "Encoding";
+"STRING_ENCODING_HELP" = "Encoding applied to all text sent and received. Most MUDs support ASCII.";
+
+"SSL_SUCCESS" = "Connection secured!\n";
+"SSL_HANDSHAKE_ERR" = " (SSL Handshake failed. Does this World support SSL? Try editing this world and disabling SSL.)";
+
+"TICKERS" = "Tickers";
+"NEW_TICKER" = "New Ticker";
+"TICKER_STATUS_INTERVAL_%@_%@" = "%@ (%@ sec.)";
+"DELETE_TICKER" = "Delete Ticker";
+"EDIT_TICKER" = "Edit Ticker";
+"TICKER_HELP" = "Fire some commands or an Alias and/or play a sound at regular intervals.";
+
+/* Themes */
+"THEMES" = "Themes";
+"THEME_ASPHALT" = "Asphalt";
+"THEME_BLACK" = "Midnight";
+"THEME_WHITE" = "Snowblind";
+"THEME_BLUE" = "Baby Blue";
+"THEME_JOLIE" = "Jolie";
+"THEME_ROSE" = "Rose";
+"THEME_AUTUMNAL" = "Autumnal";
+"THEME_PLUM" = "Plum";
+"THEME_HOMEBREW" = "Homebrew";
+"THEME_HUMANE" = "Humane";
+"THEME_ASSASSIN" = "Underdark";
+"THEME_REDSANDS" = "Red Sands";
+"THEME_GRASS" = "Grass";
+"THEME_SILVER" = "Aerogel";
+"THEME_CHOCOLATE" = "Chocolate";
+"THEME_BECCA" = "Becca's Purple";
+"THEME_AHLEENA" = "Ahleena";
+"THEME_AVIATOR" = "Aviator";
+"THEME_SUMMONER" = "Summoner";
+
+"TOP_BAR_VISIBLE" = "Top Bar Always Visible";
+
+/* Separate multiple actions with a semicolon (;). */
+"TRIGGER_EDIT_HELP" = "Separate multiple commands with semicolons (;) or newlines. You can use Aliases for commands!\n\n#N# in a command generates a random number from 1-N.\n\nSample Pattern // Sample Command(s)\n\nA $1 eats your $2 // say a $1 ate my $2!\npings you // say There are #4# lights!\nswirls restlessly // cast cloak of clouds\nattacks you // focus dodging;dodge";
+
+/* Fire some actions whenever specified text is received. */
+"TRIGGER_HELP" = "Send commands if text received from this World matches a Trigger.";
+
+/* Triggers */
+"TRIGGERS" = "Triggers";
+
+/* Triggers (Inactive) */
+"TRIGGERS_INACTIVE" = "Triggers (Inactive)";
+
+"TYPE" = "Type";
+
+/* Welcome to MUDRammer */
+"WELCOME" = "Welcome to MUDRammer";
+
+/* MUDRammer is a modern MUD client for iPhone and iPad. Let's get started with NANVAENT, one of the oldest and (in this humble developer's opinion) greatest MUDs around today. Say hi to me (Seuss)!\n\nOr, connect to your own favorite MUD. */
+"WELCOME_TEXT" = "MUDRammer is a modern MUD client for iPhone and iPad.\n\nLet's get started with NANVAENT, one of the oldest MUDs alive today. Say hi to Seuss!\n\nTo add your own MU*, tap Done, then tap the gear at top left.";
+
+/* Worlds */
+"WORLDS" = "Worlds";
+"WORLD_CONNECT_COMMAND" = "Connect Commands";
+"WORLD_CONNECT_COMMAND_FOOTER_%@" = "Command(s) sent %@ seconds after connecting to this World. If Semicolon Commands are enabled in Advanced Settings, you may separate multiple commands with semicolons.";
+
+/* Radial control */
+"RADIAL" = "Radial Control";
+"RADIAL_CONTROL" = "Radial Control";
+"RADIAL_ENABLE_HELP" = "A fully customizable gesture control onscreen opposite the move control.";
+"RADIAL_COMMANDS" = "Radial Commands";
+"RADIAL_EXTRA_HELP" = "You can use Aliases as commands and, if you've enabled Semicolon Commands in Advanced Settings, you can separate multiple commands with semicolons (;).";
+
+"WORLD_CLONE" = "Clone World";
+"WORLD_CLONE_HELP" = "Save a copy of this World and all of its Triggers, Aliases, Tickers, and Gags.";
+
+/* Sounds */
+"SOUND" = "Sound";
+"SOUNDS" = "Sounds";
+"SOUND_DOOROPEN" = "Door Open";
+"SOUND_DOORCLOSE" = "Door Close";
+"SOUND_CAT" = "Cat";
+"SOUND_THUMP" = "Thump";
+"SOUND_ARROW" = "Arrow";
+"SOUND_HIT" = "Hit";
+"SOUND_LIGHT" = "Light";
+"SOUND_WHOOSH" = "Whoosh";
+"SOUND_FIRE" = "Fireball";
+"SOUND_WIND" = "Wind";
+"SOUND_HAMMER" = "Hammer";
+"SOUND_ICELANCE" = "Ice Lance";
+"SOUND_ZAP" = "Zap";
+"SOUND_ZOOM" = "Zoom";
+"SOUND_WATER" = "Water";
+"SOUND_HARP" = "Harp";
+"SOUND_SPLASH" = "Splash";
+"SOUND_WARNING" = "Warning";
+"SOUND_FREEZE" = "Freeze";
+"SOUND_BOUCHEARRIVE" = "Bouche's Arrival";
+"SOUND_BOUCHEPEWPEW" = "Bouche's Pong";
+"SOUND_BOUCHEQUAD" = "Bouche's Quadtone";
+"SOUND_BOUCHEFIFTH" = "Bouche's Five";
+"SOUND_BOUCHESENSOR" = "Bouche's Tricorder";
+"SOUND_SHIELDFAIL" = "Shield Failure";
+"SOUND_WEAKEN" = "Weakened";
+"SOUND_DISPELMAGIC" = "Dispel Magic";
+"SOUND_ICEBOLT" = "Ice Bolt";
+"SOUND_MAGICMISSILE" = "Magic Missile";
+"SOUND_GREATERFIREBALL" = "Fireball (Greater)";
+"SOUND_DOUBLEALERT" = "Double Alert";
+"SOUND_THUNDER" = "Thunder";
+"SOUND_POWERDOWN" = "Power Down";
+"SOUND_RUBBERBAND" = "Rubber Band";
+"SOUND_ANIMATEDEAD" = "Animate Dead";
+"SOUND_AUCTION" = "Auction";
+"SOUND_DISARMED" = "Disarmed";
+"SOUND_ARMORDOWN" = "Armor Failure";
+"SOUND_HORSE" = "Horse";
+"SOUND_BOUCHEGONG" = "Bouche's Gong";
+"SOUND_BOUCHELIGHT" = "Bouche's Light";
+"SOUND_BOUCHEDISPATCH" = "Bouche's Dispatch";
+"SOUND_BOUCHEDUO" = "Bouche's Duo";
+"SOUND_BOUCHECHIME" = "Bouche's Chime";
+
+/* Soundkit.io */
+"SOUND_ARCTICWIND" = "Arctic Wind";
+"SOUND_BHIVE" = "B-Hive";
+"SOUND_BEACONONMARS" = "Beacon on Mars";
+"SOUND_BONGOROLL" = "Bongo Roll";
+"SOUND_CHANGEINHAND" = "Change In Hand";
+"SOUND_CLUBDRUMBEAT" = "Club Drum Beat";
+"SOUND_CREEPYCREAKY" = "Creepy Creaky";
+"SOUND_DEEPTHUMP" = "Deep Thump";
+"SOUND_FIRSTCONTACT" = "First Contact";
+"SOUND_IDIDIT" = "I Did It!";
+"SOUND_LONGZIPPER" = "Long Zipper";
+"SOUND_MARCHOFTHEHAPPYDRONES" = "March Of The Happy Drones";
+"SOUND_PAGETURNHEAVY" = "Page Turn Heavy";
+"SOUND_POPTAB" = "Pop Tab";
+"SOUND_PULSAR" = "Pulsar";
+"SOUND_QUICKZIPPER" = "Quick Zipper";
+"SOUND_RAPIDFIRE" = "Rapid Fire";
+"SOUND_REWIND" = "Rewind";
+"SOUND_RIPIT" = "Rip It";
+"SOUND_SINGLECOIN" = "Single Coin";
+"SOUND_SHAKEIT" = "Shake It";
+"SOUND_SPACEYARRIVAL" = "Spacey Arrival";
+"SOUND_SUPERZOIKS" = "Super Zoiks";
+"SOUND_TWEAKY" = "Tweaky";
+"SOUND_WARPSPEED" = "Warp Speed";
+"SOUND_WHATWENTWRONG" = "What Went Wrong";
+"SOUND_WOBBLER" = "Wobbler";
+"SOUND_YOUFAILEDME" = "You Failed Me";
+"SOUND_ZOIKS" = "Zoiks";
+
+/* Mirani */
+"SOUND_ANNOUNCEMENT" = "Announcement";
+"SOUND_COMMCHIRP" = "Comm Chirp";
+"SOUND_COMMIMPORTANT" = "Comm Important";
+"SOUND_EMPTYGUN" = "Empty Gun";
+"SOUND_FIREPLACE" = "Fireplace";
+"SOUND_LOCKBOXCLOSE" = "Lockbox Close";
+"SOUND_LOCKBOXOPEN" = "Lockbox Open";
+"SOUND_NOTHINGFOUND" = "Nothing Found";
+"SOUND_OPENBOTTLE" = "Open Bottle";
+"SOUND_POURINGLIQUID" = "Pouring Liquid";
+"SOUND_SHOTMISSES" = "Shot Misses";
+"SOUND_SWISH" = "Swish";

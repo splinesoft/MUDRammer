@@ -1,0 +1,13 @@
+MUDRammer lets you play MUDs, online text-based role-playing games. 
+
+By default you'll connect to NANVAENT, where you can use the name 'guest' to login and have a look around. 
+
+Feel free to try out the other MUDs included with the app or add your own. Accounts on all these MUDs are free and can be created after you connect to them. 
+
+Thank you for reviewing my first indie app! Please contact me at admin@splinesoft.net if you have any questions. 
+
+- Jonathan
+
+Account:
+guest
+guest

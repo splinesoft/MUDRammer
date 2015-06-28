@@ -1,0 +1,24 @@
+{
+  "en-US": {
+    "title": "MUDRammer - A Modern MUD Client",
+    "description": "MUDRammer is a modern MUD client for iPhone and iPad focused on speed, readability, and flexibility.\n\nMUDs are online multiplayer text-based games. There are thousands, set in fantasy, medieval, Sci-Fi, absurdist, and many other worlds.\n\n◆ Background support - maintains your connection!\n◆ Connect up to four simultaneous sessions!\n◆ A gesture control for rapid player movement plus a customizable gesture control for your own commands.\n◆ 22 fabulous Fonts and 19 thrilling Themes.\n◆ Add Triggers, Aliases, Tickers, and Gags to any connection.\n◆ 69 sounds to play when your Triggers and Tickers fire!\n◆ MUDRammer compresses network traffic on supported MUDs, saving your data plan and speeding up your gameplay.\n◆ MUDRammer supports terminal type (TTYPE) and window size (NAWS) on supported MUDs.\n◆ Enable the Character Bar for fast access to special characters while you're typing.\n◆ Beautiful ANSI color rendering in all orientations.\n◆ Support for xterm-256 colors!\n◆ Syncs your preferences with iCloud across devices.\n◆ VoiceOver automatically speaks new lines as they come in and announces connects and disconnects.\n◆ Tap to open links, emails, and preview images in-app.\n◆ Unlimited command history.\n◆ Typing stash! Stash text you've typed, type and send a new command, then tap to restore your stashed text.\n\nPlus:\n\n◆ Support for SSL/TLS connections!\n◆ Encodings! First-class support for encodings like Big5 and KOI8.\n◆ Connect your device to iTunes to download session logs to your desktop.\n◆ Send full session logs over email.\n◆ MUDRammer can open telnet:// links from other apps.\n◆ Enable/disable typing autocorrect at any time.\n◆ Client-side text wrapping with font size control. Computer, enhance!\n◆ Enable simple telnet mode for Simutronics and other special connections.\n\nIf you have issues with a specific MUD, please use the in-app feedback link or contact admin@splinesoft.net.\n\n> get mudrammer from app store\nYou pick up the MUDRammer. You're an unstoppable force for righteousness (or evil) wherever you are!",
+    "software_url": "http://www.splinesoft.net/",
+    "support_url": "https://splinesoft.uservoice.com/knowledgebase",
+    "privacy_url": "",
+    "keywords": [
+      "mud",
+      "client",
+      "telnet",
+      "rammer",
+      "mush",
+      "muck",
+      "moo",
+      "mobile",
+      "text",
+      "pocket",
+      "mudding",
+      "pro",
+      "mudrammer"
+    ]
+  }
+}

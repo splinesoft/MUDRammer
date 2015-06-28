@@ -1,0 +1,12 @@
+//
+//  MRTests-Prefix.pch
+//  MRTests
+//
+//  Created by Jonathan Hersh on 7/20/14.
+//  Copyright (c) 2014 Jonathan Hersh. All rights reserved.
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif

@@ -1,0 +1,76 @@
+source 'https://github.com/splinesoft/specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+xcodeproj 'Mudrammer'
+
+deployment_target = '7.0'
+
+plugin 'cocoapods-keys', {
+  :project => "Mudrammer",
+  :keys => [
+    "HOCKEYBETA_KEY",
+    "HOCKEYLIVE_KEY",
+    "SPLINESOFT_AFFILIATE_KEY",
+    "USERVOICE_FORUM_SITE",
+    "USERVOICE_FORUM_ID",
+  ]
+}
+
+# Splinesoft
+pod 'SPLCore', '1.0.1' # via SPLSpecs
+pod 'SSAccessibility', '0.2.0'
+pod 'SSDataSources', '0.8.5'
+pod 'SSOperations', '0.1.0'
+pod 'SSApplication', '0.3.0'
+pod 'SPLUserActivity', '0.1.2'
+
+# Networking
+pod 'CocoaAsyncSocket', '7.3.5'
+pod 'libtelnet', :head # via SPLSpecs
+
+# Engine
+pod 'SAMRateLimit', '0.2.0'
+pod 'KVOController', '1.0.3'
+pod 'OSCache', '1.1.1'
+pod 'MyLilTimer', '0.1.0'
+
+# Analytics
+pod 'ARAnalytics/HockeyApp', '3.6.2'
+
+# UI
+pod 'TOWebViewController', '2.0.17'
+pod 'DAKeyboardControl', '2.4.0'
+pod 'TTTAttributedLabel', '1.13.1'
+pod 'JASidePanels', '1.3.2'
+pod 'Masonry', '0.6.1'
+pod 'JSQSystemSoundPlayer', '4.0.0'
+pod 'JTSImageViewController', '1.4'
+pod 'IFTTTLaunchImage', '0.4.1'
+
+# Support
+pod 'uservoice-iphone-sdk', '3.2.3'
+
+# Forms
+pod 'QuickDialog', :subspecs => ['Core', 'Extras'], :git => 'https://github.com/escoz/QuickDialog.git', :commit => 'c5891e6d63def55af5b7f5f5efe8d64330d3a4fd'
+pod 'FXForms', '1.2.13'
+
+# Pods Ack.
+pod 'VTAcknowledgementsViewController', '0.14'
+
+# `pod install` resets all pod deployment targets after each install.
+# Ensure that MUDRammer builds with 8.0 but supports a minimum deploy target of 7.0.
+post_install do |installer_representation|
+    installer_representation.project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '7.0'
+        end
+    end
+end
+
+# Tests
+target "MRTests", :exclusive => true do
+    pod 'Expecta'
+    pod 'OCMock'
+end

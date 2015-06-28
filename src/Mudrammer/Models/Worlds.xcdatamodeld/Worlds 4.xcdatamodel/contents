@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Alias" representedClassName="Alias" syncable="YES">
+        <attribute name="commands" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="world" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="World" inverseName="aliases" inverseEntity="World" syncable="YES"/>
+    </entity>
+    <entity name="Gag" representedClassName="Gag" syncable="YES">
+        <attribute name="gag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gagType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="world" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="World" inverseName="gags" inverseEntity="World" syncable="YES"/>
+    </entity>
+    <entity name="Trigger" representedClassName="Trigger" syncable="YES">
+        <attribute name="commands" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="highlightColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="soundFileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trigger" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="triggerType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="vibrate" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="world" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="World" inverseName="triggers" inverseEntity="World" syncable="YES"/>
+    </entity>
+    <entity name="World" representedClassName="World" syncable="YES">
+        <attribute name="hostname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSecure" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="aliases" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alias" inverseName="world" inverseEntity="Alias" syncable="YES"/>
+        <relationship name="gags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gag" inverseName="world" inverseEntity="Gag" syncable="YES"/>
+        <relationship name="triggers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trigger" inverseName="world" inverseEntity="Trigger" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Alias" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Gag" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Trigger" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="World" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

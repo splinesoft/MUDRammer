@@ -1,0 +1,1 @@
+../../../SPLCore/SPLCore/Models/SSMagicManagedObject.h

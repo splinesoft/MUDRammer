@@ -1,0 +1,1 @@
+../../../HockeySDK-Source/Classes/BITHockeyManager.h

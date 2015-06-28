@@ -45,13 +45,14 @@ Additional `rake` tasks include:
 
 ## Notes
 
+- MUDRammer builds with the iOS 8 SDK and has a minimum deployment target of iOS 7. MUDRammer will soon build with the iOS 9 SDK and require a minimum deployment target of iOS 8: [#254](https://github.com/splinesoft/MUDRammer/pull/254)
 - The Xcode project has a `CFBundleIdentifier` of `com.splinesoft.theMUDRammer`. I have never owned the domain `splinesoft.com`, only `splinesoft.net`, so the correct bundle ID should be `net.splinesoft.theMUDRammer`. I made this naming mistake in 2012. Bundle IDs cannot be changed after app release, so Xcode has shamed me for my mistake every time I open the project, thousands of times over the last few years.
 - The project's `CFBundleShortVersionString` is `trolololol` and its `CFBundleVersion` is `1337`. These values are intentionally obvious to indicate Debug builds. The correct marketing version and build numbers are filled in by Jenkins at release build time by [my build script, SSBuild](https://github.com/splinesoft/SSBuild).
 - MUDRammer has a separate app icon to distinguish Debug builds, [no code required!](http://list.her.sh/beta-app-icons)
 
 ## For Your Eyes Only
 
-MUDRammer has been my personal passion project for years. It is an experiment to release my work under such a permissive license. If you use MUDRammer, please purchase a copy from the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) rather than simply running it locally from source. If you want to create your own software based on MUDRammer, please make it meaningfully different and not just a clone.
+MUDRammer has been my personal passion project for years. It is an experiment to release my work under such a permissive license. If you use MUDRammer, please purchase a copy from the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) rather than running it from source. If you want to create your own software based on MUDRammer, please make it meaningfully different and not just a clone. Please do not submit your own version of MUDRammer to the App Store.
 
 ## Contributing
 

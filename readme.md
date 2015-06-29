@@ -75,5 +75,5 @@ I've been very fortunate in my years of mudding to have met people from all over
 Jonathan Hersh
 
 - [Electronic Mail](mailto:jon@her.sh)
-- [Github](https://github.com/jhersh)
+- **@jhersh** on [Github](https://github.com/jhersh) and [Twitter](https://twitter.com/jhersh)
 - [her.sh](http://her.sh)

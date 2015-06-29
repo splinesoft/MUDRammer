@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/jhersh/cocoapods-keys.git
-  revision: ec2fc55e802ae032e6ac277e25d41dc2b7b68bb5
-  branch: keys-paths
+  remote: https://github.com/orta/cocoapods-keys.git
+  revision: 5504c80d1b40ab5228b2513b69930ac9f32470d7
+  ref: 5504c80d1b40ab5228b2513b69930ac9f32470d7
   specs:
     cocoapods-keys (1.3.2)
       osx_keychain

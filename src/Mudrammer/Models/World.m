@@ -230,7 +230,6 @@ static NSCharacterSet *disallowedHostCharacters;
     } completion:^(BOOL success, NSError *err) {
         NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
         [d setBool:YES forKey:kPrefInitialWorldsCreated];
-        [d synchronize]; // we want to be sure about not doing this twice
     }];
 }
 

@@ -331,8 +331,6 @@
     NSMutableDictionary *themeToApply = [NSMutableDictionary dictionary];
     NSUInteger indexOfSelectedTheme = 0;
 
-    [defaults synchronize];
-
     // 1. Font size
     id fontSize = [defaults objectForKey:kPrefCurrentFontSize];
 

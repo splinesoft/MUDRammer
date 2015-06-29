@@ -74,7 +74,6 @@
 - (void)tappedButton:(id)sender {
     NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
     [d setBool:YES forKey:kPrefInitialSetupComplete];
-    [d synchronize];
 
     SSClientContainer *container = [SSClientContainer sharedClientContainer];
 

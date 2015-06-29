@@ -13,7 +13,7 @@
 /**
  * The user has entered some input.
  * We split the input by semicolons and newlines,
- * and perform random number insertion via the &N syntax.
+ * and perform random number insertion via the #N# syntax.
  */
 - (NSArray *)spl_commandsFromUserInput;
 

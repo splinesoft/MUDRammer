@@ -127,6 +127,7 @@
 		5EF7691416A212FE004D291E /* DefaultWorlds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF7691316A212FE004D291E /* DefaultWorlds.plist */; };
 		5EFC45CC19F3263C00D0CB2B /* FiraMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC45CB19F3263C00D0CB2B /* FiraMono.ttf */; };
 		C91115A198424A01A17879E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3DB66488E7424BA7E4D719 /* libPods.a */; };
+		E903E73E1B41BAE800F07B10 /* MRStringMatchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E903E73D1B41BAE800F07B10 /* MRStringMatchingTests.m */; };
 		E9212DAA1B12479F003DB3FF /* MRNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9212DA91B12479F003DB3FF /* MRNotificationTests.m */; };
 		E9212DAC1B143FE4003DB3FF /* MRWorldDisplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9212DAB1B143FE4003DB3FF /* MRWorldDisplayTests.m */; };
 		E9212DAE1B156EDE003DB3FF /* MREncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9212DAD1B156EDE003DB3FF /* MREncodingTests.m */; };
@@ -463,6 +464,7 @@
 		7C8A5D28B080F7F36D59EEB8 /* Pods-MRTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRTests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-MRTests/Pods-MRTests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		851D48CB1589F81B59692C20 /* Pods.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.adhoc.xcconfig; path = "Pods/Target Support Files/Pods/Pods.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E1F3C0F86F6FD8433FC476B5 /* Pods-MRTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRTests/Pods-MRTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E903E73D1B41BAE800F07B10 /* MRStringMatchingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRStringMatchingTests.m; sourceTree = "<group>"; };
 		E9212DA91B12479F003DB3FF /* MRNotificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNotificationTests.m; sourceTree = "<group>"; };
 		E9212DAB1B143FE4003DB3FF /* MRWorldDisplayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWorldDisplayTests.m; sourceTree = "<group>"; };
 		E9212DAD1B156EDE003DB3FF /* MREncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MREncodingTests.m; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 				E9BDF8AD1A9032440011069E /* MRModelTests.m */,
 				E9212DA91B12479F003DB3FF /* MRNotificationTests.m */,
 				E9B69B7F1B239CCC00966D19 /* MRSocketTests.m */,
+				E903E73D1B41BAE800F07B10 /* MRStringMatchingTests.m */,
 				E9B69B7D1B22073500966D19 /* MRTelnetTests.m */,
 				E955DB791A887FB00077DD58 /* MRTerminalTests.m */,
 				5ED658541A9413E300C2A830 /* MRTextTableTests.m */,
@@ -1477,6 +1480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E903E73E1B41BAE800F07B10 /* MRStringMatchingTests.m in Sources */,
 				E9BDF8AE1A9032440011069E /* MRModelTests.m in Sources */,
 				E9B69B801B239CCC00966D19 /* MRSocketTests.m in Sources */,
 				E9212DAE1B156EDE003DB3FF /* MREncodingTests.m in Sources */,

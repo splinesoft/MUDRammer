@@ -17,7 +17,7 @@ screenshots_path "./deliver/screenshots/"
 
 # version '1.2' # you can pass this if you want to verify the version number with the ipa file
 
-config_json_folder './deliver'
+config_json_folder './AppStore/deliver'
 
 ########################################
 # Building and Testing

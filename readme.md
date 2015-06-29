@@ -10,7 +10,7 @@ your digits twinkling with eldritch potential.
 Suddenly, some images form in your mind:
 ```
 
-[![Circle CI](https://circleci.com/gh/splinesoft/MUDRammer.svg?style=svg)](https://circleci.com/gh/splinesoft/MUDRammer) [![Coverage Status](https://coveralls.io/repos/splinesoft/MUDRammer/badge.svg)](https://coveralls.io/r/splinesoft/MUDRammer)
+[![Circle CI](https://circleci.com/gh/splinesoft/MUDRammer.svg?style=svg)](https://circleci.com/gh/splinesoft/MUDRammer) [![Coverage Status](https://coveralls.io/repos/splinesoft/MUDRammer/badge.svg)](https://coveralls.io/r/splinesoft/MUDRammer) ![It's dangerous!](https://img.shields.io/badge/You_are_likely_to_be_eaten_by_a-grue-red.svg) [![Take this.](https://img.shields.io/badge/get-lamp-yellow.svg)](http://getlamp.com)
 
 <hr/>
 
@@ -32,7 +32,7 @@ You'll need Xcode 6.3 or newer.
 
 1. [Install Homebrew](http://brew.sh) if needed, and then `brew update && brew install objc-codegenutils`
 2. Clone this repo: `git clone git@github.com:splinesoft/MUDRammer.git && cd MUDRammer`
-3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should periodically run `rake setup` to ensure you're up to date with all dependencies.
+3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should run `rake setup` after updating your local copy from upstream.
 4. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
 
 Additional `rake` tasks include:

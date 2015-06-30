@@ -25,7 +25,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        self.backgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+        self.backgroundColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor];
 
         _collectionView = [[UICollectionView alloc] initWithFrame:frame
                                              collectionViewLayout:[self toolbarLayout]];

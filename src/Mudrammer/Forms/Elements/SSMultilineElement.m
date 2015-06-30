@@ -23,9 +23,12 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
-{
+- (void)selected:(QuickDialogTableView *)tableView
+      controller:(QuickDialogController *)controller
+       indexPath:(NSIndexPath *)indexPath {
     QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
+    SSThemes *themer = [SSThemes sharedThemer];
+
     textController.entryElement = self;
     textController.entryCell = (QEntryTableViewCell *) [tableView cellForElement:self];
     textController.resizeWhenKeyboardPresented = YES;
@@ -41,9 +44,9 @@
 
     // SS
     textController.edgesForExtendedLayout = UIRectEdgeNone;
-    textController.textView.backgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
-    textController.textView.font = [SSThemes currentFont];
-    textController.textView.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    textController.textView.backgroundColor = [themer valueForThemeKey:kThemeBackgroundColor];
+    textController.textView.font = themer.currentFont;
+    textController.textView.textColor = [themer valueForThemeKey:kThemeFontColor];
 
     @weakify(self,tableView,textController);
     textController.willDisappearCallback = ^{

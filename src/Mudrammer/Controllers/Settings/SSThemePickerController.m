@@ -56,9 +56,9 @@
                         case FontRowFontName: {
                             SSFontCell *fontCell = [SSFontCell cellForTableView:tableView];
 
-                            fontCell.detailTextLabel.font = [UIFont fontWithName:[SSThemes currentFont].fontName
+                            fontCell.detailTextLabel.font = [UIFont fontWithName:[SSThemes sharedThemer].currentFont.fontName
                                                                             size:16.];
-                            fontCell.detailTextLabel.text = [[SSThemes currentFont] familyName];
+                            fontCell.detailTextLabel.text = [[SSThemes sharedThemer].currentFont familyName];
                             fontCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
                             [SSThemes configureCell:fontCell];
@@ -109,11 +109,12 @@
 }
 
 - (void)configureThemeCell:(SSThemeCell *)cell atIndex:(NSUInteger)index {
-    NSDictionary *theme = [[SSThemes sharedThemer] themeAtIndex:index];
+    SSThemes *themer = [SSThemes sharedThemer];
+    NSDictionary *theme = [themer themeAtIndex:index];
 
     NSDictionary *attributes = @{
          NSForegroundColorAttributeName : theme[kThemeFontColor],
-         NSFontAttributeName : [UIFont fontWithName:[[SSThemes currentFont] fontName]
+         NSFontAttributeName : [UIFont fontWithName:themer.currentFont.fontName
                                                size:18.]
     };
 
@@ -123,7 +124,7 @@
     cell.backgroundColor = theme[kThemeBackgroundColor];
 
     // current theme?
-    if ([[SSThemes valueForThemeKey:kThemeName] isEqualToString:theme[kThemeName]]) {
+    if ([[themer valueForThemeKey:kThemeName] isEqualToString:theme[kThemeName]]) {
         cell.accessoryView = [SPLCheckMarkView checkWithColor:theme[kThemeFontColor]];
     } else {
         cell.accessoryView = nil;
@@ -133,7 +134,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch( indexPath.section ) {
         case ThemeTableSectionThemePicker: {
-            NSUInteger currentIndex = [SSThemes indexOfCurrentBaseTheme];
+            NSUInteger currentIndex = [[SSThemes sharedThemer] indexOfCurrentBaseTheme];
 
             if( currentIndex == (NSUInteger)indexPath.row ) {
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -165,7 +166,7 @@
                     CMFontSelectTableViewController *fontSelectTableViewController = [CMFontSelectTableViewController new];
                     fontSelectTableViewController.delegate = self;
                     fontSelectTableViewController.title = NSLocalizedString(@"FONT", @"Font");
-                    fontSelectTableViewController.selectedFont = [SSThemes currentFont];
+                    fontSelectTableViewController.selectedFont = [SSThemes sharedThemer].currentFont;
                     fontSelectTableViewController.fontFamilyNames = @[
                         // Mono
                         @"Courier", @"Courier New",
@@ -208,11 +209,13 @@
 #pragma mark - font selection
 
 - (void)fontSelectTableViewController:(CMFontSelectTableViewController *)fontSelectTableViewController didSelectFont:(UIFont *)selectedFont {
+    SSThemes *themer = [SSThemes sharedThemer];
+
     if (!selectedFont) {
-        selectedFont = [SSThemes currentFont];
+        selectedFont = themer.currentFont;
     }
 
-    [[SSThemes sharedThemer] applyTheme:@{
+    [themer applyTheme:@{
             kThemeFontName : [selectedFont fontName],
      }];
 

@@ -26,7 +26,7 @@ UIEdgeInsets const kTextInsets = (UIEdgeInsets) { 0, 2, 0, 5 };
 
     _textView = [[SPLAttributedLabel alloc] initWithFrame:CGRectZero];
     self.textView.backgroundColor = [UIColor clearColor];
-    self.textView.font = [SSThemes currentFont];
+    self.textView.font = [SSThemes sharedThemer].currentFont;
     self.textView.lineBreakMode = NSLineBreakByWordWrapping;
     self.textView.numberOfLines = 0;
     self.textView.textInsets = UIEdgeInsetsZero;
@@ -34,7 +34,7 @@ UIEdgeInsets const kTextInsets = (UIEdgeInsets) { 0, 2, 0, 5 };
     self.textView.adjustsFontSizeToFitWidth = NO;
     self.textView.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     self.textView.linkAttributes = @{
-        (id)kCTForegroundColorAttributeName : (id)((UIColor *)[SSThemes valueForThemeKey:kThemeLinkColor]).CGColor
+        (id)kCTForegroundColorAttributeName : (id)((UIColor *)[[SSThemes sharedThemer] valueForThemeKey:kThemeLinkColor]).CGColor
     };
     self.textView.activeLinkAttributes = @{
         (id)kCTForegroundColorAttributeName : (id)[UIColor whiteColor].CGColor,

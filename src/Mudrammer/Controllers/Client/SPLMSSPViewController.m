@@ -27,11 +27,11 @@
     _label = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
     self.label.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
     self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    self.label.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    self.label.textColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
     self.label.enabledTextCheckingTypes = NSTextCheckingTypeLink;
     self.label.linkAttributes = @{
           NSUnderlineStyleAttributeName : @1,
-          (id)kCTForegroundColorAttributeName : (id)((UIColor *)[SSThemes valueForThemeKey:kThemeLinkColor]).CGColor,
+          (id)kCTForegroundColorAttributeName : (id)((UIColor *)[[SSThemes sharedThemer] valueForThemeKey:kThemeLinkColor]).CGColor,
     };
     [self.contentView addSubview:self.label];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {

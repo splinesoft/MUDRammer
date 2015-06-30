@@ -17,7 +17,7 @@
                                            attributes:@{
                                                     (id)kCTForegroundColorAttributeName : (id)kDefaultANSIColorFgBrightMagenta.CGColor,
                                                     NSForegroundColorAttributeName : kDefaultANSIColorFgBrightMagenta,
-                                                    NSFontAttributeName : [SSThemes currentFont],
+                                                    NSFontAttributeName : [SSThemes sharedThemer].currentFont,
                                                     NSKernAttributeName : [NSNull null],
                                             }];
 }
@@ -25,9 +25,9 @@
 + (instancetype)worldStringForString:(NSString *)string {
     return [[NSAttributedString alloc] initWithString:string
                                            attributes:@{
-                                                    NSFontAttributeName : [SSThemes currentFont],
-                                                    NSForegroundColorAttributeName : [SSThemes valueForThemeKey:kThemeFontColor],
-                                                    (id)kCTForegroundColorAttributeName : (id)((UIColor *)[SSThemes valueForThemeKey:kThemeFontColor]).CGColor,
+                                                    NSFontAttributeName : [SSThemes sharedThemer].currentFont,
+                                                    NSForegroundColorAttributeName : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+                                                    (id)kCTForegroundColorAttributeName : (id)((UIColor *)[[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor]).CGColor,
                                                     NSKernAttributeName : [NSNull null],
                                             }];
 }

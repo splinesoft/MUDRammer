@@ -115,12 +115,13 @@
             [SSThemes configureCell:cell];
         } else if (indexPath.section == SSAdvancedSectionSemicolonCommands && indexPath.row == 1) {
             SSTextEntryCell *textCell = (SSTextEntryCell *)cell;
+            SSThemes *themer = [SSThemes sharedThemer];
             textCell.textLabel.text = NSLocalizedString(@"SEMICOLON_CMDS_DELIMITER", nil);
             textCell.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kPrefSemicolonDefaultDelimiter
                                                                                        attributes:
-                                                        @{ NSFontAttributeName : [[SSThemes currentFont] fontWithSize:18.f],
-                                                           NSForegroundColorAttributeName : [SSThemes valueForThemeKey:kThemeFontColor] }];
-            textCell.textField.font = [[SSThemes currentFont] fontWithSize:18.f];
+                                                        @{ NSFontAttributeName : [[themer currentFont] fontWithSize:18.f],
+                                                           NSForegroundColorAttributeName : [themer valueForThemeKey:kThemeFontColor] }];
+            textCell.textField.font = [[themer currentFont] fontWithSize:18.f];
             textCell.textField.text = SPLCurrentCommandDelimiter();
             textCell.textField.textAlignment = NSTextAlignmentRight;
             textCell.textFieldShouldReturn = YES;

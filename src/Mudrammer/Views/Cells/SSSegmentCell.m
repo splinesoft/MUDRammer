@@ -25,7 +25,7 @@
     _segmentControl = [UISegmentedControl new];
     self.segmentControl.momentary = NO;
     self.segmentControl.backgroundColor = [UIColor clearColor];
-    [self.segmentControl setTintColor:[SSThemes valueForThemeKey:kThemeFontColor]];
+    [self.segmentControl setTintColor:[[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor]];
     [self.segmentControl setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.segmentControl setContentPositionAdjustment:UIOffsetMake(0, 1)
                                        forSegmentType:UISegmentedControlSegmentAny

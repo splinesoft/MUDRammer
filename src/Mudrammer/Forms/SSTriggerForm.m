@@ -93,7 +93,7 @@ NSString * const kSoundElement = @"soundFileName";
     [highlightElement setColor:trigger.highlightColor];
 
     QAppearance *theme = [SSFormAppearance appearance];
-    theme.tableGroupedBackgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+    theme.tableGroupedBackgroundColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor];
     highlightElement.appearance = theme;
 
     [section3 addElement:highlightElement];

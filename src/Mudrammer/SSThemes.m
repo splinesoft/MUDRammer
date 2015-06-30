@@ -211,6 +211,8 @@
                                   objectForKey:kPrefCurrentThemeIndex] unsignedIntegerValue];
 
         _curTheme = [NSMutableDictionary dictionaryWithDictionary:self.themes[themeIndex]];
+
+        [self applyAppThemes];
     }
 
     return self;
@@ -236,8 +238,8 @@
 
 #pragma mark - app themes
 
-+ (id)valueForThemeKey:(NSString *)key {
-    return [[self sharedThemer] currentTheme][key];
+- (id)valueForThemeKey:(NSString *)key {
+    return [self currentTheme][key];
 }
 
 - (BOOL)isUsingDarkTheme {
@@ -301,7 +303,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     // UISwitch - reapplied upon each theme change
-    [[UISwitch appearance] setOnTintColor:[SSThemes valueForThemeKey:kThemeFontColor]];
+    [[UISwitch appearance] setOnTintColor:[self valueForThemeKey:kThemeFontColor]];
 
     // History control
     [[SSMudHistoryControl appearance] setBackgroundImage:[SPLImagesCatalog transparentImage]
@@ -403,20 +405,20 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    [defaults setObject:@([SSThemes indexOfCurrentBaseTheme])
+    [defaults setObject:@([self indexOfCurrentBaseTheme])
                  forKey:kPrefCurrentThemeIndex];
-    [defaults setObject:[SSThemes valueForThemeKey:kThemeFontSize]
+    [defaults setObject:[self valueForThemeKey:kThemeFontSize]
                  forKey:kPrefCurrentFontSize];
-    [defaults setObject:[SSThemes valueForThemeKey:kThemeFontName]
+    [defaults setObject:[self valueForThemeKey:kThemeFontName]
                  forKey:kPrefCurrentFontName];
 
     // Re-theme switches
-    [[UISwitch appearance] setOnTintColor:[SSThemes valueForThemeKey:kThemeFontColor]];
+    [[UISwitch appearance] setOnTintColor:[self valueForThemeKey:kThemeFontColor]];
 }
 
-+ (UIFont *)currentFont {
-    NSString *fontName = [SSThemes valueForThemeKey:kThemeFontName];
-    NSNumber *fontSize = [SSThemes valueForThemeKey:kThemeFontSize];
+- (UIFont *)currentFont {
+    NSString *fontName = [self valueForThemeKey:kThemeFontName];
+    NSNumber *fontSize = [self valueForThemeKey:kThemeFontSize];
 
     if( !fontName || !fontSize ) {
         return [UIFont fontWithName:kDefaultFontName
@@ -434,13 +436,15 @@
                            size:kDefaultFontSize];
 }
 
-+ (NSUInteger)indexOfCurrentBaseTheme {
-    NSString *themeName = [[self sharedThemer] currentTheme][kThemeName];
+- (NSUInteger)indexOfCurrentBaseTheme {
+    NSString *themeName = [self currentTheme][kThemeName];
 
-    for( NSUInteger i = 0; i < [[self sharedThemer] themeCount]; i++ ) {
-        NSDictionary *theme = [[self sharedThemer] themeAtIndex:i];
-        if( [theme[kThemeName] isEqualToString:themeName] )
+    for (NSUInteger i = 0; i < [self themeCount]; i++) {
+        NSDictionary *theme = [self themeAtIndex:i];
+
+        if ([theme[kThemeName] isEqualToString:themeName]) {
             return i;
+        }
     }
 
     return 0;
@@ -449,7 +453,7 @@
 #pragma mark - icloud K/V
 
 + (BOOL)checkForCloud {
-    return ((NSClassFromString(@"NSUbiquitousKeyValueStore")) && ([NSUbiquitousKeyValueStore defaultStore])) ? YES : NO;
+    return [NSUbiquitousKeyValueStore defaultStore] != nil;
 }
 
 - (void)updateFromCloud:(NSNotification *)notification {
@@ -489,9 +493,9 @@
         objectPrefs = @[kPrefMoveControl, kPrefRadialControl, kPrefStringEncoding, kPrefRadialCommands, kPrefSemicolonCommandDelimiter];
     });
 
-    [cloud setObject:@([SSThemes indexOfCurrentBaseTheme]) forKey:kPrefCurrentThemeIndex];
+    [cloud setObject:@([self indexOfCurrentBaseTheme]) forKey:kPrefCurrentThemeIndex];
     //[cloud setObject:[[SSThemes currentTheme] objectForKey:kThemeFontSize] forKey:kPrefCurrentFontSize];
-    [cloud setObject:[[SSThemes sharedThemer] currentTheme][kThemeFontName] forKey:kPrefCurrentFontName];
+    [cloud setObject:[self currentTheme][kThemeFontName] forKey:kPrefCurrentFontName];
 
     // Sync boolean prefs
     [boolPrefs bk_each:^(NSString *boolPref) {
@@ -518,7 +522,7 @@
 
 + (void)configureTable:(UITableView *)tableView {
     if (tableView.style == UITableViewStylePlain) {
-        tableView.backgroundColor = [self valueForThemeKey:kThemeBackgroundColor];
+        tableView.backgroundColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor];
 
         if (![[UIDevice currentDevice] isIPad]) {
             [tableView addCenteredFooterWithImage:([[self sharedThemer] isUsingDarkTheme]

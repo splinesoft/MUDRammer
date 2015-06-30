@@ -101,14 +101,14 @@
 		selectedLabel.tag = kSelectedLabelTag;
 		selectedLabel.font = [UIFont systemFontOfSize:24.0];
         selectedLabel.backgroundColor = [UIColor clearColor];
-        selectedLabel.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+        selectedLabel.textColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
 		[cell.contentView addSubview:selectedLabel];
 
 		frame = CGRectMake(35.0, 0.0, cell.frame.size.width-70.0f, cell.frame.size.height);
 		UILabel *fontNameLabel = [[UILabel alloc] initWithFrame:frame];
         fontNameLabel.backgroundColor = [UIColor clearColor];
         fontNameLabel.adjustsFontSizeToFitWidth = YES;
-        fontNameLabel.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+        fontNameLabel.textColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
 		fontNameLabel.tag = kFontNameLabelTag;
 		[cell.contentView addSubview:fontNameLabel];
     }

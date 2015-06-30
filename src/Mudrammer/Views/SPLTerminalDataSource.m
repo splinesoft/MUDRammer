@@ -114,7 +114,7 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
 
         void (^FontChangeBlock)(id) = ^(id newValue) {
             @strongify(self);
-            UIFont *newFont = [SSThemes currentFont];
+            UIFont *newFont = [SSThemes sharedThemer].currentFont;
 
             [self.operationQueue ss_addBlockOperationWithBlock:^(SSBlockOperation *operation) {
                 if ([operation isCancelled]) {

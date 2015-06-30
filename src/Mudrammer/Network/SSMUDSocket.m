@@ -157,7 +157,7 @@
         return;
     }
 
-    self.ansiEngine.defaultTextColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    self.ansiEngine.defaultTextColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
 
     [self.telnetLib sendUserCommands:commands];
 }
@@ -191,7 +191,7 @@
                                             stringCoder:[SSStringCoder new]];
 
     // Reset default string color
-    self.ansiEngine.defaultTextColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    self.ansiEngine.defaultTextColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
 
     // try to enable SSL
     if ([self.SSdelegate respondsToSelector:@selector(mudsocketShouldAttemptSSL:)]) {

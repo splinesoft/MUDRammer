@@ -141,8 +141,8 @@ CG_INLINE SPLSGRCode SPLIntenseColorForColor(SPLSGRCode color) {
 
 - (instancetype)init {
     if ((self = [super init])) {
-        _defaultTextColor = [SSThemes valueForThemeKey:kThemeFontColor];
-        _defaultFont = [SSThemes currentFont];
+        _defaultTextColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
+        _defaultFont = [SSThemes sharedThemer].currentFont;
         _lastColor = self.defaultTextColor;
         _lastBGColor = [UIColor clearColor];
 
@@ -163,14 +163,14 @@ CG_INLINE SPLSGRCode SPLIntenseColorForColor(SPLSGRCode color) {
                             keyPath:kThemeFontSize
                             options:NSKeyValueObservingOptionNew
                               block:^(SSANSIEngine *engine, id object, NSDictionary *change) {
-                                  engine.defaultFont = [SSThemes currentFont];
+                                  engine.defaultFont = [SSThemes sharedThemer].currentFont;
                               }];
 
         [self.kvoController observe:[SSThemes sharedThemer].currentTheme
                             keyPath:kThemeFontName
                             options:NSKeyValueObservingOptionNew
                               block:^(SSANSIEngine *engine, id object, NSDictionary *change) {
-                                  engine.defaultFont = [SSThemes currentFont];
+                                  engine.defaultFont = [SSThemes sharedThemer].currentFont;
                               }];
     }
 

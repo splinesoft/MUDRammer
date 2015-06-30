@@ -41,7 +41,7 @@
     gagType.presentationMode = QPresentationModeNormal;
 
     QAppearance *theme = [SSFormAppearance appearance];
-    theme.tableGroupedBackgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+    theme.tableGroupedBackgroundColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor];
     gagType.appearance = theme;
 
     [section addElement:gagType];

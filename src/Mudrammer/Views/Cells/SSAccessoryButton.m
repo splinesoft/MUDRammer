@@ -37,14 +37,14 @@
                     keyPath:kThemeFontName
                     options:NSKeyValueObservingOptionNew
                       block:^(SSAccessoryButton *button, id theme, NSDictionary *dict) {
-                          [button.label setFont:[UIFont fontWithName:[SSThemes currentFont].fontName
+                          [button.label setFont:[UIFont fontWithName:[SSThemes sharedThemer].currentFont.fontName
                                                                 size:24.0f]];
                       }];
 
     _label = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
-    self.label.font = [UIFont fontWithName:[SSThemes currentFont].fontName
+    self.label.font = [UIFont fontWithName:[SSThemes sharedThemer].currentFont.fontName
                                       size:24.0f];
-    self.label.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    self.label.textColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
     [self.contentView addSubview:self.label];

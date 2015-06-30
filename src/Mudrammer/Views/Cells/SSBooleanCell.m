@@ -23,7 +23,7 @@
 
 - (void)configureCell {
     _boolSwitch = [UISwitch new];
-    [self.boolSwitch setOnTintColor:[SSThemes valueForThemeKey:kThemeFontColor]];
+    [self.boolSwitch setOnTintColor:[[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor]];
     [self.boolSwitch addTarget:self
                         action:@selector(switchDidChange:)
               forControlEvents:UIControlEventValueChanged];

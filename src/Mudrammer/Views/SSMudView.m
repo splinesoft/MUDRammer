@@ -51,7 +51,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self.backgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+        self.backgroundColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor];
 
         // Input toolbar
         _inputToolbar = [[SSMUDToolbar alloc] initWithFrame:CGRectZero];
@@ -121,8 +121,8 @@
                                                UITableView *tableView,
                                                NSIndexPath *indexPath) {
             @strongify(self);
-            cell.textView.linkAttributes = @{ (id)kCTForegroundColorAttributeName : (id)((UIColor *)[SSThemes valueForThemeKey:kThemeLinkColor]).CGColor };
-            cell.textView.activeLinkAttributes = @{ (id)kCTForegroundColorAttributeName : (id)((UIColor *)[SSThemes valueForThemeKey:kThemeFontColor]).CGColor };
+            cell.textView.linkAttributes = @{ (id)kCTForegroundColorAttributeName : (id)((UIColor *)[[SSThemes sharedThemer] valueForThemeKey:kThemeLinkColor]).CGColor };
+            cell.textView.activeLinkAttributes = @{ (id)kCTForegroundColorAttributeName : (id)((UIColor *)[[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor]).CGColor };
             cell.textView.delegate = self.delegate;
 
             if ([line.line length] > 0) {
@@ -451,7 +451,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CGFloat defaultSize = SPLFloat_ceil([SSThemes currentFont].pointSize);
+    CGFloat defaultSize = SPLFloat_ceil([SSThemes sharedThemer].currentFont.pointSize);
 
     if (!self.dataSource) {
         return defaultSize;

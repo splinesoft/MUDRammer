@@ -63,7 +63,7 @@
     CMUpDownControl *sizer = [[CMUpDownControl alloc] init];
     sizer.minimumAllowedValue = 8;
     sizer.maximumAllowedValue = 24;
-    sizer.value = (NSInteger)[[SSThemes currentFont] pointSize];
+    sizer.value = (NSInteger)[SSThemes sharedThemer].currentFont.pointSize;
     sizer.backgroundColor = [UIColor clearColor];
     [sizer addTarget:self
               action:@selector(fontSizeChanged:)

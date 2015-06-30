@@ -13,19 +13,20 @@
 + (instancetype)appearance {
     SSFormAppearance *theme = [SSFormAppearance new];
 
-    theme.backgroundColorEnabled = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+    SSThemes *themer = [SSThemes sharedThemer];
+    theme.backgroundColorEnabled = [themer valueForThemeKey:kThemeBackgroundColor];
     theme.backgroundColorDisabled = theme.backgroundColorEnabled;
 
-    theme.entryTextColorEnabled = [SSThemes valueForThemeKey:kThemeFontColor];
+    theme.entryTextColorEnabled = [themer valueForThemeKey:kThemeFontColor];
     theme.entryTextColorDisabled = theme.entryTextColorEnabled;
 
-    theme.valueColorEnabled = [SSThemes valueForThemeKey:kThemeFontColor];
+    theme.valueColorEnabled = [themer valueForThemeKey:kThemeFontColor];
     theme.valueColorDisabled = theme.valueColorEnabled;
 
-    theme.labelColorEnabled = [SSThemes valueForThemeKey:kThemeFontColor];
+    theme.labelColorEnabled = [themer valueForThemeKey:kThemeFontColor];
     theme.labelColorDisabled = theme.labelColorEnabled;
 
-    theme.actionColorEnabled = [SSThemes valueForThemeKey:kThemeFontColor];
+    theme.actionColorEnabled = [themer valueForThemeKey:kThemeFontColor];
     theme.actionColorDisabled = theme.actionColorEnabled;
 
     theme.entryAlignment = NSTextAlignmentRight;
@@ -34,7 +35,7 @@
     theme.buttonAlignment = NSTextAlignmentCenter;
 
     theme.tableSeparatorColor = [UIColor lightGrayColor];
-    theme.tableBackgroundColor = [SSThemes valueForThemeKey:kThemeBackgroundColor];
+    theme.tableBackgroundColor = [themer valueForThemeKey:kThemeBackgroundColor];
 
     theme.sectionTitleColor = [UIColor whiteColor];
     theme.sectionFooterColor = [UIColor whiteColor];

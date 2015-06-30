@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, SPLClientStatus) {
             }
 
             if (indexPath.row == self.selectedIndex) {
-                cell.accessoryView = [SPLCheckMarkView checkWithColor:[SSThemes valueForThemeKey:kThemeFontColor]];
+                cell.accessoryView = [SPLCheckMarkView checkWithColor:[[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor]];
             } else {
                 cell.accessoryView = nil;
             }

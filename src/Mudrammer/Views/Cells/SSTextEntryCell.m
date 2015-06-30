@@ -25,7 +25,7 @@
     _textField = [[UITextField alloc] initWithFrame:self.contentView.bounds];
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.textColor = [SSThemes valueForThemeKey:kThemeFontColor];
+    self.textField.textColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
     self.textField.delegate = self;
     self.textField.clearButtonMode = UITextFieldViewModeNever;
     self.textField.returnKeyType = UIReturnKeyDone;

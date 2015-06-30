@@ -37,8 +37,8 @@
                  FXFormFieldType : FXFormFieldTypeDefault,
                  @"textLabel.textAlignment" : @(NSTextAlignmentCenter),
                  FXFormFieldHeader : @"",
-                 @"textLabel.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-                 @"backgroundColor" : [SSThemes valueForThemeKey:kThemeBackgroundColor],
+                 @"textLabel.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+                 @"backgroundColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor],
                  FXFormFieldAction : @"deleteCurrentRecord",
          }
     ];
@@ -51,9 +51,9 @@
              FXFormFieldKey : @"commands",
              @"textField.autocapitalizationType" : @(UITextAutocapitalizationTypeNone),
              @"textField.autocorrectionType" : @(UITextAutocorrectionTypeNo),
-             @"contentView.backgroundColor" : [SSThemes valueForThemeKey:kThemeBackgroundColor],
-             @"textField.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-             @"textLabel.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
+             @"contentView.backgroundColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor],
+             @"textField.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+             @"textLabel.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
     };
 }
 
@@ -63,9 +63,9 @@
              FXFormFieldType  : FXFormFieldTypeUnsigned,
              FXFormFieldDefaultValue : self.ticker.interval,
              FXFormFieldKey : @"interval",
-             @"contentView.backgroundColor" : [SSThemes valueForThemeKey:kThemeBackgroundColor],
-             @"textField.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-             @"textLabel.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
+             @"contentView.backgroundColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor],
+             @"textField.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+             @"textLabel.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
     };
 }
 
@@ -74,9 +74,9 @@
              FXFormFieldTitle : NSLocalizedString(@"ENABLED", nil),
              @"switchControl.on" : self.ticker.isEnabled,
              FXFormFieldKey : @"isEnabled",
-             @"textLabel.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-             @"switchControl.onTintColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-             @"backgroundColor" : [SSThemes valueForThemeKey:kThemeBackgroundColor],
+             @"textLabel.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+             @"switchControl.onTintColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+             @"backgroundColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor],
              FXFormFieldFooter : NSLocalizedString(@"TICKER_HELP", nil),
     };
 }
@@ -87,8 +87,8 @@
              FXFormFieldType : FXFormFieldTypeLabel,
              FXFormFieldDefaultValue : self.ticker.soundFileName,
              FXFormFieldKey : @"soundFileName",
-             @"textLabel.textColor" : [SSThemes valueForThemeKey:kThemeFontColor],
-             @"backgroundColor" : [SSThemes valueForThemeKey:kThemeBackgroundColor],
+             @"textLabel.textColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor],
+             @"backgroundColor" : [[SSThemes sharedThemer] valueForThemeKey:kThemeBackgroundColor],
              FXFormFieldAction : @"showSoundPicker",
              @"accessoryType" : @(UITableViewCellAccessoryDisclosureIndicator),
              FXFormFieldValueTransformer : ^id(id input) {

@@ -24,6 +24,11 @@
 #pragma mark - setup and scaffolding
 
 + (void)setupCoreData {
+#ifdef DEBUG
+    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelAll];
+#else
+    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
+#endif
 #ifdef __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
     DLog(@"starting icloud");
     //[MagicalRecord setupCoreDataStackWithiCloudContainer:@"4YFMUNMLU8.com.splinesoft.theMUDRammer" localStoreNamed:@"Worlds.sqlite"];
@@ -59,7 +64,7 @@
                                                  ascending:[World defaultSortAscending]
                                                  inContext:[NSManagedObjectContext MR_defaultContext]];
 
-        if( !existing ) {
+        if (!existing) {
             World *w = [World worldFromURL:url];
             w.isHidden = @NO;
             [w saveObjectWithCompletion:^{
@@ -67,9 +72,10 @@
                                                                     object:[w objectID]];
             }
                                    fail:nil];
-        } else
+        } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationWorldChanged
                                                                 object:[existing objectID]];
+        }
 
         return YES;
     }
@@ -82,16 +88,9 @@
 - (void) ss_willFinishLaunchingWithOptions:(NSDictionary *)options {
     [[IFTTTSplashView sharedSplash] showSplash];
 
-#ifdef DEBUG
-//    [[BITHockeyManager sharedHockeyManager] setDebugLogEnabled:YES];
-    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelAll];
-#else
-    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
-#endif
-
-    [[BITHockeyManager sharedHockeyManager].authenticator setIdentificationType:BITAuthenticatorIdentificationTypeAnonymous];
-
-    [[BITHockeyManager sharedHockeyManager].crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
+    BITHockeyManager *manager = [BITHockeyManager sharedHockeyManager];
+    [manager.authenticator setIdentificationType:BITAuthenticatorIdentificationTypeAnonymous];
+    [manager.crashManager setCrashManagerStatus:BITCrashManagerStatusAutoSend];
 
     MudrammerKeys *keys = [MudrammerKeys new];
 
@@ -100,17 +99,11 @@
           ARHockeyAppLiveID   : keys.hOCKEYLIVE_KEY,
     }];
 
-    // Disable shake to undo
-    [UIApplication sharedApplication].applicationSupportsShakeToEdit = NO;
-
-    // core data
     [self.class setupCoreData];
 
-    // nonblocking
     [World createDefaultWorldsIfNecessary];
 
-    // themes/settings
-    [[SSThemes sharedThemer] applyAppThemes];
+    [SSThemes sharedThemer]; // UIAppearance™ Inside®
 
     // uservoice
     UVConfig *uvconfig = [UVConfig configWithSite:keys.uSERVOICE_FORUM_SITE];
@@ -123,6 +116,7 @@
     [UserVoice initialize:uvconfig];
 
     self.idleTimerDisabled = YES;
+    self.applicationSupportsShakeToEdit = NO;
 
     // disallow webview cache
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
@@ -139,7 +133,24 @@
     return [SSClientContainer new];
 }
 
-#pragma mark - Application events
+- (NSDictionary *) ss_defaultUserDefaults {
+    return @{
+             kPrefInitialWorldsCreated  : @NO,
+             kPrefLocalEcho             : @YES,
+             kPrefAutocorrect           : @NO,
+             kPrefMoveControl           : @(SSRadialControlPositionRight),
+             kPrefConnectOnStartup      : @YES,
+             kPrefStringEncoding        : @"ASCII",
+             kPrefKeyboardStyle         : @YES,
+             kPrefRadialControl         : @(SSRadialControlPositionLeft),
+             kPrefRadialCommands        : @[ @"up", @"in", @"down", @"out", @"look" ],
+             kPrefTopBarAlwaysVisible   : @NO,
+             kPrefAutocapitalization    : @NO,
+             kPrefBTKeyboard            : @NO,
+             kPrefSemicolonCommands     : @YES,
+             kPrefSemicolonCommandDelimiter : kPrefSemicolonDefaultDelimiter,
+    };
+}
 
 - (void) ss_receivedApplicationEvent:(SSApplicationEvent)eventType {
 
@@ -148,15 +159,11 @@
 
             [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
-            // Validate radial prefs
             [SSRadialControl validateRadialPositions];
 
             break;
 
         case SSApplicationEventWillEnterForeground:
-
-            break;
-
         case SSApplicationEventDidEnterBackground:
         case SSApplicationEventWillResignActive:
 
@@ -192,29 +199,7 @@ forLocalNotification:(UILocalNotification *)notification
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    // running app received a local notification
-    DLog(@"Received local %@", notification);
-}
 
-#pragma mark - user defaults
-
-- (NSDictionary *) ss_defaultUserDefaults {
-    return @{
-         kPrefInitialWorldsCreated  : @NO,
-         kPrefLocalEcho             : @YES,
-         kPrefAutocorrect           : @NO,
-         kPrefMoveControl           : @(SSRadialControlPositionRight),
-         kPrefConnectOnStartup      : @YES,
-         kPrefStringEncoding        : @"ASCII",
-         kPrefKeyboardStyle         : @YES,
-         kPrefRadialControl         : @(SSRadialControlPositionLeft),
-         kPrefRadialCommands        : @[ @"up", @"in", @"down", @"out", @"look" ],
-         kPrefTopBarAlwaysVisible   : @NO,
-         kPrefAutocapitalization    : @NO,
-         kPrefBTKeyboard            : @NO,
-         kPrefSemicolonCommands     : @YES,
-         kPrefSemicolonCommandDelimiter : kPrefSemicolonDefaultDelimiter,
-     };
 }
 
 @end

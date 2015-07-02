@@ -20,7 +20,21 @@
 - (instancetype) initWithSocket:(GCDAsyncSocket *)socket
                        delegate:(id <SSMUDSocketDelegate>)delegate;
 
-@property (nonatomic, readonly) GCDAsyncSocket *socket;
+#pragma mark - Connection Lifecycle
+
+// Attempt a connection to the specified hostname and port with a standard timeout.
+- (BOOL)connectToHostname:(NSString *)hostname
+                   onPort:(NSUInteger)port
+                    error:(NSError **)error;
+
+// YES if the socket is neither connected nor in the process of connecting.
+- (BOOL)isDisconnected;
+
+// Disconnect immediately.
+- (void)disconnect;
+
+// Detaches internal socket delegates.
+- (void)resetSocket;
 
 // Send some text (user entered commands/aliases)
 - (void)sendUserCommand:(NSString *)string;

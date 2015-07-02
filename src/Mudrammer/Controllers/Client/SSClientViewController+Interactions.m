@@ -65,7 +65,7 @@
 
 - (void)connectButton:(SSConnectButton *)button didChangeState:(BOOL)connected {
     if ([self isConnected]) {
-        [self.socket.socket disconnect];
+        [self.socket disconnect];
     } else {
         [self connect];
     }

@@ -15,7 +15,7 @@
  * We split the input by semicolons and newlines,
  * and perform random number insertion via the #N# syntax.
  */
-- (NSArray *)spl_commandsFromUserInput;
+@property (nonatomic, readonly, copy) NSArray *spl_commandsFromUserInput;
 
 /**
  Given a match pattern that has some command-indexes ($1, $2, etc),
@@ -23,7 +23,7 @@
  Keys are the indexes of the word in the line at which each pattern occurs.
  Values are an NSNumber representation of each index.
  */
-- (NSDictionary *)spl_commandLocationsForPattern;
+@property (nonatomic, readonly, copy) NSDictionary *spl_commandLocationsForPattern;
 
 /**
  Given a match pattern that has some command-indexes ($1, $2, etc),

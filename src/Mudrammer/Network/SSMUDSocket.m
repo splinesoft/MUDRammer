@@ -30,6 +30,7 @@
 // Perform append from cache and split on broken ANSI sequences
 - (NSString *) stringBySplittingAndCachingString:(NSString *)string;
 
+@property (nonatomic, strong) GCDAsyncSocket *socket;
 @property (nonatomic, strong) NSMutableString *dataCache;
 @property (nonatomic, strong) SSANSIEngine *ansiEngine;
 @property (nonatomic, strong) SPLTelnetLib *telnetLib;
@@ -72,6 +73,30 @@
     [self.parsingQueue cancelAllOperations];
     self.socket.delegate = nil;
     _SSdelegate = nil;
+    [self.socket disconnect];
+}
+
+#pragma mark - Connection Lifecycle
+
+- (void)resetSocket {
+    [self.socket setDelegate:nil delegateQueue:NULL];
+}
+
+- (BOOL)connectToHostname:(NSString *)hostname
+                   onPort:(NSUInteger)port
+                    error:(NSError *__autoreleasing *)error {
+    
+    return [self.socket connectToHost:hostname
+                               onPort:(uint16_t)port
+                          withTimeout:30
+                                error:error];
+}
+
+- (BOOL)isDisconnected {
+    return [self.socket isDisconnected];
+}
+
+- (void)disconnect {
     [self.socket disconnect];
 }
 

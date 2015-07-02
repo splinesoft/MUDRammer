@@ -205,9 +205,9 @@ typedef void (^SPLSettingsCloseBlock) (void);
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_writeQueue cancelAllOperations];
-    [self.socket.socket setDelegate:nil delegateQueue:NULL];
+    [self.socket resetSocket];
     self.socket.SSdelegate = nil;
-    [self.socket.socket disconnect];
+    [self.socket disconnect];
     _socket = nil;
 
     self.connectButton.connectDelegate = nil;
@@ -724,10 +724,9 @@ typedef void (^SPLSettingsCloseBlock) (void);
                                              delegate:self];
     }
 
-    BOOL connected = [self.socket.socket connectToHost:self.hostname
-                                                onPort:(uint16_t)[self.port integerValue]
-                                           withTimeout:30
-                                                 error:&err];
+    BOOL connected = [self.socket connectToHostname:self.hostname
+                                             onPort:[self.port unsignedIntegerValue]
+                                              error:&err];
 
     if (!connected) {
         [self appendText:[err localizedDescription]
@@ -738,12 +737,12 @@ typedef void (^SPLSettingsCloseBlock) (void);
 }
 
 - (BOOL)isConnected {
-    return self.socket && ![self.socket.socket isDisconnected];
+    return self.socket && ![self.socket isDisconnected];
 }
 
 - (void)disconnect {
     self.socket.SSdelegate = nil;
-    [self.socket.socket disconnect];
+    [self.socket disconnect];
     _socket = nil;
 }
 

@@ -31,8 +31,8 @@
 
 - (void)tearDown {
     sut.SSdelegate = nil;
-    sut.socket.delegate = nil;
-    [sut.socket disconnect];
+    socket.delegate = nil;
+    [socket disconnect];
     sut = nil;
 
     socket = nil;
@@ -42,7 +42,7 @@
 }
 
 - (void)testSocketInitialSetup {
-    expect(sut.socket.delegate).to.equal(sut);
+    expect(socket.delegate).to.equal(sut);
     expect(sut.SSdelegate).to.equal(mockSocketDelegate);
 }
 
@@ -50,8 +50,8 @@
     [[mockSocketDelegate expect] mudsocketDidConnectToHost:sut];
     [[mockSocketDelegate expect] mudsocketShouldAttemptSSL:sut];
     
-    [sut socket:sut.socket didConnectToHost:@"nanvaent.org" port:23];
-    [sut socket:sut.socket didReadData:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] withTag:0];
+    [sut socket:socket didConnectToHost:@"nanvaent.org" port:23];
+    [sut socket:socket didReadData:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] withTag:0];
 
     [mockSocketDelegate verifyWithDelay:3];
 }
@@ -59,7 +59,7 @@
 - (void)testSocketDisconnectSendsDisconnect {
     [[mockSocketDelegate expect] mudsocket:sut didDisconnectWithError:OCMOCK_ANY];
 
-    [sut socketDidDisconnect:sut.socket withError:[NSError errorWithDomain:@"test" code:12 userInfo:nil]];
+    [sut socketDidDisconnect:socket withError:[NSError errorWithDomain:@"test" code:12 userInfo:nil]];
 
     [mockSocketDelegate verifyWithDelay:3];
 }
@@ -72,8 +72,8 @@
             && [((SSAttributedLineGroup *)object).textLines count] > 0;
     }]];
 
-    [sut socket:sut.socket didConnectToHost:@"world" port:23];
-    [sut socket:sut.socket didReadData:[@"Hello world" dataUsingEncoding:NSASCIIStringEncoding] withTag:0];
+    [sut socket:socket didConnectToHost:@"world" port:23];
+    [sut socket:socket didReadData:[@"Hello world" dataUsingEncoding:NSASCIIStringEncoding] withTag:0];
 
     [mockSocketDelegate verifyWithDelay:3];
 }

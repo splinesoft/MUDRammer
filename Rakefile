@@ -18,6 +18,10 @@ def is_circle
   ENV['CIRCLECI'] == 'true'
 end
 
+def project_directory
+  "--project-directory=src"
+end
+
 desc 'Install the bundle and perform other setup'
 task :setup do
   
@@ -41,7 +45,7 @@ task :setup do
              "USERVOICE_FORUM_ID" ]
 
     keys.each do |key|
-      sh "bundle exec pod keys --project-directory=src set #{key} '-'"
+      sh "bundle exec pod keys #{project_directory} set #{key} '-'"
     end
   end
 
@@ -58,7 +62,7 @@ desc 'Install pods'
 task :pods do
   pod_version = `bundle exec pod --version`.chomp
   puts "Installing Pods (CocoaPods #{pod_version})".cyan
-  sh "bundle exec pod install --project-directory=src"
+  sh "bundle exec pod install #{project_directory}"
 end
 
 desc 'Build CI'
@@ -96,7 +100,7 @@ task :lint do
   sh "/usr/local/bin/cloc --exclude-dir=Pods --quiet --sum-one src"
   
   puts "\nFinding CocoaPods updates...".cyan
-  sh "bundle exec pod outdated --project-directory=src"
+  sh "bundle exec pod outdated #{project_directory}"
 
   puts "\nFinding potentially unused imports...".cyan
   puts `bundle exec fui --path src/Mudrammer find`

@@ -18,10 +18,10 @@ test:
   override:
     - rake test
   post:
+    - rake lint
     - cp -R $TMPDIR/com.apple.dt.XCTest-status $CIRCLE_ARTIFACTS/xcode-logs
 deployment:
-  lint:
+  slather:
     branch: /.*/
     commands:
-      - rake lint
       - bundle exec slather

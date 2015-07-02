@@ -37,7 +37,6 @@
 - (void)resetSocket;
 
 // Send some text (user entered commands/aliases)
-- (void)sendUserCommand:(NSString *)string;
 - (void)sendUserCommands:(NSArray *)commands;
 
 // NAWS

@@ -173,10 +173,6 @@
 
 #pragma mark - Read/write
 
-- (void)sendUserCommand:(NSString *)string {
-    [self sendUserCommands:@[ string ]];
-}
-
 - (void)sendUserCommands:(NSArray *)commands {
     if (![self.socket isConnected]) {
         return;

@@ -46,81 +46,36 @@
     expect(sut.SSdelegate).to.equal(mockSocketDelegate);
 }
 
-//- (void)testSocketConnectSendsConnectAndSSLCheck {
-//    NSError *err;
-//
-//    [[mockSocketDelegate expect] mudsocketDidConnectToHost:sut];
-//    [[mockSocketDelegate expect] mudsocketShouldAttemptSSL:sut];
-//
-//    BOOL connected = [sut.socket connectToHost:@"discworld.starturtle.net"
-//                                        onPort:23
-//                                   withTimeout:30
-//                                         error:&err];
-//
-//    expect(connected).to.beTruthy();
-//    expect(err).to.beNil();
-//
-//    [mockSocketDelegate verifyWithDelay:3];
-//}
-//
-//- (void)testSocketDisconnectSendsDisconnect {
-//    NSError *err;
-//
-//    [[mockSocketDelegate expect] mudsocket:sut didDisconnectWithError:OCMOCK_ANY];
-//
-//    BOOL connected = [sut.socket connectToHost:@"discworld.starturtle.net"
-//                                        onPort:23
-//                                   withTimeout:30
-//                                         error:&err];
-//
-//    expect(connected).to.beTruthy();
-//    expect(err).to.beNil();
-//
-//    [sut.socket disconnect];
-//
-//    [mockSocketDelegate verifyWithDelay:3];
-//}
-//
-//- (void)testSocketParsesAttributedLines {
-//    NSError *err;
-//
-//    [[mockSocketDelegate expect] mudsocket:sut
-//             didReceiveAttributedLineGroup:[OCMArg checkWithBlock:^BOOL(id object) {
-//
-//        return [object isKindOfClass:[SSAttributedLineGroup class]]
-//            && [((SSAttributedLineGroup *)object).textLines count] > 0;
-//    }]];
-//
-//    BOOL connected = [sut.socket connectToHost:@"discworld.starturtle.net"
-//                                        onPort:23
-//                                   withTimeout:30
-//                                         error:&err];
-//
-//    expect(connected).to.beTruthy();
-//    expect(err).to.beNil();
-//
-//    [mockSocketDelegate verifyWithDelay:3];
-//}
-//
-//- (void)testSocketParsesMSSPResponse {
-//    NSError *err;
-//
-//    [[mockSocketDelegate expect] mudsocket:sut
-//                          receivedMSSPData:[OCMArg checkWithBlock:^BOOL(id object) {
-//
-//        return [object isKindOfClass:[NSDictionary class]]
-//            && [(NSDictionary *)object count] > 0;
-//    }]];
-//
-//    BOOL connected = [sut.socket connectToHost:@"discworld.starturtle.net"
-//                                        onPort:23
-//                                   withTimeout:30
-//                                         error:&err];
-//
-//    expect(connected).to.beTruthy();
-//    expect(err).to.beNil();
-//
-//    [mockSocketDelegate verifyWithDelay:3];
-//}
+- (void)testSocketConnectSendsConnectAndSSLCheck {
+    [[mockSocketDelegate expect] mudsocketDidConnectToHost:sut];
+    [[mockSocketDelegate expect] mudsocketShouldAttemptSSL:sut];
+    
+    [sut socket:sut.socket didConnectToHost:@"nanvaent.org" port:23];
+    [sut socket:sut.socket didReadData:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] withTag:0];
+
+    [mockSocketDelegate verifyWithDelay:3];
+}
+
+- (void)testSocketDisconnectSendsDisconnect {
+    [[mockSocketDelegate expect] mudsocket:sut didDisconnectWithError:OCMOCK_ANY];
+
+    [sut socketDidDisconnect:sut.socket withError:[NSError errorWithDomain:@"test" code:12 userInfo:nil]];
+
+    [mockSocketDelegate verifyWithDelay:3];
+}
+
+- (void)testSocketParsesAttributedLines {
+    [[mockSocketDelegate expect] mudsocket:sut
+             didReceiveAttributedLineGroup:[OCMArg checkWithBlock:^BOOL(id object) {
+
+        return [object isKindOfClass:[SSAttributedLineGroup class]]
+            && [((SSAttributedLineGroup *)object).textLines count] > 0;
+    }]];
+
+    [sut socket:sut.socket didConnectToHost:@"world" port:23];
+    [sut socket:sut.socket didReadData:[@"Hello world" dataUsingEncoding:NSASCIIStringEncoding] withTag:0];
+
+    [mockSocketDelegate verifyWithDelay:3];
+}
 
 @end

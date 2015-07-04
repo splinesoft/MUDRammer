@@ -105,8 +105,8 @@ typedef void (^SPLSettingsCloseBlock) (void);
         _tickerManager = [[SPLWorldTickerManager alloc] initWithTimerManager:[SPLTimerManager new]];
         _logger = [SSSessionLogger new];
 
-        _socket = [[SSMUDSocket alloc] initWithSocket:[GCDAsyncSocket new]
-                                             delegate:self];
+        _socket = [[SSMUDSocket alloc] initWithSocket:[GCDAsyncSocket new]];
+        self.socket.delegate = self;
         _kvoController = [FBKVOController controllerWithObserver:self];
 
         // text processing
@@ -206,7 +206,7 @@ typedef void (^SPLSettingsCloseBlock) (void);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_writeQueue cancelAllOperations];
     [self.socket resetSocket];
-    self.socket.SSdelegate = nil;
+    self.socket.delegate = nil;
     [self.socket disconnect];
     _socket = nil;
 
@@ -720,8 +720,8 @@ typedef void (^SPLSettingsCloseBlock) (void);
     NSError *err = nil;
 
     if (!self.socket) {
-        _socket = [[SSMUDSocket alloc] initWithSocket:[GCDAsyncSocket new]
-                                             delegate:self];
+        _socket = [[SSMUDSocket alloc] initWithSocket:[GCDAsyncSocket new]];
+        self.socket.delegate = self;
     }
 
     BOOL connected = [self.socket connectToHostname:self.hostname
@@ -741,7 +741,7 @@ typedef void (^SPLSettingsCloseBlock) (void);
 }
 
 - (void)disconnect {
-    self.socket.SSdelegate = nil;
+    self.socket.delegate = nil;
     [self.socket disconnect];
     _socket = nil;
 }

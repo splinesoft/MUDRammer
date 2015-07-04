@@ -8,17 +8,20 @@
 
 #import <GCDAsyncSocket.h>
 #import "SSAttributedLineGroup.h"
-#import "NSData+SPLDataParsing.h"
 
 @protocol SSMUDSocketDelegate;
 
+/**
+ * SSMUDSocket encapsulates the network connection for a MUD's session.
+ * User-entered commands are passed to the socket for transmission over the network.
+ * Text received from the server is parsed into a group of attributed strings
+ * for display to the user.
+ */
 @interface SSMUDSocket : NSObject <GCDAsyncSocketDelegate>
 
-@property (nonatomic, assign) id <SSMUDSocketDelegate> SSdelegate;
+@property (nonatomic, weak) id <SSMUDSocketDelegate> delegate;
 
-// Constructor
-- (instancetype) initWithSocket:(GCDAsyncSocket *)socket
-                       delegate:(id <SSMUDSocketDelegate>)delegate;
+- (instancetype) initWithSocket:(GCDAsyncSocket *)socket NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Connection Lifecycle
 
@@ -47,7 +50,7 @@
 
 @end
 
-// Below protocol methods are called on background queues
+// Below protocol methods are called on arbitrary queues
 @protocol SSMUDSocketDelegate <NSObject>
 
 @required

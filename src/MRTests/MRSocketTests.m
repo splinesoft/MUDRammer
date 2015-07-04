@@ -25,12 +25,12 @@
 
     socket = [GCDAsyncSocket new];
     mockSocketDelegate = OCMProtocolMock(@protocol(SSMUDSocketDelegate));
-    sut = [[SSMUDSocket alloc] initWithSocket:socket
-                                     delegate:(id <SSMUDSocketDelegate>)mockSocketDelegate];
+    sut = [[SSMUDSocket alloc] initWithSocket:socket];
+    sut.delegate = (id <SSMUDSocketDelegate>)mockSocketDelegate;
 }
 
 - (void)tearDown {
-    sut.SSdelegate = nil;
+    sut.delegate = nil;
     socket.delegate = nil;
     [socket disconnect];
     sut = nil;
@@ -43,7 +43,7 @@
 
 - (void)testSocketInitialSetup {
     expect(socket.delegate).to.equal(sut);
-    expect(sut.SSdelegate).to.equal(mockSocketDelegate);
+    expect(sut.delegate).to.equal(mockSocketDelegate);
 }
 
 - (void)testSocketConnectSendsConnectAndSSLCheck {

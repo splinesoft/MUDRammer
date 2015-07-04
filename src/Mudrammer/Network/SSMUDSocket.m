@@ -10,6 +10,7 @@
 #import "SSAdvSettingsController.h"
 #import "SSANSIEngine.h"
 #import "SPLTelnetLib.h"
+#import "NSData+SPLDataParsing.h"
 #import "NSAttributedString+SPLAdditions.h"
 #import "NSCharacterSet+SPLAdditions.h"
 #import "SSStringCoder.h"
@@ -52,8 +53,7 @@
 
 #pragma mark - init
 
-- (instancetype)initWithSocket:(GCDAsyncSocket *)socket
-                      delegate:(id <SSMUDSocketDelegate>)delegate {
+- (instancetype)initWithSocket:(GCDAsyncSocket *)socket {
 
     if ((self = [super init])) {
         _dataCache = [NSMutableString string];
@@ -63,7 +63,6 @@
         _socket = socket;
         self.socket.delegate = self;
         self.socket.delegateQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _SSdelegate = delegate;
     }
 
     return self;
@@ -72,7 +71,7 @@
 - (void)dealloc {
     [self.parsingQueue cancelAllOperations];
     self.socket.delegate = nil;
-    _SSdelegate = nil;
+    _delegate = nil;
     [self.socket disconnect];
 }
 
@@ -103,14 +102,15 @@
 #pragma mark - informing delegate
 
 - (void)informDelegateWithSelector:(SEL)selector object:(id)object {
-    if ([self.SSdelegate respondsToSelector:selector]) {
+    id del = self.delegate;
+    if ([del respondsToSelector:selector]) {
         dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSString *sel = NSStringFromSelector(selector);
 
             if( [sel isEqualToString:NSStringFromSelector(@selector(mudsocketDidConnectToHost:))] )
-                [self.SSdelegate mudsocketDidConnectToHost:self];
+                [del mudsocketDidConnectToHost:self];
             else if( [sel isEqualToString:NSStringFromSelector(@selector(mudsocket:didDisconnectWithError:))] )
-                [self.SSdelegate mudsocket:self didDisconnectWithError:object];
+                [del mudsocket:self didDisconnectWithError:object];
         });
     }
 }
@@ -192,12 +192,12 @@
 #pragma mark - GCDAsyncSocketDelegate
 
 - (void)socketDidSecure:(GCDAsyncSocket *)sock {
+    SSAttributedLineGroup *secureLine = [SSAttributedLineGroup lineGroupWithAttributedString:
+                                         [NSAttributedString worldStringForString:NSLocalizedString(@"SSL_SUCCESS", nil)]];
+    
+    id del = self.delegate;
     dispatch_async(dispatch_get_main_queue(), ^{
-        SSAttributedLineGroup *secureLine = [SSAttributedLineGroup lineGroupWithAttributedString:
-                                             [NSAttributedString worldStringForString:NSLocalizedString(@"SSL_SUCCESS", nil)]];
-
-        [self.SSdelegate mudsocket:self
-     didReceiveAttributedLineGroup:secureLine];
+        [del mudsocket:self didReceiveAttributedLineGroup:secureLine];
     });
 }
 
@@ -208,16 +208,17 @@
     }];
 
     // reset telnet lib
-    _telnetLib = [[SPLTelnetLib alloc] initWithDelegate:self
-                                            stringCoder:[SSStringCoder new]];
+    _telnetLib = [[SPLTelnetLib alloc] initWithStringCoder:[SSStringCoder new]];
+    self.telnetLib.delegate = self;
 
     // Reset default string color
     self.ansiEngine.defaultTextColor = [[SSThemes sharedThemer] valueForThemeKey:kThemeFontColor];
 
     // try to enable SSL
-    if ([self.SSdelegate respondsToSelector:@selector(mudsocketShouldAttemptSSL:)]) {
+    id del = self.delegate;
+    if ([del respondsToSelector:@selector(mudsocketShouldAttemptSSL:)]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([self.SSdelegate mudsocketShouldAttemptSSL:self]) {
+            if ([del mudsocketShouldAttemptSSL:self]) {
                 DLog(@"ATTEMPTING SSL");
                 [sock startTLS:@{
                      (SPLSOCKET_BRIDGE_STRING)kCFStreamSSLLevel                     : (SPLSOCKET_BRIDGE_STRING)kCFStreamSocketSecurityLevelNegotiatedSSL,
@@ -281,8 +282,9 @@
 #pragma mark - SPLTelnetLibDelegate
 
 - (void)telnetLibrary:(SPLTelnetLib *)library receivedMSSPData:(NSDictionary *)MSSPData {
-    if ([self.SSdelegate respondsToSelector:@selector(mudsocket:receivedMSSPData:)]) {
-        [self.SSdelegate mudsocket:self receivedMSSPData:MSSPData];
+    id del = self.delegate;
+    if ([del respondsToSelector:@selector(mudsocket:receivedMSSPData:)]) {
+        [del mudsocket:self receivedMSSPData:MSSPData];
     }
 }
 
@@ -317,9 +319,10 @@
             return;
         }
 
-        if ([self.SSdelegate respondsToSelector:@selector(mudsocket:didReceiveAttributedLineGroup:)]) {
+        id del = self.delegate;
+        if ([del respondsToSelector:@selector(mudsocket:didReceiveAttributedLineGroup:)]) {
             dispatch_async( dispatch_get_main_queue(), ^{
-                [self.SSdelegate mudsocket:self didReceiveAttributedLineGroup:group];
+                [del mudsocket:self didReceiveAttributedLineGroup:group];
             });
         }
     }];

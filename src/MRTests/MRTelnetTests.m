@@ -28,8 +28,8 @@
 
     stringCoderMock = OCMClassMock([SSStringCoder class]);
     telnetDelegateMock = OCMProtocolMock(@protocol(SPLTelnetLibDelegate));
-    sut = [[SPLTelnetLib alloc] initWithDelegate:(id <SPLTelnetLibDelegate>)telnetDelegateMock
-                                     stringCoder:(SSStringCoder *)stringCoderMock];
+    sut = [[SPLTelnetLib alloc] initWithStringCoder:(SSStringCoder *)stringCoderMock];
+    sut.delegate = (id <SPLTelnetLibDelegate>)telnetDelegateMock;
 
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kPrefSimpleTelnetMode];
 }

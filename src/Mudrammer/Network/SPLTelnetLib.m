@@ -238,12 +238,11 @@ CG_INLINE void SPLTelnetEventHandler(telnet_t *telnet,
 
 @implementation SPLTelnetLib
 
-- (instancetype)initWithDelegate:(id<SPLTelnetLibDelegate>)delegate stringCoder:(SSStringCoder *)stringCoder {
+- (instancetype)initWithStringCoder:(SSStringCoder *)stringCoder {
     if ((self = [super init])) {
         _shouldEchoText = YES;
         _ttypeIndex = 0;
         _spl_telnet_t = telnet_init(SPLTelOpts, SPLTelnetEventHandler, 0, (__bridge void *)self);
-        _delegate = delegate;
         _stringCoder = stringCoder;
     }
 

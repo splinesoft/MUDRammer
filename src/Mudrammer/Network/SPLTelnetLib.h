@@ -11,11 +11,17 @@
 @protocol SPLTelnetLibDelegate;
 @class SSStringCoder;
 
+/**
+ * SPLTelnetLib encompasses a complete telnet implementation, including
+ * data compression/decompression (via zlib), options negotiations,
+ * plus various MUD-specific protocols (MSSP).
+ *
+ * ALL OUTBOUND DATA SENT TO THE SERVER MUST FIRST PASS THROUGH SPLTelnetLib
+ * ALL DATA RECEIVED FROM THE SERVER MUST FIRST PASS THROUGH SPLTelnetLib
+ */
 @interface SPLTelnetLib : NSObject
 
-// Start here!
-- (instancetype) initWithDelegate:(id <SPLTelnetLibDelegate>)delegate
-                      stringCoder:(SSStringCoder *)stringCoder;
+- (instancetype) initWithStringCoder:(SSStringCoder *)stringCoder NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, weak) id <SPLTelnetLibDelegate> delegate;
 

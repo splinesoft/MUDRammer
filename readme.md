@@ -43,7 +43,7 @@ Additional `rake` tasks include:
 | `rake pods` | Installs CocoaPods. |
 | `rake setup` | Runs `rake gems` and `rake pods` and wipes the build output folder. |
 | `rake test` | Builds MUDRammer and runs all tests (minimalistic RSpec-style output). |
-| `rake lint` | Lints MUDRammer with various static analyzers. [FauxPas.app](http://fauxpasapp.com) is required for one of the linting steps. |
+| `rake lint` | Lints MUDRammer with various static analyzers. |
 | `rake code` | Generates and prints a single code redeemable on the iTunes store for a free copy of MUDRammer. |
 | `rake ws` | Strips trailing whitespace from all project source files. Requires [these Swift playgrounds](https://github.com/jhersh/playgrounds). |
 

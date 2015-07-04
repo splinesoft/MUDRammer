@@ -23,6 +23,15 @@ def project_directory
   "--project-directory=src"
 end
 
+def can_sh(cmd)
+  path = `which #{cmd}`.chomp
+  path[0] == "/"
+end
+
+def be(cmd)
+  sh "bundle exec #{cmd}"
+end
+
 desc 'Install the bundle and perform other setup'
 task :setup do
   
@@ -47,7 +56,7 @@ task :setup do
              "USERVOICE_FORUM_ID" ]
 
     keys.each do |key|
-      sh "bundle exec pod keys #{project_directory} set #{key} '-'"
+      be "pod keys #{project_directory} set #{key} '-'"
     end
   end
 
@@ -64,7 +73,7 @@ desc 'Install pods'
 task :pods do
   pod_version = `bundle exec pod --version`.chomp
   puts "Installing Pods (CocoaPods #{pod_version})".cyan
-  sh "bundle exec pod install #{project_directory}"
+  be "pod install #{project_directory}"
 end
 
 desc 'Build CI'
@@ -88,9 +97,9 @@ end
 
 desc 'Strips trailing whitespace in all project files. See https://github.com/jhersh/playgrounds'
 task :ws do 
-  ws = "xcrun swift ~/Dev/Playgrounds/SwiftSpace.playground/Contents.swift"
-  sh "cd src/Mudrammer && #{ws}"
-  sh "cd src/MRTests && #{ws}"
+  [ 'src/Mudrammer', 'src/MRTests' ].each do |dir|
+    sh "cd #{dir} && xcrun swift ~/Dev/Playgrounds/SwiftSpace.playground/Contents.swift"
+  end
 end
 
 desc 'Lints MUDRammer with various static analyzers'
@@ -99,10 +108,14 @@ task :lint do
   puts "Linting MUDRammer...\n".cyan
   FileUtils.mkdir_p 'output'
 
-  sh "/usr/local/bin/cloc --exclude-dir=Pods --quiet --sum-one src"
+  if can_sh "cloc"
+    sh "cloc --exclude-dir=Pods --quiet --sum-one src"
+  else
+    puts "`brew install cloc` to enable LOC counting."
+  end
   
   puts "\nFinding CocoaPods updates...".cyan
-  sh "bundle exec pod outdated #{project_directory}"
+  be "pod outdated #{project_directory}"
 
   puts "\nFinding potentially unused imports...".cyan
   puts `bundle exec fui --path src/Mudrammer find`
@@ -112,19 +125,23 @@ task :lint do
   puts `bundle exec obcd --path src/MRTests find HeaderStyle`
 
   puts "\nLinting with FauxPas...".cyan
-  lint_log = ""
-  
-  if is_circle
-    lint_log = "$CIRCLE_ARTIFACTS/fauxpas.txt"
-  else
-    lint_log = "output/fauxpas.txt"
-  end
-  
-  sh "/usr/local/bin/fauxpas -t MUDRammer -b Debug -o human "+
-     "--minErrorStatusSeverity None check src/Mudrammer.xcodeproj 2>/dev/null > #{lint_log}"
-     
-  puts "Wrote FauxPas lint results to #{lint_log}".cyan
 
+  if can_sh "fauxpas"
+    lint_log = ""
+    
+    if is_circle
+      lint_log = "$CIRCLE_ARTIFACTS/fauxpas.txt"
+    else
+      lint_log = "output/fauxpas.txt"
+    end
+    
+    sh "fauxpas -t MUDRammer -b Debug -o human "+
+       "--minErrorStatusSeverity None check src/Mudrammer.xcodeproj 2>/dev/null > #{lint_log}"
+       
+    puts "Wrote FauxPas lint results to #{lint_log}".cyan
+  else
+    puts "Install FauxPas.app (fauxpasapp.com) to enable FauxPas linting."
+  end
 end
 
 desc 'Run lint and tests'
@@ -132,12 +149,12 @@ task :ci do
   Rake::Task["setup"].execute
   Rake::Task["test"].execute
   Rake::Task["lint"].execute
-  sh "bundle exec slather"
+  be "slather"
 end
 
 desc 'Generate and print a single redemption code for a free copy of MUDRammer'
 task :code do
-  sh "bundle exec codes 1 "+
+  be "codes 1 "+
   "-u admin@splinesoft.net "+
   "-a com.splinesoft.theMUDRammer "+
   "-o code.txt --urls"

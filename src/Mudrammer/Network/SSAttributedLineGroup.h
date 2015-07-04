@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, SSLineGroupCommandType) {
 
 - (instancetype) initWithCommand:(SSLineGroupCommandType)command
                          number1:(NSUInteger)number1
-                         number2:(NSUInteger)number2 NS_DESIGNATED_INITIALIZER;
+                         number2:(NSUInteger)number2;
 
 + (instancetype) commandWithBody:(NSString *)commandBody
                          endCode:(NSString *)endCode;

@@ -166,6 +166,7 @@
         case SSApplicationEventWillEnterForeground:
         case SSApplicationEventDidEnterBackground:
         case SSApplicationEventWillResignActive:
+        case SSApplicationEventDidReceiveMemoryWarning:
 
             break;
 
@@ -175,9 +176,6 @@
 
             [MagicalRecord cleanUp];
 
-            break;
-
-        default:
             break;
     }
 }

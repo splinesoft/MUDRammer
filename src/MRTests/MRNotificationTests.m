@@ -30,10 +30,6 @@
     manager = nil;
 }
 
-- (void)testUsesNewNotificationSystem {
-    XCTAssertTrue(manager.usesNewNotificationSystem, @"Should be running on 8+");
-}
-
 - (void)testRegisteringForNotifications {
     XCTAssertFalse(manager.askedForLocalNotifications, @"Should initially not notify");
     XCTAssertNil(manager.userNotificationSettings, @"Should not have settings to start");

@@ -55,13 +55,16 @@
         if ([entryCell.textField.placeholder length] > 0) {
             UIColor *attColor = [self.entryTextColorEnabled colorWithAlphaComponent:0.7f];
 
-            NSAttributedString *attributedPlaceHolder = [[NSAttributedString alloc] initWithString:entryCell.textField.placeholder
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullable-to-nonnull-conversion"
+            NSAttributedString *attributedPlaceHolder = [[NSAttributedString alloc] initWithString:(entryCell.textField.placeholder ?: @"")
                                                                                         attributes:@{
                                                                                              NSFontAttributeName : entryCell.textField.font,
                                                                                              NSForegroundColorAttributeName : attColor,
                                                                                              NSUnderlineStyleAttributeName : @1,
                                                                                              NSUnderlineColorAttributeName : attColor,
                                                                                         }];
+#pragma clang diagnostic pop
 
             [entryCell.textField setAttributedPlaceholder:attributedPlaceHolder];
         }

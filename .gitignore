@@ -3,6 +3,7 @@
 
 xcuserdata
 *.xccheckout
+*.gcno
 
 src/build
 .gitattributes

@@ -1,6 +1,10 @@
 #import "DTCustomColoredAccessory.h"
 
 @implementation DTCustomColoredAccessory
+{
+    UIColor *_accessoryColor;
+    UIColor *_highlightedColor;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {

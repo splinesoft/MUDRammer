@@ -13,9 +13,12 @@
 #import "NSScanner+SPLAdditions.h"
 #import "NSData+SPLDataParsing.h"
 
-NSString * const kANSIRegex = @"(?s)(?:\e\\[(?:(\\d+)?;?)*([A-Za-z])(.*?))(?=\e\\[|\\z)";
+static NSString * const kANSIRegex = @"(?s)(?:\e\\[(?:(\\d+)?;?)*([A-Za-z])(.*?))(?=\e\\[|\\z)";
 
 #pragma mark - Color helpers
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch-enum"
 
 CG_INLINE BOOL SPLCodesAreXTermSequence(NSInteger code1, NSInteger code2) {
     return (code2 == SPLSGRCodeXTermMarker2 && (code1 == SPLSGRCodeXTermForeground || code1 == SPLSGRCodeXTermBackground));
@@ -918,5 +921,7 @@ CG_INLINE SPLSGRCode SPLIntenseColorForColor(SPLSGRCode color) {
         DLog(@"no xterm color?");
     }
 }
+
+#pragma clang diagnostic pop
 
 @end

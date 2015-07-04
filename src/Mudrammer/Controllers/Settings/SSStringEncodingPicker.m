@@ -63,9 +63,10 @@
         [SSThemes configureCell:cell];
 
         cell.textLabel.text = encoding.localizedName;
+        
+        NSString *currentEncoding = [[NSUserDefaults standardUserDefaults] stringForKey:kPrefStringEncoding] ?: @"ASCII";
 
-        cell.accessoryType = ([encoding.localizedName isEqualToString:[[NSUserDefaults standardUserDefaults]
-                                                                       stringForKey:kPrefStringEncoding]]
+        cell.accessoryType = ([encoding.localizedName isEqualToString:currentEncoding]
                               ? UITableViewCellAccessoryCheckmark
                               : UITableViewCellAccessoryNone);
     };

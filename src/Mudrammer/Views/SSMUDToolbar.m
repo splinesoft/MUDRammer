@@ -240,7 +240,7 @@ UIEdgeInsets const kToolbarInsets = (UIEdgeInsets) { 4, 8, 4, 8 };
     }
 }
 
-- (void)textViewDidChange:(SSGrowingTextView *)textView {
+- (void)textViewDidChange:(UITextView *)textView {
     NSString *text = textView.text;
 
     self.stashButton.enabled = ([self.stashButton stashContainsText] || [text length] > 0);

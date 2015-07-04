@@ -31,7 +31,12 @@
 #define kArrowHeight	10.0f
 
 
-@implementation CMUpDownControl
+@implementation CMUpDownControl {
+    
+    BOOL _selected;
+    BOOL _topHalfSelected;
+    BOOL _touchNeedsDisplay;
+}
 
 @synthesize maximumAllowedValue, minimumAllowedValue, value;
 

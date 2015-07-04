@@ -9,8 +9,8 @@
 #import "SSGrowingTextView.h"
 #import "SSClientViewController+Interactions.h"
 
-UIEdgeInsets const kContentInset = (UIEdgeInsets) { 0, 0, 0, 0 };
-UIEdgeInsets const kTextContainerInset = (UIEdgeInsets) { 4, 4, 2, 4 };
+static UIEdgeInsets const kContentInset = (UIEdgeInsets) { 0, 0, 0, 0 };
+static UIEdgeInsets const kTextContainerInset = (UIEdgeInsets) { 4, 4, 2, 4 };
 
 @interface SSGrowingTextView ()
 

@@ -177,7 +177,10 @@
         return 1;
     }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
     return 1 + (NSUInteger)SPLFloat_ceil(self.contentOffset.y / CGRectGetHeight(self.bounds));
+#pragma clang diagnostic pop
 }
 
 - (NSUInteger)SPLNumberOfPages {
@@ -189,7 +192,10 @@
         return 1;
     }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
     return (NSUInteger)SPLFloat_ceil(self.contentSize.height / CGRectGetHeight(self.bounds));
+#pragma clang diagnostic pop
 }
 
 - (NSString *)SPLCurrentPageString {

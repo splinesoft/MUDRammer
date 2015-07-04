@@ -20,7 +20,7 @@ NSString * const kANSIEscapeSGREnd = @"m";
 + (instancetype) colorForSGRCode:(SPLSGRCode)code
                     defaultColor:(UIColor *)defaultColor {
 
-    switch(code) {
+    switch (code) {
         case SPLSGRCodeFgBlack:
             return ([[SSThemes sharedThemer] isUsingDarkTheme] ? defaultColor : [UIColor blackColor]);
         case SPLSGRCodeFgRed:

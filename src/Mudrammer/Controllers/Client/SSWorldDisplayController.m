@@ -13,7 +13,6 @@
 #import <Masonry.h>
 #import "SPLCheckMarkView.h"
 
-CGFloat const kWorldHeaderHeight = 20.0f;
 CGFloat const kWorldDisplayWidth = 220;
 static NSUInteger const kAddWorldRowId = 1337;
 
@@ -167,7 +166,7 @@ forHeaderFooterViewReuseIdentifier:[SSBaseHeaderFooterView identifier]];
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
 
@@ -510,7 +509,7 @@ forHeaderFooterViewReuseIdentifier:[SSBaseHeaderFooterView identifier]];
         case SPLClientStatusConnectedUnread:
             return [SPLImagesCatalog connectBlueImage];
 
-        default:
+        case SPLClientStatusNoClient:
             return nil;
     }
 }

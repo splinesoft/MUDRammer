@@ -51,7 +51,10 @@
 
 @implementation SSMUDSocket
 
-#pragma mark - init
+- (instancetype)init {
+    self = [self initWithSocket:nil];
+    return self;
+}
 
 - (instancetype)initWithSocket:(GCDAsyncSocket *)socket {
 
@@ -247,7 +250,7 @@
     [sock readFromSocket];
 }
 
-- (void)socketDidDisconnect:(SSMUDSocket *)sock withError:(NSError *)err {
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     @weakify(self);
     [self.parsingQueue ss_addBlockOperationWithBlock:^(SSBlockOperation *operation) {
         @strongify(self);
@@ -275,7 +278,7 @@
     [sock readFromSocket];
 }
 
-- (void)socket:(SSMUDSocket *)sock didWriteDataWithTag:(long)tag {
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
     // anything to do here?
 }
 

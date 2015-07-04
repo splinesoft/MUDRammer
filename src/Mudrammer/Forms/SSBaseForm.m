@@ -26,7 +26,7 @@
 
 #pragma mark - form elements
 
-- (QElement *)firstTextField {
+- (QEntryElement *)firstTextField {
   for( NSUInteger section = 0; section < [self.sections count]; section++ ) {
     QSection *sec = self.sections[section];
 
@@ -35,7 +35,7 @@
 
       if( ( [currentElement isKindOfClass:[QEntryElement class]]
             && ![currentElement isKindOfClass:[QPickerElement class]] ) )
-        return currentElement;
+        return (QEntryElement *)currentElement;
     }
   }
 

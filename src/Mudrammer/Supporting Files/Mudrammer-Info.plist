@@ -13,7 +13,7 @@
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>com.splinesoft.theMUDRammer</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -62,8 +62,8 @@
 		<string>lekton.ttf</string>
 		<string>mplus-1m-regular.ttf</string>
 		<string>AndaleMono.ttf</string>
-        <string>skyhookmono.ttf</string>
-        <string>FiraMono.ttf</string>
+		<string>skyhookmono.ttf</string>
+		<string>FiraMono.ttf</string>
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>

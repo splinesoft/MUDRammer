@@ -16,6 +16,9 @@
 #import "SSTextEntryCell.h"
 #import <Masonry.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch-enum"
+
 @interface SSAdvSettingsController ()
 
 @property (nonatomic, strong) SSSectionedDataSource *dataSource;
@@ -343,5 +346,7 @@
 
     }
 }
+
+#pragma clang diagnostic pop
 
 @end

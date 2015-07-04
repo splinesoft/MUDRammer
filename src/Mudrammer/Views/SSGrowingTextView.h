@@ -18,7 +18,7 @@
 @property (nonatomic, weak) id <UITextViewDelegate, SSGrowingTextViewDelegate> textDelegate;
 
 - (instancetype) initWithFrame:(CGRect)frame
-                 textContainer:(NSTextContainer *)textContainer NS_DESIGNATED_INITIALIZER;
+                 textContainer:(NSTextContainer *)textContainer;
 
 @property (nonatomic, readonly) CGSize currentContentSize;
 

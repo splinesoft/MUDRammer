@@ -7,9 +7,16 @@
 //
 
 @import UIKit;
+@import SafariServices;
 
-@interface UINavigationController (SPLAdditions)
+@class SPLHandoffWebViewController;
+
+@interface UINavigationController (SPLAdditions) <SFSafariViewControllerDelegate>
 
 @property (nonatomic, readonly) BOOL SPLNavigationIsAtRoot;
+
+// Create and push onto the navigation stack a web view controller
+// for the specified URL.
+- (UIViewController *) SPLPresentWebViewControllerForURL:(NSURL *)url;
 
 @end

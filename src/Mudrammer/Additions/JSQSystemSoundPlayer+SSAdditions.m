@@ -38,10 +38,10 @@
             self.soundName];
 }
 
-- (BOOL)isEqual:(SSSound *)object {
+- (BOOL)isEqual:(id)object {
     return [object isKindOfClass:[SSSound class]]
-        && [object.soundName isEqualToString:self.soundName]
-        && [object.fileName isEqualToString:self.fileName];
+        && [((SSSound *)object).soundName isEqualToString:self.soundName]
+        && [((SSSound *)object).fileName isEqualToString:self.fileName];
 }
 
 - (NSUInteger)hash {

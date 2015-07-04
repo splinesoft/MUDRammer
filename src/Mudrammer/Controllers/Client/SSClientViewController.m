@@ -29,7 +29,6 @@
 #import "SSClientViewController+Interactions.h"
 #import "SSTextTableView.h"
 #import "SSTGAEditor.h"
-#import "SPLHandoffWebViewController.h"
 #import "SPLTimerManager.h"
 
 #define kObservedProperties         @[ kThemeFontSize, kThemeFontName ]
@@ -334,10 +333,16 @@ typedef void (^SPLSettingsCloseBlock) (void);
     [self updateWorldToolbar];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-
-    [self sendNAWS];
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    [super viewWillTransitionToSize:size
+          withTransitionCoordinator:coordinator];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
+        [self sendNAWS];
+    });
 }
 
 - (void)setNavVisible:(BOOL)visible {

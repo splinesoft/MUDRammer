@@ -9,13 +9,13 @@
 #import "SSStashButton.h"
 
 @interface SSStashButton ()
+
+@property (nonatomic, copy) NSString *stashedText;
+
 - (void) buttonTapped:(id)sender;
 @end
 
 @implementation SSStashButton
-{
-    NSString *stashedText;
-}
 
 + (instancetype)stashButton {
     SSStashButton *button = [SSStashButton buttonWithType:UIButtonTypeCustom];
@@ -40,17 +40,17 @@
 }
 
 - (BOOL)stashContainsText {
-    return [stashedText length] > 0;
+    return [self.stashedText length] > 0;
 }
 
 - (void)buttonTapped:(id)sender {
     id del = self.delegate;
 
     if ([del respondsToSelector:@selector(stashButton:didTapStash:)]) {
-        stashedText = [del stashButton:self
-                           didTapStash:stashedText];
+        _stashedText = [del stashButton:self
+                            didTapStash:self.stashedText];
 
-        UIImage *img = ( [stashedText length] > 0
+        UIImage *img = ( [self.stashedText length] > 0
                          ? [SPLImagesCatalog stashFullImage]
                          : [SPLImagesCatalog stashEmptyImage] );
 

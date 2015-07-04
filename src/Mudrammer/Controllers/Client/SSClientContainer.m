@@ -13,7 +13,6 @@
 #import "SSClientViewController.h"
 #import "SSWorldDisplayController.h"
 #import "SSRadialControl.h"
-#import "SPLHandoffWebViewController.h"
 #import "SPLAlerts.h"
 #import <FBKVOController.h>
 #import <IFTTTSplashView.h>
@@ -164,12 +163,10 @@
                                  }];
             }
         } else {
-            SPLHandoffWebViewController *webView = [[SPLHandoffWebViewController alloc] initWithURL:url];
-
             [[[SSClientContainer worldDisplayDrawer] currentVisibleClient] hideKeyboard];
 
-            [[[SSClientContainer worldDisplayDrawer] currentVisibleClient].navigationController pushViewController:webView
-                                                                                                          animated:YES];
+            [[[SSClientContainer worldDisplayDrawer] currentVisibleClient].navigationController
+             SPLPresentWebViewControllerForURL:url];
         }
     });
 }

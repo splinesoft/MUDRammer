@@ -43,7 +43,7 @@
 @property (nonatomic, copy, readonly) NSString * soundName;
 
 - (instancetype) initWithFileName:(NSString *)fileName
-                        soundName:(NSString *)soundName NS_DESIGNATED_INITIALIZER;
+                        soundName:(NSString *)soundName;
 
 + (NSComparator) soundNameComparator;
 

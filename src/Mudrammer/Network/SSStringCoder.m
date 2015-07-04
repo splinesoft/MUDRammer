@@ -10,9 +10,10 @@
 
 @implementation SSStringCoder
 
-- (instancetype)init {
-    if ((self = [super init])) {
-        // Setup encodings
++ (NSArray *)availableStringEncodings {
+    static NSArray *_encodings;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         NSMutableArray *arr = [NSMutableArray array];
         const NSStringEncoding *availableEncodings = [NSString availableStringEncodings];
 
@@ -35,9 +36,9 @@
 
         // Custom NSStringEncodings
         NSDictionary *NSEncodings = @{
-             @"ASCII" : @(NSASCIIStringEncoding),
-             @"CP1251 (Cyrillic)" : @(NSWindowsCP1251StringEncoding),
-             @"ISO 2022 (Japanese)" : @(NSISO2022JPStringEncoding),
+          @"ASCII" : @(NSASCIIStringEncoding),
+          @"CP1251 (Cyrillic)" : @(NSWindowsCP1251StringEncoding),
+          @"ISO 2022 (Japanese)" : @(NSISO2022JPStringEncoding),
         };
 
         [NSEncodings enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSNumber *encoding, BOOL *stop) {
@@ -48,23 +49,23 @@
 
         // CFStringEncodings
         NSDictionary *CFEncodings = @{
-             @"Big5 (Chinese)" : @(kCFStringEncodingBig5),
-             @"KOI8 (Russian)" : @(kCFStringEncodingKOI8_R),
-             @"EUCKR (Korean)" : @(kCFStringEncodingEUC_KR),
-             @"EUC JP" : @(kCFStringEncodingEUC_JP),
-             @"GB (Chinese)"   : @(kCFStringEncodingEUC_CN),
-             @"HZ GB (Chinese)" : @(kCFStringEncodingHZ_GB_2312),
-             @"Latin 1 (ISO-8859)" : @(kCFStringEncodingISOLatin1),
+          @"Big5 (Chinese)" : @(kCFStringEncodingBig5),
+          @"KOI8 (Russian)" : @(kCFStringEncodingKOI8_R),
+          @"EUCKR (Korean)" : @(kCFStringEncodingEUC_KR),
+          @"EUC JP" : @(kCFStringEncodingEUC_JP),
+          @"GB (Chinese)"   : @(kCFStringEncodingEUC_CN),
+          @"HZ GB (Chinese)" : @(kCFStringEncodingHZ_GB_2312),
+          @"Latin 1 (ISO-8859)" : @(kCFStringEncodingISOLatin1),
 
-             // DOS
-             @"DOS Latin (CP 437)" : @(kCFStringEncodingDOSLatinUS),
-             @"DOS Korean (CP 949)" : @(kCFStringEncodingDOSKorean),
-             @"DOS Japanese (CP 932)" : @(kCFStringEncodingDOSJapanese),
-             @"DOS Chinese Simplified (CP 936)" : @(kCFStringEncodingDOSChineseSimplif),
-             @"DOS Chinese Traditional (CP 950)" : @(kCFStringEncodingDOSChineseTrad),
-             @"DOS Hebrew (CP 862)" : @(kCFStringEncodingDOSHebrew),
-             @"DOS Greek (CP 737)" : @(kCFStringEncodingDOSGreek),
-             @"DOS Russian (CP 866)" : @(kCFStringEncodingDOSRussian),
+          // DOS
+          @"DOS Latin (CP 437)" : @(kCFStringEncodingDOSLatinUS),
+          @"DOS Korean (CP 949)" : @(kCFStringEncodingDOSKorean),
+          @"DOS Japanese (CP 932)" : @(kCFStringEncodingDOSJapanese),
+          @"DOS Chinese Simplified (CP 936)" : @(kCFStringEncodingDOSChineseSimplif),
+          @"DOS Chinese Traditional (CP 950)" : @(kCFStringEncodingDOSChineseTrad),
+          @"DOS Hebrew (CP 862)" : @(kCFStringEncodingDOSHebrew),
+          @"DOS Greek (CP 737)" : @(kCFStringEncodingDOSGreek),
+          @"DOS Russian (CP 866)" : @(kCFStringEncodingDOSRussian),
         };
 
         [CFEncodings enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSNumber *encoding, BOOL *stop) {
@@ -75,16 +76,16 @@
 
         [arr sortUsingComparator:[SSStringEncoding encodingComparator]];
 
-        _encodings = [arr copy];
-    }
+        _encodings = [NSArray arrayWithArray:arr];
+    });
 
-    return self;
+    return _encodings;
 }
 
 #pragma mark - Encoding access
 
-- (SSStringEncoding *)encodingFromLocalizedEncodingName:(NSString *)name {
-    for (SSStringEncoding *encoding in _encodings) {
++ (SSStringEncoding *)encodingFromLocalizedEncodingName:(NSString *)name {
+    for (SSStringEncoding *encoding in [self availableStringEncodings]) {
         if ([encoding.localizedName isEqualToString:name])
             return encoding;
     }
@@ -97,7 +98,7 @@
 }
 
 - (SSStringEncoding *)currentStringEncoding {
-    return [self encodingFromLocalizedEncodingName:
+    return [self.class encodingFromLocalizedEncodingName:
             [[NSUserDefaults standardUserDefaults]
              stringForKey:kPrefStringEncoding]];
 }

@@ -84,7 +84,7 @@
 - (BOOL)connectToHostname:(NSString *)hostname
                    onPort:(NSUInteger)port
                     error:(NSError *__autoreleasing *)error {
-    
+
     return [self.socket connectToHost:hostname
                                onPort:(uint16_t)port
                           withTimeout:30
@@ -194,7 +194,7 @@
 - (void)socketDidSecure:(GCDAsyncSocket *)sock {
     SSAttributedLineGroup *secureLine = [SSAttributedLineGroup lineGroupWithAttributedString:
                                          [NSAttributedString worldStringForString:NSLocalizedString(@"SSL_SUCCESS", nil)]];
-    
+
     id del = self.delegate;
     dispatch_async(dispatch_get_main_queue(), ^{
         [del mudsocket:self didReceiveAttributedLineGroup:secureLine];

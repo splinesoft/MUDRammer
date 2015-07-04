@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _dataSource = [[SSArrayDataSource alloc] initWithItems:self.coder.encodings];
+    _dataSource = [[SSArrayDataSource alloc] initWithItems:[SSStringCoder availableStringEncodings]];
     _dataSource.cellClass = [SSBaseTableCell class];
     _dataSource.tableActionBlock = ^BOOL(SSCellActionType action,
                                          UITableView *tableView,
@@ -84,7 +84,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SSStringEncoding *currentEncoding = [self.coder currentStringEncoding];
-    SSStringEncoding *newEncoding = [_dataSource itemAtIndexPath:indexPath];
+    SSStringEncoding *newEncoding = [self.dataSource itemAtIndexPath:indexPath];
 
     DLog(@"selected %@", newEncoding);
 

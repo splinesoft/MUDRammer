@@ -13,12 +13,12 @@
 @interface SSStringCoder : NSObject
 
 // All available string encodings; an array of SSStringEncoding.
-@property (nonatomic, strong, readonly) NSArray *encodings;
++ (NSArray *) availableStringEncodings;
 
 /**
- * Given a localized name, return the SSStringEncoding object.
+ * Given a localized name, return an SSStringEncoding object matching the name or nil if not found.
  */
-- (SSStringEncoding *) encodingFromLocalizedEncodingName:(NSString *)name;
++ (SSStringEncoding *) encodingFromLocalizedEncodingName:(NSString *)name;
 
 /**
  * Read our preference key in NSUserDefaults and return an SSStringEncoding object.

@@ -49,7 +49,7 @@
 - (void)testSocketConnectSendsConnectAndSSLCheck {
     [[mockSocketDelegate expect] mudsocketDidConnectToHost:sut];
     [[mockSocketDelegate expect] mudsocketShouldAttemptSSL:sut];
-    
+
     [sut socket:socket didConnectToHost:@"nanvaent.org" port:23];
     [sut socket:socket didReadData:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] withTag:0];
 

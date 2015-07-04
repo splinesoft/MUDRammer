@@ -24,7 +24,7 @@
 - (void)setUp {
     [super setUp];
     sut = [SSStringCoder new];
-    asciiCoding = [sut encodingFromLocalizedEncodingName:@"ASCII"];
+    asciiCoding = [SSStringCoder encodingFromLocalizedEncodingName:@"ASCII"];
     testStr = @"Hello World";
     testData = [testStr dataUsingEncoding:NSASCIIStringEncoding];
 }
@@ -35,7 +35,7 @@
 }
 
 - (void)testHasDefaultEncodings {
-    expect(sut.encodings.count).to.beGreaterThan(0);
+    expect([SSStringCoder availableStringEncodings].count).to.beGreaterThan(0);
     expect(asciiCoding).toNot.beNil();
 }
 

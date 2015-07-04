@@ -12,7 +12,6 @@
 
 + (NSString *) applicationCopyright;
 + (NSString *) applicationExtras;
-
 + (NSString *) applicationFullAbout;
 
 @end

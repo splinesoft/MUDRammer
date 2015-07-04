@@ -11,10 +11,6 @@
 
 @interface UIViewController (Additions)
 
-- (BOOL) shouldAutorotate;
-
-- (NSUInteger) supportedInterfaceOrientations;
-
 - (BOOL) isViewVisible;
 
 // Wraps with a UINavigationController

@@ -10,14 +10,6 @@
 
 @implementation UIViewController (Additions)
 
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
 - (BOOL)isViewVisible {
     return [self isViewLoaded] && self.view.window;
 }

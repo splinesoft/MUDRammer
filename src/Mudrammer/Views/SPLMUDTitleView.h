@@ -15,7 +15,7 @@
 
 @interface SPLMUDTitleView : UIView
 
-- (instancetype) initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithFrame:(CGRect)frame;
 
 /**
  *  Set or update the MSSP data available.

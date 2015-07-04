@@ -10,15 +10,15 @@
 #import <Masonry.h>
 #import <TTTAttributedLabel.h>
 
-CGFloat const kControlRadius = 60.0f;
-CGSize const kControlSize = (CGSize) { 80, 80 };
+static CGFloat const kControlRadius = 60.0f;
+static CGSize const kControlSize = (CGSize) { 80, 80 };
 
 // Minimum drag distance to trigger an update
 #define kMinRadius       SPLFloat_floor( kControlRadius / 2.0f )
 
-CGFloat const kAlphaActive = 1.0f;
-CGFloat const kAlphaInactive = 0.2f;
-CGFloat const kFadeDuration = 0.15f;
+static CGFloat const kAlphaActive = 1.0f;
+static CGFloat const kAlphaInactive = 0.2f;
+static CGFloat const kFadeDuration = 0.15f;
 
 @interface SSRadialControl ()
 
@@ -190,7 +190,10 @@ NSInteger PointsToDegree( CGPoint a, CGPoint b, CGPoint c )
 
     CGFloat alpha = (CGFloat)atan2(cross, dot);
 
-    return (NSInteger) floor(alpha * 180. / M_PI + 0.5);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
+    return (NSInteger) SPLFloat_floor(alpha * 180. / M_PI + 0.5);
+#pragma clang diagnostic pop
 }
 
 - (NSUInteger) currentSector {
@@ -225,9 +228,12 @@ NSInteger PointsToDegree( CGPoint a, CGPoint b, CGPoint c )
     CGFloat sectorWidth = 360.0f / sectors,
             halfSector  = sectorWidth / 2.0f;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
     deg = (deg + (NSInteger)SPLFloat_floor(halfSector)) % 360;
 
     return (NSUInteger) SPLFloat_floor( deg / sectorWidth );
+#pragma clang diagnostic pop
 }
 
 #pragma mark - enabling
@@ -294,7 +300,7 @@ NSInteger PointsToDegree( CGPoint a, CGPoint b, CGPoint c )
 - (void)didPan:(UIPanGestureRecognizer *)sender {
     id del = self.delegate;
 
-    switch( sender.state ) {
+    switch (sender.state) {
         case UIGestureRecognizerStateBegan:
         {
             self.directionLabel.text = nil;
@@ -382,7 +388,7 @@ NSInteger PointsToDegree( CGPoint a, CGPoint b, CGPoint c )
 
             break;
         }
-        default:
+        case UIGestureRecognizerStatePossible:
             break;
     }
 }

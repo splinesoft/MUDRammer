@@ -26,12 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CMUpDownControl : UIControl {
-
-	BOOL _selected;
-	BOOL _topHalfSelected;
-	BOOL _touchNeedsDisplay;
-}
+@interface CMUpDownControl : UIControl
 
 @property (nonatomic, assign)	NSInteger		maximumAllowedValue;
 @property (nonatomic, assign)	NSInteger		minimumAllowedValue;

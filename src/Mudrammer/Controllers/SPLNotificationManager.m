@@ -18,23 +18,16 @@
     return self;
 }
 
-- (BOOL)usesNewNotificationSystem {
-    return ([UIUserNotificationSettings class] != nil);
-}
-
 - (void)registerForLocalNotifications {
     if (self.askedForLocalNotifications) {
         DLog(@"*** Already asked for perms");
         return;
     }
 
-    if ([self usesNewNotificationSystem]) {
-        DLog(@"Using new settings");
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound
-                                                                                 categories:nil];
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound
+                                                                             categories:nil];
 
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 
     _askedForLocalNotifications = YES;
 }

@@ -106,8 +106,12 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
 
                  dispatch_sync(dispatch_get_main_queue(), ^{
                      UITableView *tableView = self.tableView;
-                     [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows]
-                                      withRowAnimation:UITableViewRowAnimationFade];
+                     NSArray *visibleRows = [tableView indexPathsForVisibleRows];
+                     
+                     if ([visibleRows count] > 0) {
+                         [tableView reloadRowsAtIndexPaths:visibleRows
+                                          withRowAnimation:UITableViewRowAnimationFade];
+                     }
                  });
              }];
          }];
@@ -143,8 +147,12 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
 
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     UITableView *tableView = self.tableView;
-                    [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows]
-                                     withRowAnimation:UITableViewRowAnimationFade];
+                    NSArray *visibleRows = [tableView indexPathsForVisibleRows];
+                    
+                    if ([visibleRows count] > 0) {
+                        [tableView reloadRowsAtIndexPaths:visibleRows
+                                         withRowAnimation:UITableViewRowAnimationFade];
+                    }
                 });
             }];
         };
@@ -323,6 +331,8 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
             NSMutableIndexSet *insertIndexes = [NSMutableIndexSet indexSet];
             NSMutableIndexSet *deleteIndexes = [NSMutableIndexSet indexSet];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullable-to-nonnull-conversion"
             for (NSNumber *row in sortedRows) {
                 NSUInteger index = [row unsignedIntegerValue];
 
@@ -343,6 +353,7 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
                     [insertItems addObject:self.changeDictionary[row]];
                 }
             }
+#pragma clang diagnostic pop
 
 //            DLog(@"%@\n%@ %@\n%@ %@\n%@ %@",
 //                 deleteIndexes,
@@ -692,7 +703,10 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
 
     // offset from the top of the screen, not the start of the scroll history
     NSUInteger rowOffset = (NSUInteger)position.vertical;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
     NSUInteger screenRows = (NSUInteger)SPLFloat_floor(tableSize.height);
+#pragma clang diagnostic pop
 
     if (rowOffset > screenRows) {
         rowOffset = screenRows;
@@ -715,7 +729,11 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
         columnIndex = (NSUInteger)screenSize.width;
     }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
     NSUInteger screenRows = (NSUInteger)SPLFloat_floor(screenSize.height);
+#pragma clang diagnostic pop
+    
     NSUInteger minimumRow;
 
     if ([self numberOfItems] > screenRows) {

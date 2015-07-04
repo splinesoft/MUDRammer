@@ -78,7 +78,14 @@
         case SSLineGroupCommandDisplayClear:
         case SSLineGroupCommandLineClear:
             return YES;
-        default:
+        case SSLineGroupCommandCursorDown:
+        case SSLineGroupCommandCursorHorizontalAbsolute:
+        case SSLineGroupCommandCursorLeft:
+        case SSLineGroupCommandCursorNextLine:
+        case SSLineGroupCommandCursorPosition:
+        case SSLineGroupCommandCursorPreviousLine:
+        case SSLineGroupCommandCursorRight:
+        case SSLineGroupCommandCursorUp:
             return NO;
     }
 }

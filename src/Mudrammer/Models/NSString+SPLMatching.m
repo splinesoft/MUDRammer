@@ -8,9 +8,9 @@
 
 #import "NSString+SPLMatching.h"
 
-NSString * const kPatternRandom = @"\\#(\\d{1,6})\\#";
-NSString * const kPatternCommandIndex = @"\\$\\d{1,2}(\\$)?";
-NSString * const kPatternWord = @"\\b(\\w)+(\\$)?\\b";
+static NSString * const kPatternRandom = @"\\#(\\d{1,6})\\#";
+static NSString * const kPatternCommandIndex = @"\\$\\d{1,2}(\\$)?";
+static NSString * const kPatternWord = @"\\b(\\w)+(\\$)?\\b";
 
 static NSRegularExpression *patternLocationMatcher;
 static NSRegularExpression *randomRegex;

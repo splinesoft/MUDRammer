@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E004D9F194D522A00EE1448 /* SPLImagesCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E004D9E194D522A00EE1448 /* SPLImagesCatalog.m */; };
+		5E004D9F194D522A00EE1448 /* SPLImagesCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E004D9E194D522A00EE1448 /* SPLImagesCatalog.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body"; }; };
 		5E004DA4194D53DA00EE1448 /* SSANSIEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E004DA1194D53DA00EE1448 /* SSANSIEngine.m */; };
 		5E004DA5194D53DA00EE1448 /* SSAttributedLineGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E004DA3194D53DA00EE1448 /* SSAttributedLineGroup.m */; };
 		5E004DA8194D543300EE1448 /* SSThemes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E004DA7194D543300EE1448 /* SSThemes.m */; };
@@ -1238,7 +1238,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SPL;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "splinesoft LLC";
 				TargetAttributes = {
 					5E4F3CCD198D98650041A436 = {
@@ -1693,6 +1693,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MRTests/MRTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.splinesoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1726,6 +1727,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MRTests/MRTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.splinesoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1742,6 +1744,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1843,8 +1846,81 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "Mudrammer/Supporting Files/Mudrammer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/ARAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/DAKeyboardControl\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Expecta\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FXForms\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/HockeySDK-Source\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/IFTTTLaunchImage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JASidePanels\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JSQSystemSoundPlayer\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JTSImageViewController\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/KVOController\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Keys\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord/MagicalRecord\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MyLilTimer\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/OSCache\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/QuickDialog\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SAMRateLimit\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SPLCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SPLUserActivity\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSAccessibility\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSApplication\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSDataSources\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SSOperations\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TOWebViewController\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/VTAcknowledgementsViewController\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/libextobjc\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/libtelnet\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/uservoice-iphone-sdk\"",
+					"-fsanitize=address",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splinesoft.theMUDRammer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1859,6 +1935,17 @@
 					"-Wfloat-equal",
 					"-Wbridge-cast",
 					"-Wnewline-eof",
+					"-Weverything",
+					"-Wno-auto-import",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-direct-ivar-access",
+					"-Wno-assign-enum",
+					"-Wno-gnu-statement-expression",
+					"-Wno-implicit-retain-self",
+					"-Wno-cast-qual",
+					"-Wno-cstring-format-directive",
+					"-Wno-pedantic",
+					"-Wno-switch-enum",
 				);
 				WRAPPER_EXTENSION = app;
 			};
@@ -1920,7 +2007,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "Mudrammer/Supporting Files/Mudrammer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.splinesoft.theMUDRammer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1935,6 +2023,17 @@
 					"-Wfloat-equal",
 					"-Wbridge-cast",
 					"-Wnewline-eof",
+					"-Weverything",
+					"-Wno-auto-import",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-direct-ivar-access",
+					"-Wno-assign-enum",
+					"-Wno-gnu-statement-expression",
+					"-Wno-implicit-retain-self",
+					"-Wno-cast-qual",
+					"-Wno-cstring-format-directive",
+					"-Wno-pedantic",
+					"-Wno-switch-enum",
 				);
 				WRAPPER_EXTENSION = app;
 			};

@@ -66,7 +66,7 @@ static NSUInteger const kMaxRadialCommands = 8;
                 case SPLRadialEditorSectionCommands:
                     return [SSTextEntryCell cellForTableView:tableView];
 
-                default:
+                case SPLRadialEditorNumSections:
                     return nil;
             }
         };
@@ -128,7 +128,7 @@ static NSUInteger const kMaxRadialCommands = 8;
                     break;
                 }
 
-                default:
+                case SPLRadialEditorNumSections:
                     break;
             }
         };
@@ -145,7 +145,7 @@ static NSUInteger const kMaxRadialCommands = 8;
                 case SPLRadialEditorSectionCommands:
                     return YES;
 
-                default:
+                case SPLRadialEditorNumSections:
                     return NO;
             }
         };

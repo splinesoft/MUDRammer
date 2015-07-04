@@ -10,8 +10,6 @@
 #import <Masonry.h>
 #import <TTTAttributedLabel.h>
 
-#define kObservedProps @[ kThemeFontColor, kThemeFontName ]
-
 @interface SSAccessoryButton ()
 
 @property (nonatomic, strong) TTTAttributedLabel *label;

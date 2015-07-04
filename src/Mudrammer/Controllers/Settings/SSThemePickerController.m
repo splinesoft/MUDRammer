@@ -118,6 +118,8 @@
                                                size:18.]
     };
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullable-to-nonnull-conversion"
     cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:theme[kThemeName]
                                                                     attributes:attributes];
 
@@ -129,6 +131,7 @@
     } else {
         cell.accessoryView = nil;
     }
+#pragma clang diagnostic pop
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

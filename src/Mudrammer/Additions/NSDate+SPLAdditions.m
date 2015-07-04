@@ -36,8 +36,11 @@
     } else if (interval < 60 * 60 * 24) {
         return [NSString stringWithFormat:@"%@ hours", @(SPLFloat_round((CGFloat)interval / (60 * 60)))];
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbad-function-cast"
         NSInteger days = (NSInteger)SPLFloat_floor((CGFloat)interval / (60 * 60 * 24));
         NSInteger hours = (NSInteger)SPLFloat_floor(((CGFloat)interval - (days * 60 * 60 * 24)) / (60 * 60));
+#pragma clang diagnostic pop
         NSMutableString *str = [NSMutableString string];
 
         if (days > 0) {

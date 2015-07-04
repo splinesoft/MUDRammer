@@ -1,4 +1,5 @@
 # encoding: UTF-8
+# MUDRammer
 
 class String
   def self.colorize(text, color_code)
@@ -31,7 +32,8 @@ task :setup do
   puts "Building with #{xc_version} in #{xc_path}...".cyan
 
   puts "Nuking output...".cyan
-  sh "rm -rf output && mkdir -p output"
+  FileUtils.rm_r 'output', :force => true
+  FileUtils.mkdir_p 'output'
   
   Rake::Task['gems'].execute
 
@@ -81,7 +83,7 @@ task :test do
     build_command += "output/junit.xml"
   end
   
-  sh "#{build_command}"
+  sh build_command
 end
 
 desc 'Strips trailing whitespace in all project files. See https://github.com/jhersh/playgrounds'
@@ -95,7 +97,7 @@ desc 'Lints MUDRammer with various static analyzers'
 task :lint do
 
   puts "Linting MUDRammer...\n".cyan
-  `mkdir -p output`
+  FileUtils.mkdir_p 'output'
 
   sh "/usr/local/bin/cloc --exclude-dir=Pods --quiet --sum-one src"
   

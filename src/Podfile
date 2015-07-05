@@ -62,8 +62,8 @@ pod 'VTAcknowledgementsViewController', '0.14'
 # `pod install` resets all pod deployment targets after each install.
 # Ensure that MUDRammer builds with 8.0 but supports a minimum deploy target of 7.0.
 post_install do |installer_representation|
-    installer_representation.project.targets.each do |target|
-        target.build_configurations.each do |config|
+    installer_representation.pods_project.targets.each do |pod_target|
+        pod_target.build_configurations.each do |config|
             config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
         end
     end

@@ -1,0 +1,1 @@
+../../../../HockeySDK-Source/Vendor/CrashReporter.framework/Versions/A/Headers/PLCrashNamespace.h

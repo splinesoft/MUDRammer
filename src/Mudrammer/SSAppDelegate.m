@@ -29,19 +29,7 @@
 #else
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
 #endif
-#ifdef __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
-    DLog(@"starting icloud");
-    //[MagicalRecord setupCoreDataStackWithiCloudContainer:@"4YFMUNMLU8.com.splinesoft.theMUDRammer" localStoreNamed:@"Worlds.sqlite"];
-    [MagicalRecord setupCoreDataStackWithiCloudContainer:@"4YFMUNMLU8.com.splinesoft.theMUDRammer"
-                                          contentNameKey:@"com.splinesoft.theMUDRammer"
-                                         localStoreNamed:@"Worlds.sqlite"
-                                 cloudStorePathComponent:nil
-                                              completion:^{
-                                                  DLog(@"loaded cloud?");
-                                              }];
-#else
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:kStoreName];
-#endif
 }
 
 #pragma mark - URL tapped

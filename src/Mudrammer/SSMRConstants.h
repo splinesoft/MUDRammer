@@ -17,8 +17,6 @@
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
 
-//#define __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
-
 // Sqlite store
 extern NSString * const kStoreName;
 

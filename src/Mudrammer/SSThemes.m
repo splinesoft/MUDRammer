@@ -466,11 +466,9 @@
                                                     name:NSUserDefaultsDidChangeNotification
                                                   object:nil];
 
-    for( NSString *key in changedKeys )
-#ifndef __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
-        if( ![key isEqualToString:kPrefInitialSetupComplete] )
-#endif
-            [[NSUserDefaults standardUserDefaults] setObject:[cloud objectForKey:key] forKey:key];
+    for (NSString *key in changedKeys) {
+        [[NSUserDefaults standardUserDefaults] setObject:[cloud objectForKey:key] forKey:key];
+    }
 
     [self loadThemeFromDefaults];
 
@@ -510,10 +508,6 @@
             [cloud setObject:value forKey:objectPref];
         }
     }];
-
-#ifdef __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
-    [cloud setBool:[defaults boolForKey:kPrefInitialSetupComplete] forKey:kPrefInitialSetupComplete];
-#endif
 
     [cloud synchronize];
 }

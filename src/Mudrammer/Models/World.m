@@ -203,14 +203,6 @@ static NSCharacterSet *disallowedHostCharacters;
 + (void) createDefaultWorldsIfNecessary {
     BOOL hasCloud = NO;
 
-#ifdef __MUDRAMMER_SYNC_WORLDS_TO_ICLOUD__
-    if( [SSThemes checkForCloud] ) {
-        NSUbiquitousKeyValueStore *cloud = [NSUbiquitousKeyValueStore defaultStore];
-
-        hasCloud = [cloud boolForKey:kPrefInitialSetupComplete];
-    }
-#endif
-
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     BOOL hasLocal = [defaults boolForKey:kPrefInitialWorldsCreated];

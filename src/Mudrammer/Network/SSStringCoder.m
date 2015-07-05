@@ -119,10 +119,10 @@
 
         if ([encodedUserInput length] > 0) {
             [data appendData:encodedUserInput];
-
-            // CRLF
-            [data appendData:[NSData dataWithBytes:"\x0D\x0A" length:2]];
         }
+
+        // CRLF
+        [data appendData:[NSData dataWithBytes:"\x0D\x0A" length:2]];
     }
 
     return [NSData dataWithData:data];

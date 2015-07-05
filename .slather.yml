@@ -1,5 +1,0 @@
-xcodeproj: src/Mudrammer.xcodeproj
-source_directory: src/Mudrammer
-coverage_service: coveralls
-ci_service: circleci
-ci_access_token: CMC0TFbX4sPC5pcJoFBuBe5ybth8ueB6j

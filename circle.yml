@@ -21,7 +21,7 @@ test:
     - rake lint
     - cp -R $TMPDIR/com.apple.dt.XCTest-status $CIRCLE_ARTIFACTS/xcode-logs
 deployment:
-  slather:
+  codecov:
     branch: /.*/
     commands:
-      - bundle exec slather
+      - bash <(curl -s https://codecov.io/bash)

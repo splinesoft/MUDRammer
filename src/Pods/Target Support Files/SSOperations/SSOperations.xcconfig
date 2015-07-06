@@ -1,0 +1,1 @@
+SSOPERATIONS_OTHER_LDFLAGS = -framework "Foundation"

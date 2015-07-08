@@ -34,7 +34,7 @@ PODS:
   - libextobjc/RuntimeExtensions (0.4.1)
   - libtelnet (HEAD based on 0.21)
   - MagicalRecord (2.3.0)
-  - Masonry (0.6.1)
+  - Masonry (0.6.2)
   - MyLilTimer (0.1.0)
   - OCMock (3.1.2)
   - OSCache (1.1.1)
@@ -69,7 +69,7 @@ DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - KVOController (= 1.0.3)
   - libtelnet (HEAD)
-  - Masonry (= 0.6.1)
+  - Masonry (= 0.6.2)
   - MyLilTimer (= 0.1.0)
   - OCMock
   - OSCache (= 1.1.1)
@@ -116,7 +116,7 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   libtelnet: c6f24ca59ed18f23459381234fee2632a63e02e1
   MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
-  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MyLilTimer: f74fd102e4704ab858f10331cae8f20dd05bb2b2
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
   OSCache: 02f48fd38f006da222f3c455f6c8ebd0fc46353e

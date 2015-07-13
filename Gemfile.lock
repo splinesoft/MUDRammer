@@ -73,14 +73,14 @@ GEM
       rubyzip (~> 1.1.6)
     dotenv (2.0.2)
     escape (0.0.4)
-    excon (0.45.3)
+    excon (0.45.4)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
-    faraday_middleware (0.9.1)
+    faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     fastimage (1.6.8)
       addressable (~> 2.3, >= 2.3.5)
-    fastlane_core (0.8.0)
+    fastlane_core (0.10.1)
       babosa
       capybara (~> 2.4.3)
       colored
@@ -92,6 +92,7 @@ GEM
       multi_json
       phantomjs (~> 1.9.8)
       poltergeist (~> 1.5.1)
+      rubyzip (~> 1.1.6)
     fui (0.3.0)
       gli
     fuzzy_match (2.0.4)
@@ -103,7 +104,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     molinillo (0.3.0)
-    multi_json (1.11.1)
+    multi_json (1.11.2)
     multipart-post (1.2.0)
     nap (0.8.0)
     net-sftp (2.1.2)
@@ -148,7 +149,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    websocket-driver (0.5.4)
+    websocket-driver (0.6.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xcodeproj (0.26.1)

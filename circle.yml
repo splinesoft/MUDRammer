@@ -8,7 +8,7 @@ dependencies:
   pre:
     - xcrun instruments -w "iPhone 6 (8.3 Simulator)" || exit 0
     - sudo gem update --system -N
-    - brew install cloc objc-codegenutils caskroom/cask/brew-cask
+    - brew update && brew install cloc objc-codegenutils caskroom/cask/brew-cask
     - brew cask install fauxpas
     - ~/Applications/FauxPas.app/Contents/Resources/install-cli-tools
     - /usr/local/bin/fauxpas updatelicense organization-seat "Jonathan Hersh" "$FAUXPAS_KEY"

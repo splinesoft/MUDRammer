@@ -37,7 +37,7 @@ PODS:
   - Masonry (0.6.2)
   - MyLilTimer (0.1.0)
   - OCMock (3.1.2)
-  - OSCache (1.1.1)
+  - OSCache (1.2)
   - QuickDialog/Core (1.0)
   - QuickDialog/Extras (1.0)
   - SAMRateLimit (0.2.0)
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - Masonry (= 0.6.2)
   - MyLilTimer (= 0.1.0)
   - OCMock
-  - OSCache (= 1.1.1)
+  - OSCache (= 1.2)
   - QuickDialog/Core (from `https://github.com/escoz/QuickDialog.git`, commit `c5891e6d63def55af5b7f5f5efe8d64330d3a4fd`)
   - QuickDialog/Extras (from `https://github.com/escoz/QuickDialog.git`, commit `c5891e6d63def55af5b7f5f5efe8d64330d3a4fd`)
   - SAMRateLimit (= 0.2.0)
@@ -119,7 +119,7 @@ SPEC CHECKSUMS:
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MyLilTimer: f74fd102e4704ab858f10331cae8f20dd05bb2b2
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
-  OSCache: 02f48fd38f006da222f3c455f6c8ebd0fc46353e
+  OSCache: 10cdb5da579364aacfb8b7612dab13cf9c7aa4dc
   QuickDialog: c15166b0041a30ce2d304ff6ce374805f9506051
   SAMRateLimit: ba2d40ccb3a4bf04e425035ef1ca88751d969e47
   SPLCore: a78d9846959e3c9393ed5016ef8656db4860779b

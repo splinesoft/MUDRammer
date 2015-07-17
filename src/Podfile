@@ -33,7 +33,7 @@ pod 'libtelnet', :head # via SPLSpecs
 # Engine
 pod 'SAMRateLimit', '0.2.0'
 pod 'KVOController', '1.0.3'
-pod 'OSCache', '1.1.1'
+pod 'OSCache', '1.2'
 pod 'MyLilTimer', '0.1.0'
 
 # Analytics

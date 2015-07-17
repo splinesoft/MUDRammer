@@ -563,7 +563,7 @@ SOFTWARE.
 ## OSCache
 
 OSCache 
-version 1.1.1, April 24th, 2014
+version 1.2, July 14th, 2015
 
 Copyright (C) 2014 Charcoal Design
 

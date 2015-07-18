@@ -133,4 +133,4 @@ SPEC CHECKSUMS:
   uservoice-iphone-sdk: 349d9ef36d3c43939d28390b9e86bb32b65fe983
   VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
 
-COCOAPODS: 0.38.0.beta.2
+COCOAPODS: 0.38.0

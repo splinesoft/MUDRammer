@@ -31,7 +31,7 @@ MUDRammer has been my personal passion project for years. It is an experiment to
 You'll need Xcode 6.3 or newer.
 
 1. [Install Homebrew](http://brew.sh) if needed, and then `brew update && brew install objc-codegenutils`
-2. Clone this repo: `git clone git@github.com:splinesoft/MUDRammer.git && cd MUDRammer`
+2. Clone this repo: `git clone https://github.com/splinesoft/MUDRammer.git && cd MUDRammer`
 3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should run `rake setup` after updating your local copy from upstream.
 4. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
 
@@ -50,7 +50,6 @@ Additional `rake` tasks include:
 ## Notes
 
 - MUDRammer builds with the iOS 8 SDK and has a minimum deployment target of iOS 7. MUDRammer will soon build with the iOS 9 SDK and require a minimum deployment target of iOS 8: [#254](https://github.com/splinesoft/MUDRammer/pull/254)
-- The Xcode project has a `CFBundleIdentifier` of `com.splinesoft.theMUDRammer`. I have never owned the domain `splinesoft.com`, only `splinesoft.net`, so the correct bundle ID should be `net.splinesoft.theMUDRammer`. I made this naming mistake in 2012. Bundle IDs cannot be changed after app release, so Xcode has shamed me for my mistake every time I open the project, thousands of times over the last few years.
 - The project's `CFBundleShortVersionString` is `trolololol` and its `CFBundleVersion` is `1337`. These values are intentionally obvious to indicate Debug builds. The correct marketing version and build numbers are filled in by Jenkins at release build time by [my build script, SSBuild](https://github.com/splinesoft/SSBuild).
 - MUDRammer has a separate app icon to distinguish Debug builds, [no code required!](http://list.her.sh/beta-app-icons)
 

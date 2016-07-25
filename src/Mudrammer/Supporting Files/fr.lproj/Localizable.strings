@@ -220,6 +220,8 @@
 "THEME_AHLEENA" = "Ahleena";
 "THEME_AVIATOR" = "Aviateur";
 "THEME_SUMMONER" = "Invocateur";
+"THEME_SOLARIZED_LIGHT" = "Solarized Light";
+"THEME_SOLARIZED_DARK" = "Solarized Dark";
 
 "TOP_BAR_VISIBLE" = "Barre du haut toujours visible";
 

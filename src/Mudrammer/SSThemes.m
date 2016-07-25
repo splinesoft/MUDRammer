@@ -161,6 +161,15 @@
                         kThemeIsDark    : @NO,
                     },
                     @{
+                        kThemeName : NSLocalizedString(@"THEME_SOLARIZED_LIGHT",nil),
+                        kThemeFontColor : UIColorFromRGB(0x657b83),
+                        kThemeFontName  : kDefaultFontName,
+                        kThemeFontSize  : @(kDefaultFontSize),
+                        kThemeLinkColor : UIColorFromRGB(0xb58900),
+                        kThemeBackgroundColor : UIColorFromRGB(0xfdf5e4),
+                        kThemeIsDark    : @NO,
+                    },
+                    @{
                         kThemeName : NSLocalizedString(@"THEME_CHOCOLATE",nil),
                         kThemeFontColor : [UIColor whiteColor],
                         kThemeFontName  : kDefaultFontName,
@@ -203,6 +212,15 @@
                         kThemeFontSize  : @(kDefaultFontSize),
                         kThemeLinkColor : [UIColor whiteColor],
                         kThemeBackgroundColor : [UIColor blackColor],
+                        kThemeIsDark    : @YES,
+                    },
+                    @{
+                        kThemeName : NSLocalizedString(@"THEME_SOLARIZED_DARK",nil),
+                        kThemeFontColor : UIColorFromRGB(0x93a1a1),
+                        kThemeFontName  : kDefaultFontName,
+                        kThemeFontSize  : @(kDefaultFontSize),
+                        kThemeLinkColor : UIColorFromRGB(0xb58900),
+                        kThemeBackgroundColor : UIColorFromRGB(0x073642),
                         kThemeIsDark    : @YES,
                     },
         ];

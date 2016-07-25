@@ -220,6 +220,8 @@
 "THEME_AHLEENA" = "Ahleena";
 "THEME_AVIATOR" = "Aviator";
 "THEME_SUMMONER" = "Summoner";
+"THEME_SOLARIZED_LIGHT" = "Solarized Light";
+"THEME_SOLARIZED_DARK" = "Solarized Dark";
 
 /* Separate multiple actions with a semicolon (;). */
 "TRIGGER_EDIT_HELP" = "Separate multiple commands with semicolons (;) or newlines. You can use Aliases for commands!\n\n#N# in a command generates a random number from 1-N.\n\nSample Pattern // Sample Command(s)\n\nA $1 eats your $2 // say a $1 ate my $2!\npings you // say There are #4# lights!\nswirls restlessly // cast cloak of clouds\nattacks you // focus dodging;dodge";

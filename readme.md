@@ -5,12 +5,12 @@
 ```
 > invoke incantation of build status divination
 
-You move a hand through a series of quick gestures, 
-your digits twinkling with eldritch potential. 
+You move a hand through a series of quick gestures,
+your digits twinkling with eldritch potential.
 Suddenly, some images form in your mind:
 ```
 
-[![Circle CI](https://circleci.com/gh/splinesoft/MUDRammer.svg?style=svg)](https://circleci.com/gh/splinesoft/MUDRammer) [![codecov.io](http://codecov.io/github/splinesoft/MUDRammer/coverage.svg?branch=master)](http://codecov.io/github/splinesoft/MUDRammer?branch=master) ![It's dangerous!](https://img.shields.io/badge/You_are_likely_to_be_eaten_by_a-grue-red.svg) [![Take this.](https://img.shields.io/badge/get-lamp-yellow.svg)](http://getlamp.com)
+![It's dangerous!](https://img.shields.io/badge/You_are_likely_to_be_eaten_by_a-grue-red.svg) [![Take this.](https://img.shields.io/badge/get-lamp-yellow.svg)](http://getlamp.com)
 
 <hr/>
 
@@ -74,5 +74,5 @@ I've been very fortunate in my years of mudding to have met people from all over
 Jonathan Hersh
 
 - [Electronic Mail](mailto:jon@her.sh)
-- **@jhersh** on [Github](https://github.com/jhersh) and [Twitter](https://twitter.com/jhersh)
-- [her.sh](http://her.sh)
+- **@jhersh** on [Github](https://github.com/jhersh)
+- [her.sh](https://her.sh)

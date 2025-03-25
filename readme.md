@@ -1,7 +1,5 @@
 # MUDRammer — A Modern MUD Client
 
-[![Download MUDRammer on the App Store](http://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg)](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8)
-
 ```
 > invoke incantation of build status divination
 
@@ -14,17 +12,15 @@ Suddenly, some images form in your mind:
 
 <hr/>
 
-MUDRammer is a modern MUD client for iPhone and iPad focused on speed, accessibility, and flexibility. MUDRammer has been designed and developed by [Jonathan Hersh](#contact) since November 2012. MUDRammer's first App Store release in February 2013 was followed by [34 App Store updates](https://github.com/splinesoft/MUDRammer/blob/master/AppStore/updates.txt) as of May 2015 and an open-sourcing in June 2015.
+MUDRammer was a modern MUD client for iPhone and iPad focused on speed, accessibility, and flexibility. MUDRammer was designed and developed by [Jonathan Hersh](#contact) since November 2012. MUDRammer's first App Store release in February 2013 was followed by [34 App Store updates](https://github.com/splinesoft/MUDRammer/blob/master/AppStore/updates.txt) as of May 2015 and an open-sourcing in June 2015. MUDRammer was removed from the App Store in March 2025.
 
 [MUDs (Multi-User Dungeons)](https://en.wikipedia.org/wiki/MUD) are online multiplayer text-based games. Thousands of players today are on hundreds of MUDs in all manner of worlds: fantasy, absurdist, sci-fi, horror, and more. Many MUDs have been continuously online for decades! MUDRammer includes a `DefaultWorlds.plist` with a few interesting default worlds you can try, or you can add your own.
-
-MUDRammer is available for sale on the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8). Although this repository will allow you to build and run MUDRammer from source, please purchase [MUDRammer on the App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) to support continued development.
 
 [![MUDRammer for iPhone](https://github.com/splinesoft/MUDRammer/raw/master/AppStore/Screenshots/51.png)](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8)
 
 ## For Your Eyes Only
 
-MUDRammer has been my personal passion project for years. It is an experiment to release my work under such a permissive license. If you use MUDRammer, please purchase a copy from the [App Store](https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8) rather than running it from source. If you want to create your own software based on MUDRammer, please make it meaningfully different and not just a clone. Please do not submit your own version of MUDRammer to the App Store.
+MUDRammer has been my personal passion project for years. It is an experiment to release my work under such a permissive license. If you want to create your own software based on MUDRammer, please make it meaningfully different and not just a clone. Please do not submit your own version of MUDRammer to the App Store.
 
 ## Getting Started
 

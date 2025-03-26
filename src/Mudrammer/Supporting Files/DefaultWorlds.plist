@@ -108,5 +108,12 @@
             <key>port</key>  <integer>2222</integer>
             <key>id</key> <integer>16</integer>
         </dict>
+        <dict>
+            <key>name</key>  <string>Imperium Dev Game</string>
+            <key>hostname</key>  <string>empiredirectory.net</string>
+            <key>port</key>  <integer>3458</integer>
+            <key>id</key> <integer>17</integer>
+        </dict>
+        
     </array>
 </plist>

@@ -1,1 +1,1 @@
-mud,client,telnet,rammer,mush,muck,moo,mobile,text,pocket,mudding,pro,mudrammer
+mud,client,telnet,basher,mush,muck,moo,mobile,text,pocket,mudding,pro,mudbasher

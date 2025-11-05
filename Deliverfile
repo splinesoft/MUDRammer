@@ -37,7 +37,7 @@ config_json_folder './AppStore/deliver'
     #"./src.ipa" # Tell 'Deliver' where it can find the finished ipa file
 #end
 
-ipa "./output/release/MUDRammer.ipa" # this can be used instead of the `do` block, if you prefer manually building the ipa file
+ipa "./output/release/MudBasher.ipa" # this can be used instead of the `do` block, if you prefer manually building the ipa file
 
 # beta_ipa do
     # system("ipa build --verbose") # customize this to build beta version

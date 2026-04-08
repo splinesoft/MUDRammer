@@ -108,5 +108,12 @@
             <key>port</key>  <integer>2222</integer>
             <key>id</key> <integer>16</integer>
         </dict>
+
+        <dict>
+            <key>name</key>  <string>Legends of Future Past</string>
+            <key>hostname</key>  <string>lofp.metavert.io</string>
+            <key>port</key>  <integer>4000</integer>
+            <key>id</key> <integer>17</integer>
+        </dict>
     </array>
 </plist>

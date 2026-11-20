@@ -453,7 +453,11 @@
 #pragma mark - icloud K/V
 
 + (BOOL)checkForCloud {
+#if defined(MUDRAMMER_ENABLE_ICLOUD) && MUDRAMMER_ENABLE_ICLOUD
     return [NSUbiquitousKeyValueStore defaultStore] != nil;
+#else
+    return NO;
+#endif
 }
 
 - (void)updateFromCloud:(NSNotification *)notification {

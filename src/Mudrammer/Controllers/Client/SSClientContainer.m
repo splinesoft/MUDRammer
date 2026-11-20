@@ -16,7 +16,6 @@
 #import "SPLHandoffWebViewController.h"
 #import "SPLAlerts.h"
 #import <FBKVOController.h>
-#import <IFTTTSplashView.h>
 #import "SSWelcomeViewController.h"
 
 @interface SSClientContainer ()
@@ -106,16 +105,7 @@
     self.rightPanel = displayController;
     [displayController addClientWithWorld:nil];
 
-    // Hide splash if necessary
-    double delayInSeconds = 0.5;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^{
-
-        void (^SplashDismissal)(void) = ^{
-            [[IFTTTSplashView sharedSplash] dismissSplashWithAnimation:IFTTTSplashAnimationGrowFade
-                                                            completion:nil];
-        };
-
+    dispatch_async(dispatch_get_main_queue(), ^{
         if (![[NSUserDefaults standardUserDefaults] boolForKey:kPrefInitialSetupComplete]) {
             SSWelcomeViewController *welcome = [SSWelcomeViewController new];
             UINavigationController *nav = [welcome wrappedNavigationController];
@@ -124,9 +114,7 @@
 
             [self presentViewController:nav
                                animated:NO
-                             completion:SplashDismissal];
-        } else {
-            SplashDismissal();
+                             completion:nil];
         }
     });
 }

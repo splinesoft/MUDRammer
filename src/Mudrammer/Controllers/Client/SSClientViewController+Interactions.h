@@ -9,15 +9,13 @@
 #import "SSClientViewController.h"
 #import <JTSImageViewController.h>
 #import <TTTAttributedLabel.h>
-#import <UserVoice.h>
 #import "SSConnectButton.h"
 
 @interface SSClientViewController (Interactions) <
 JTSImageViewControllerInteractionsDelegate,
 JTSImageViewControllerOptionsDelegate,
 SSConnectButtonDelegate,
-TTTAttributedLabelDelegate,
-UVDelegate
+TTTAttributedLabelDelegate
 >
 
 #pragma mark - UIKeyCommand

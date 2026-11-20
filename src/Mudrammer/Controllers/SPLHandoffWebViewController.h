@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 splinesoft LLC. All rights reserved.
 //
 
-#import <TOWebViewController.h>
-#import <SPLWebActivity.h>
+#import <UIKit/UIKit.h>
 
-@interface SPLHandoffWebViewController : TOWebViewController
+@interface SPLHandoffWebViewController : UIViewController
 
-@property (nonatomic, strong) SPLWebActivity *webActivity;
+- (instancetype)initWithURL:(NSURL *)url;
 
 @end

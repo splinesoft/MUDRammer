@@ -71,19 +71,6 @@
     }
 }
 
-#pragma mark - UVDelegate (UserVoice)
-
-- (void)userVoiceWasDismissed {
-    [UserVoice setDelegate:nil];
-
-    if (![[UIDevice currentDevice] isIPad]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent
-                                                        animated:YES];
-        });
-    }
-}
-
 #pragma mark - UIKeyCommand
 
 - (void)keyCommandCycleActiveConnections:(UIKeyCommand *)sender {

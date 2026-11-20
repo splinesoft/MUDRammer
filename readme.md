@@ -28,34 +28,36 @@ MUDRammer has been my personal passion project for years. It is an experiment to
 
 ## Getting Started
 
-You'll need Xcode 6.3 or newer.
+This checkout contains a compatibility update targeting **iOS 15 and later**.
+Use a Mac with a current full Xcode installation and an iOS Simulator runtime.
+The update still requires compilation and device verification on a Mac.
 
-1. [Install Homebrew](http://brew.sh) if needed, and then `brew update && brew install objc-codegenutils`
-2. Clone this repo: `git clone https://github.com/splinesoft/MUDRammer.git && cd MUDRammer`
-3. `rake setup` will install RubyGems and CocoaPods. You will be prompted (one time only) to enter values for application secrets, like Hockey API keys. These values are stored securely in the OS X keychain. You can enter a blank space or `-` for these. You should run `rake setup` after updating your local copy from upstream.
-4. `open src/Mudrammer.xcworkspace` to build and run. Make sure to select the `MUDRammer Dev` Xcode scheme.
+1. Copy this updated checkout to your Mac.
+2. From the project folder, run `bash scripts/build-ios.sh` to prepare the bundled
+   dependencies and build for the simulator.
+3. Run `bash scripts/build-ios.sh test` to run the existing unit tests.
+4. Open `src/Mudrammer.xcworkspace` and select **MUDRammer Dev**. For a physical
+   iPhone, choose your own development team and a unique bundle identifier under
+   the app target's **Signing & Capabilities**, then select the phone and Run.
 
-Additional `rake` tasks include:
-
-| Task | Description |
-| ---- | ----- |
-| `rake gems` | Installs RubyGems. |
-| `rake pods` | Installs CocoaPods. |
-| `rake setup` | Runs `rake gems` and `rake pods` and wipes the build output folder. |
-| `rake test` | Builds MUDRammer and runs all tests (minimalistic RSpec-style output). |
-| `rake lint` | Lints MUDRammer with various static analyzers. |
-| `rake code` | Generates and prints a single code redeemable on the iTunes store for a free copy of MUDRammer. |
-| `rake ws` | Strips trailing whitespace from all project source files. Requires [these Swift playgrounds](https://github.com/jhersh/playgrounds). |
+See [the Mac setup and verification guide](docs/MODERN_IOS.md) for complete
+instructions, changes, and remaining validation. The build uses checked-in
+dependencies; do not run the historical `rake setup` or `pod install` commands.
 
 ## Notes
 
-- MUDRammer builds with the iOS 8 SDK and has a minimum deployment target of iOS 7. MUDRammer will soon build with the iOS 9 SDK and require a minimum deployment target of iOS 8: [#254](https://github.com/splinesoft/MUDRammer/pull/254)
-- The project's `CFBundleShortVersionString` is `trolololol` and its `CFBundleVersion` is `1337`. These values are intentionally obvious to indicate Debug builds. The correct marketing version and build numbers are filled in by Jenkins at release build time by [my build script, SSBuild](https://github.com/splinesoft/SSBuild).
+- The app and bundled dependency projects target iOS 15 and later. The historical
+  Ruby dependency setup is retained for reference.
+- Version and build numbers come from the `MARKETING_VERSION` and
+  `CURRENT_PROJECT_VERSION` build settings.
+- HockeyApp and UserVoice are removed from the build. iCloud theme sync is off
+  by default; local preferences work without the original developer's account.
 - MUDRammer has a separate app icon to distinguish Debug builds, [no code required!](http://list.her.sh/beta-app-icons)
 
 ## Contributing
 
-Pull requests are welcome! Fork the repo and make your changes on a branch. You can run `rake test` locally to ensure the tests pass before opening a pull request.
+Pull requests are welcome! Fork the repo and make your changes on a branch. Run
+`bash scripts/build-ios.sh test` on a Mac before opening a pull request.
 
 ## License
 

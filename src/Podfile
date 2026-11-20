@@ -1,3 +1,6 @@
+# Historical dependency manifest. The modern build uses the checked-in Pods
+# project, which contains compatibility patches. Do not run pod install; see
+# ../docs/MODERN_IOS.md for the current build instructions.
 source 'https://github.com/splinesoft/specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 

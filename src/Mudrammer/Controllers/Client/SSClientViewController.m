@@ -21,7 +21,6 @@
 #import "SSWorldListViewController.h"
 #import "SSWorldDisplayController.h"
 #import "JSQSystemSoundPlayer+SSAdditions.h"
-#import <UserVoice.h>
 #import <Masonry.h>
 #import "SPLWorldTickerManager.h"
 #import "SPLMUDTitleView.h"
@@ -321,9 +320,14 @@ typedef void (^SPLSettingsCloseBlock) (void);
     _mudView = [[SSMudView alloc] initWithFrame:CGRectZero];
     self.mudView.delegate = self;
     [self.view addSubview:self.mudView];
-    [self.mudView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
+    self.mudView.translatesAutoresizingMaskIntoConstraints = NO;
+    UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.mudView.topAnchor constraintEqualToAnchor:safeArea.topAnchor],
+        [self.mudView.bottomAnchor constraintEqualToAnchor:safeArea.bottomAnchor],
+        [self.mudView.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor],
+        [self.mudView.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor],
+    ]];
     [self.mudView setEditable:NO];
     [self.mudView.tableView addCenteredHeaderWithImage:([[SSThemes sharedThemer] isUsingDarkTheme]
                                                         ? [SPLImagesCatalog tildeWhiteImage]
@@ -647,17 +651,9 @@ typedef void (^SPLSettingsCloseBlock) (void);
 }
 
 - (void)settingsViewShouldOpenContact:(SSSettingsViewController *)settingsViewController {
-    @weakify(self);
-
     [self closeSettingsWithCompletion:^{
-        @strongify(self);
-
-        if (![[UIDevice currentDevice] isIPad]) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-        }
-
-        [UserVoice setDelegate:self];
-        [UserVoice presentUserVoiceInterfaceForParentViewController:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationURLTapped
+                                                          object:[NSURL URLWithString:@"https://github.com/raspberryhead/MUDRammer/issues"]];
     }];
 }
 

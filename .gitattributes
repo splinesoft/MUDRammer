@@ -1,0 +1,5 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.pbxproj text eol=lf
+*.xcconfig text eol=lf

@@ -58,32 +58,10 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "TOWebViewController/TOWebViewController/de.lproj"
-  install_resource "TOWebViewController/TOWebViewController/en.lproj"
-  install_resource "TOWebViewController/TOWebViewController/es.lproj"
-  install_resource "TOWebViewController/TOWebViewController/fr.lproj"
-  install_resource "TOWebViewController/TOWebViewController/ja.lproj"
-  install_resource "TOWebViewController/TOWebViewController/ko.lproj"
-  install_resource "TOWebViewController/TOWebViewController/pl.lproj"
-  install_resource "TOWebViewController/TOWebViewController/zh-Hans.lproj"
-  install_resource "TOWebViewController/TOWebViewController/zh-Hant.lproj"
   install_resource "VTAcknowledgementsViewController/VTAcknowledgementsViewController.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/HockeySDKResources.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/UserVoice.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "TOWebViewController/TOWebViewController/de.lproj"
-  install_resource "TOWebViewController/TOWebViewController/en.lproj"
-  install_resource "TOWebViewController/TOWebViewController/es.lproj"
-  install_resource "TOWebViewController/TOWebViewController/fr.lproj"
-  install_resource "TOWebViewController/TOWebViewController/ja.lproj"
-  install_resource "TOWebViewController/TOWebViewController/ko.lproj"
-  install_resource "TOWebViewController/TOWebViewController/pl.lproj"
-  install_resource "TOWebViewController/TOWebViewController/zh-Hans.lproj"
-  install_resource "TOWebViewController/TOWebViewController/zh-Hant.lproj"
   install_resource "VTAcknowledgementsViewController/VTAcknowledgementsViewController.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/HockeySDKResources.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/UserVoice.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

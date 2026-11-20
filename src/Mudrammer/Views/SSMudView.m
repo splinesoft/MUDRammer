@@ -11,7 +11,6 @@
 #import "SSSettingsViewController.h"
 #import "SSSpeechSynthesizer.h"
 #import <Masonry.h>
-#import <DAKeyboardControl.h>
 #import <TTTAttributedLabel.h>
 #import "SSMUDToolbar.h"
 #import "SSTextTableView.h"
@@ -34,6 +33,8 @@
 @property (nonatomic, strong) FBKVOController *kvoController;
 
 @property (nonatomic, strong) SSSpeechSynthesizer *synthesizer;
+@property (nonatomic, strong) NSLayoutConstraint *toolbarBottomConstraint;
+@property (nonatomic, assign) BOOL keyboardPanningEnabled;
 
 // Scrolling for navbar
 @property (nonatomic, assign) BOOL shouldHideTopNav;
@@ -58,13 +59,17 @@
         self.inputToolbar.toolbarDelegate = self;
         [self addSubview:self.inputToolbar];
         [self.inputToolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.and.left.and.right.equalTo(self);
+            make.left.and.right.equalTo(self);
             make.height.greaterThanOrEqualTo(@44);
         }];
+        _toolbarBottomConstraint = [self.inputToolbar.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+        self.toolbarBottomConstraint.active = YES;
 
         // tableview
         _tableView = [[SSTextTableView alloc] initWithFrame:CGRectZero];
         self.tableView.delegate = self;
+        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         [self addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.and.left.and.right.equalTo(self);
@@ -141,47 +146,15 @@
 }
 
 - (void)setKeyboardPanningEnabled:(BOOL)enabled {
-    [self removeKeyboardControl];
-
-    if( enabled ) {
-        // drag-to-dismiss keyboard
-        @weakify(self);
-        [self addKeyboardNonpanningWithFrameBasedActionHandler:nil
-                                  constraintBasedActionHandler:^(CGRect keyboardFrame, BOOL opening, BOOL closing)
-        {
-            @strongify(self);
-//            DLog(@"%@ %i %i", NSStringFromCGRect(keyboardFrame), opening, closing);
-
-            BOOL isNearBottom = [self.tableView isNearBottom];
-            BOOL kbPref = [[NSUserDefaults standardUserDefaults] boolForKey:kPrefBTKeyboard];
-            CGFloat keyboardHeight = CGRectGetHeight(keyboardFrame);
-
-            if (!kbPref) {
-                [self mas_updateConstraints:^(MASConstraintMaker *make) {
-                    if (closing || keyboardHeight <= 0) {
-                        make.bottom.equalTo(self.superview);
-                    } else if (opening && keyboardHeight > 0) {
-                        make.bottom.equalTo(self.superview).offset(-keyboardHeight);
-                    }
-                }];
-            }
-
-            [self repositionRadialControls];
-
-            if (isNearBottom && (opening || closing)) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                     [self.tableView scrollToBottom];
-                });
-            }
-        }];
-    } else if (self.window) {
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.superview);
-        }];
-        [self repositionRadialControls];
-
-        [self setNeedsLayout];
-    }
+    _keyboardPanningEnabled = enabled;
+    BOOL followsKeyboard = enabled && ![[NSUserDefaults standardUserDefaults] boolForKey:kPrefBTKeyboard];
+    self.toolbarBottomConstraint.active = NO;
+    // UIKit tracks keyboard animation, rotation, and hardware keyboard changes.
+    // Leave floating iPad keyboards free to move over the terminal.
+    NSLayoutYAxisAnchor *bottom = followsKeyboard ? self.keyboardLayoutGuide.topAnchor : self.bottomAnchor;
+    self.toolbarBottomConstraint = [self.inputToolbar.bottomAnchor constraintEqualToAnchor:bottom];
+    self.toolbarBottomConstraint.active = YES;
+    [self setNeedsLayout];
 }
 
 - (void)dealloc {
@@ -198,8 +171,6 @@
     _tableView = nil;
     _dataSource = nil;
     self.inputToolbar.toolbarDelegate = nil;
-
-    [self removeKeyboardControl];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -218,6 +189,7 @@
 
 - (void)userDefaultsChanged:(NSNotification *)note {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self setKeyboardPanningEnabled:self.keyboardPanningEnabled];
         self.shouldHideTopNav = ![[NSUserDefaults standardUserDefaults] boolForKey:kPrefTopBarAlwaysVisible];
 
         [self.radialControl setEnabled:([self.inputToolbar.textView isEditable]

@@ -239,6 +239,9 @@
 		E9ED95651B0CFB110065C7F2 /* SPLTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ED95641B0CFB110065C7F2 /* SPLTestAppDelegate.m */; };
 		E9ED95671B0E5F960065C7F2 /* youfailedme.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9ED95661B0E5F960065C7F2 /* youfailedme.wav */; };
 		F800952F9EE241D78CCFDF31 /* libPods-MRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F0728FFD24A3A8234C435 /* libPods-MRTests.a */; };
+		556A43E253EA439090334CB1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEF82BE944E482A90A33793 /* WebKit.framework */; };
+		DEAF3BB027A24D18BD4DAB5E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F1717F8FB8401F9B19D5DD /* UserNotifications.framework */; };
+		4CA76A4EC0E0440185576DB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B35EED606E846B29C9DD7AD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,7 +399,7 @@
 		5E887C66197B11E8000881E6 /* SPLTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLTimerManager.h; sourceTree = "<group>"; };
 		5E887C67197B11E8000881E6 /* SPLTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLTimerManager.m; sourceTree = "<group>"; };
 		5E9BC11A163C610800B800D6 /* Social.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		5E9BC15A163CA4AB00B800D6 /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5E9BC15A163CA4AB00B800D6 /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5E9FF227190DA25B00B74B57 /* NSData+SPLDataParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SPLDataParsing.h"; sourceTree = "<group>"; };
 		5E9FF228190DA25B00B74B57 /* NSData+SPLDataParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SPLDataParsing.m"; sourceTree = "<group>"; };
 		5E9FF22A19155D2C00B74B57 /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
@@ -590,6 +593,9 @@
 		E9ED95631B0CFB110065C7F2 /* SPLTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLTestAppDelegate.h; sourceTree = "<group>"; };
 		E9ED95641B0CFB110065C7F2 /* SPLTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLTestAppDelegate.m; sourceTree = "<group>"; };
 		E9ED95661B0E5F960065C7F2 /* youfailedme.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = youfailedme.wav; sourceTree = "<group>"; };
+		DAEF82BE944E482A90A33793 /* WebKit.framework */ = {isa = PBXFileReference; name = "WebKit.framework"; path = "System/Library/Frameworks/WebKit.framework"; sourceTree = SDKROOT; lastKnownFileType = wrapper.framework; includeInIndex = 0; };
+		61F1717F8FB8401F9B19D5DD /* UserNotifications.framework */ = {isa = PBXFileReference; name = "UserNotifications.framework"; path = "System/Library/Frameworks/UserNotifications.framework"; sourceTree = SDKROOT; lastKnownFileType = wrapper.framework; includeInIndex = 0; };
+		5B35EED606E846B29C9DD7AD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; name = "LaunchScreen.storyboard"; path = "Mudrammer/Supporting Files/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; lastKnownFileType = file.storyboard; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,6 +625,8 @@
 				5E591C801634C80C00F2EB9F /* Foundation.framework in Frameworks */,
 				5E591C821634C80C00F2EB9F /* CoreGraphics.framework in Frameworks */,
 				C91115A198424A01A17879E7 /* libPods.a in Frameworks */,
+				556A43E253EA439090334CB1 /* WebKit.framework in Frameworks */,
+				DEAF3BB027A24D18BD4DAB5E /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +639,7 @@
 				5E004D9D194D522A00EE1448 /* SPLImagesCatalog.h */,
 				5E004D9E194D522A00EE1448 /* SPLImagesCatalog.m */,
 			);
-			path = DerivedSources;
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		5E1480D719379C9000FD8050 /* en.lproj */ = {
@@ -710,6 +718,7 @@
 				5E591C7C1634C80C00F2EB9F /* Frameworks */,
 				5E591C7A1634C80C00F2EB9F /* Products */,
 				B93E51C2790B9C760BD69CF0 /* Pods */,
+				5C1D018F10DC4020A1CE1AFD /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -739,6 +748,8 @@
 				5E591C811634C80C00F2EB9F /* CoreGraphics.framework */,
 				2D3DB66488E7424BA7E4D719 /* libPods.a */,
 				764F0728FFD24A3A8234C435 /* libPods-MRTests.a */,
+				DAEF82BE944E482A90A33793 /* WebKit.framework */,
+				61F1717F8FB8401F9B19D5DD /* UserNotifications.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1188,6 +1199,14 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		5C1D018F10DC4020A1CE1AFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B35EED606E846B29C9DD7AD /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1215,7 +1234,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E591C971634C80C00F2EB9F /* Build configuration list for PBXNativeTarget "MUDRammer" */;
 			buildPhases = (
-				5E9E3442194D305F0005BCBD /* Generate Asset Catalog Class */,
 				5E591C751634C80C00F2EB9F /* Sources */,
 				5E591C761634C80C00F2EB9F /* Frameworks */,
 				5E591C771634C80C00F2EB9F /* Resources */,
@@ -1238,14 +1256,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SPL;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 450;
 				ORGANIZATIONNAME = "splinesoft LLC";
 				TargetAttributes = {
 					5E4F3CCD198D98650041A436 = {
 						TestTargetID = 5E591C781634C80C00F2EB9F;
 					};
 					5E591C781634C80C00F2EB9F = {
-						DevelopmentTeam = 4YFMUNMLU8;
 					};
 				};
 			};
@@ -1395,6 +1412,7 @@
 				E9CAA3431ABF9A8A00E36BE3 /* rewind.wav in Resources */,
 				E9CAA3491ABF9A8A00E36BE3 /* singlecoin.wav in Resources */,
 				E9CAA34A1ABF9A8A00E36BE3 /* spaceyarrival.wav in Resources */,
+				4CA76A4EC0E0440185576DB8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1429,20 +1447,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-		};
-		5E9E3442194D305F0005BCBD /* Generate Asset Catalog Class */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Asset Catalog Class";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "DERIVEDDIR=\"${SRCROOT}/Mudrammer/DerivedSources\"\nmkdir -p \"$DERIVEDDIR\"\ncd \"$DERIVEDDIR\" && /usr/local/bin/objc-assetgen -p \"SPL\" \"${SRCROOT}/Mudrammer/Images.xcassets/\"\n";
 		};
 		5E9E3446194D396F0005BCBD /* Warn about TODO and FIXME */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1676,9 +1680,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MRTests/MRTests-Prefix.pch";
@@ -1692,10 +1694,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MRTests/MRTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mudrammer.community.tests;
 			};
 			name = Debug;
 		};
@@ -1713,9 +1720,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MRTests/MRTests-Prefix.pch";
@@ -1725,10 +1730,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MRTests/MRTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mudrammer.community.tests;
 			};
 			name = Release;
 		};
@@ -1740,27 +1750,27 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
@@ -1772,19 +1782,21 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};
@@ -1793,7 +1805,6 @@
 			baseConfigurationReference = 5289A75DC4FBA69766BC8E84 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(SPLAppIconSuffix)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
@@ -1813,9 +1824,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Mudrammer/Supporting Files/MUDRammer.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1843,11 +1851,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "Mudrammer/Supporting Files/Mudrammer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SPLAppIconSuffix = Debug;
 				WARNING_CFLAGS = (
 					"-Wunreachable-code",
@@ -1861,6 +1867,13 @@
 					"-Wnewline-eof",
 				);
 				WRAPPER_EXTENSION = app;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mudrammer.community;
+				MARKETING_VERSION = 3.0.0;
+				CURRENT_PROJECT_VERSION = 1;
 			};
 			name = Debug;
 		};
@@ -1869,7 +1882,6 @@
 			baseConfigurationReference = 27B9E751E1979B62E08CFFC3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon$(SPLAppIconSuffix)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
@@ -1889,9 +1901,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
-				CODE_SIGN_ENTITLEMENTS = "Mudrammer/Supporting Files/MUDRammer.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1920,10 +1929,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "Mudrammer/Supporting Files/Mudrammer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SPLAppIconSuffix = Release;
 				WARNING_CFLAGS = (
 					"-Wunreachable-code",
@@ -1937,6 +1944,13 @@
 					"-Wnewline-eof",
 				);
 				WRAPPER_EXTENSION = app;
+				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mudrammer.community;
+				MARKETING_VERSION = 3.0.0;
+				CURRENT_PROJECT_VERSION = 1;
 			};
 			name = Release;
 		};

@@ -63,6 +63,7 @@ Copying the project does not copy saved worlds or settings off an existing phone
 
 - iOS 15 minimum for the app, tests, and bundled dependency targets; current
   SDK selection; automatic signing; valid version/build values; modern zlib stub.
+- Saved worlds migrate automatically to store the full TCP port range (1–65535).
 - A launch storyboard replaces fixed-size launch images and the old splash SDK.
 - UIKit's scene lifecycle creates the app window and routes Telnet links and
   foreground/background events. Apps built with the iOS 27 SDK need scene

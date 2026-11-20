@@ -82,6 +82,20 @@
 
 #pragma mark - Worlds
 
+- (void)testWorldPersistsHighestTCPPort {
+    NSManagedObjectID *worldID = world.objectID;
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *context) {
+        World *savedWorld = [World existingObjectWithId:worldID inContext:context];
+        savedWorld.hostname = @"localhost";
+        savedWorld.port = @65535;
+        XCTAssertTrue([savedWorld canSave]);
+    }];
+
+    World *savedWorld = [World existingObjectWithId:worldID inContext:[NSManagedObjectContext MR_defaultContext]];
+    [savedWorld refreshObject];
+    XCTAssertEqualObjects(savedWorld.port, @65535);
+}
+
 - (void)testWorldFiltersGagLines {
     EXP_expect(world.gags.count).will.equal(1);
 

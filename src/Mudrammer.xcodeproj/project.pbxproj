@@ -478,6 +478,7 @@
 		E9451AFC1A7EB3040010045B /* NSAttributedString+SPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+SPLAdditions.h"; sourceTree = "<group>"; };
 		E9451AFD1A7EB3040010045B /* NSAttributedString+SPLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+SPLAdditions.m"; sourceTree = "<group>"; };
 		E947A9031A74535E003651E4 /* Worlds 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Worlds 6.xcdatamodel"; sourceTree = "<group>"; };
+		A8CAF6032E98900000FD1263 /* Worlds 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Worlds 7.xcdatamodel"; sourceTree = "<group>"; };
 		E955DB791A887FB00077DD58 /* MRTerminalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTerminalTests.m; sourceTree = "<group>"; };
 		E955DB7B1A88802E0077DD58 /* MRTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTestHelpers.h; sourceTree = "<group>"; };
 		E95937531AFD733B002AD067 /* NSMutableIndexSet+SPLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+SPLAdditions.h"; sourceTree = "<group>"; };
@@ -1990,6 +1991,7 @@
 		5E786E881822115500557673 /* Worlds.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A8CAF6032E98900000FD1263 /* Worlds 7.xcdatamodel */,
 				E947A9031A74535E003651E4 /* Worlds 6.xcdatamodel */,
 				5EEFA587197B1E6500B62F26 /* Worlds 5.xcdatamodel */,
 				5E1CC4E118692B7D0094B491 /* Worlds 4.xcdatamodel */,
@@ -1997,7 +1999,7 @@
 				5E786E891822115500557673 /* Worlds 2.xcdatamodel */,
 				5E786E8A1822115500557673 /* Worlds.xcdatamodel */,
 			);
-			currentVersion = E947A9031A74535E003651E4 /* Worlds 6.xcdatamodel */;
+			currentVersion = A8CAF6032E98900000FD1263 /* Worlds 7.xcdatamodel */;
 			path = Worlds.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -37,6 +37,7 @@
 #else
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
 #endif
+    [MagicalRecord setShouldDeleteStoreOnModelMismatch:NO];
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:kStoreName];
 }
 

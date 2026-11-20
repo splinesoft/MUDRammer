@@ -7,8 +7,8 @@
 //
 
 #import "MRTestHelpers.h"
-#import <SPLTerminalDataSource.h>
-#import <SSTextTableView.h>
+#import "SPLTerminalDataSource.h"
+#import "SSTextTableView.h"
 
 @interface MRTextTableTests : XCTestCase
 

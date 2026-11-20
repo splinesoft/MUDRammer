@@ -9,7 +9,6 @@
 #import "SSTextTableView.h"
 #import "SSTextViewCell.h"
 #import "SSMudView.h"
-#import <SAMRateLimit.h>
 #import "NSAttributedString+SPLAdditions.h"
 #import "SPLTerminalDataSource.h"
 
@@ -17,12 +16,7 @@
 
 - (SPLTerminalDataSource *)MUDDataSource;
 
-- (void) willRotate;
-- (void) didRotate;
-
 @property (nonatomic, strong) FBKVOController *kvoController;
-
-@property (nonatomic, assign) BOOL shouldScrollAfterRotate;
 
 @end
 
@@ -51,17 +45,6 @@
                                                                     : [SPLImagesCatalog tildeDarkImage])
                                                              alpha:0.5f];
                               }];
-
-        // Scroll after rotation
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(willRotate)
-                                                     name:UIApplicationWillChangeStatusBarOrientationNotification
-                                                   object:nil];
-
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didRotate)
-                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
-                                                   object:nil];
     }
 
     return self;
@@ -273,27 +256,6 @@
         default:
             return NO;
     }
-}
-
-#pragma mark - Rotation
-
-- (void)willRotate {
-    self.shouldScrollAfterRotate = [self isNearBottom];
-}
-
-- (void)didRotate {
-    if (!self.window) {
-        return;
-    }
-
-    [SAMRateLimit executeBlock:^{
-        if (self.shouldScrollAfterRotate) {
-            [self performSelector:@selector(scrollToBottom)
-                       withObject:nil
-                       afterDelay:0.2f];
-            self.shouldScrollAfterRotate = NO;
-        }
-    } name:@"TableRotate" limit:0.3f];
 }
 
 @end

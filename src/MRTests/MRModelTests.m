@@ -7,9 +7,9 @@
 //
 
 #import "MRTestHelpers.h"
-#import <Gag.h>
-#import <World.h>
-#import <Trigger.h>
+#import "Gag.h"
+#import "World.h"
+#import "Trigger.h"
 #import <MagicalRecord.h>
 
 @interface MRModelTests : XCTestCase

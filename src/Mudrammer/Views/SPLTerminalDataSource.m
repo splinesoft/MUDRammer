@@ -31,9 +31,6 @@ typedef NS_ENUM(NSUInteger, SPLScrollPosition) {
     SPLScrollPositionTopOfCurrentScreen
 };
 
-NSUInteger const kMaxLineHistory = 2000;
-NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
-
 @interface SPLTerminalDataSource ()
 
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
@@ -166,12 +163,12 @@ NSUInteger const kLineDeleteAmount = (kMaxLineHistory / 5);
         // start and stop operation queue
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(suspendOperationQueue)
-                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                     name:UISceneDidEnterBackgroundNotification
                                                    object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(restartOperationQueue)
-                                                     name:UIApplicationDidBecomeActiveNotification
+                                                     name:UISceneDidActivateNotification
                                                    object:nil];
     }
 

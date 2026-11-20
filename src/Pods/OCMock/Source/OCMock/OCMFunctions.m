@@ -174,16 +174,16 @@ Class OCMCreateSubclass(Class class, void *ref)
 }
 
 
-#pragma mark  Directly manipulating the isa pointer (look away)
+#pragma mark  Changing an object's class
 
 void OCMSetIsa(id object, Class class)
 {
-    *((Class *)object) = class;
+    object_setClass(object, class);
 }
 
 Class OCMGetIsa(id object)
 {
-    return *((Class *)object);
+    return object_getClass(object);
 }
 
 

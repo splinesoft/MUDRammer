@@ -61,7 +61,7 @@
             [alertController addAction:okAction];
         }
 
-        [[[SSAppDelegate sharedApplication].window.rootViewController SPLFrontViewController] presentViewController:alertController
+        [[[SSAppDelegate sharedDelegate].mainWindow.rootViewController SPLFrontViewController] presentViewController:alertController
                                                                                                            animated:YES
                                                                                                          completion:nil];
     } else {
@@ -129,7 +129,7 @@
             [alert addAction:action];
         }
 
-        [[[SSAppDelegate sharedApplication].window.rootViewController SPLFrontViewController] presentViewController:alert
+        [[[SSAppDelegate sharedDelegate].mainWindow.rootViewController SPLFrontViewController] presentViewController:alert
                                                                                                            animated:YES
                                                                                                          completion:nil];
 

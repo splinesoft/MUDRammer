@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 splinesoft LLC. All rights reserved.
 //
 
-#import "SSApplication.h"
+#import "SSAppDelegate.h"
 
-@interface SPLTestAppDelegate : SSApplication
+@interface SPLTestAppDelegate : SSAppDelegate
 
 @end

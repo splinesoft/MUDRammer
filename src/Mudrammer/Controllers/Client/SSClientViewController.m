@@ -189,7 +189,7 @@ typedef void (^SPLSettingsCloseBlock) (void);
     [super viewDidAppear:animated];
 
     if ([self isConnected] && [[NSUserDefaults standardUserDefaults] boolForKey:kPrefInitialSetupComplete]) {
-        [[SSAppDelegate sharedApplication].notificationObserver registerForLocalNotifications];
+        [[SSAppDelegate sharedDelegate].notificationObserver registerForLocalNotifications];
     }
 }
 
@@ -338,10 +338,18 @@ typedef void (^SPLSettingsCloseBlock) (void);
     [self updateWorldToolbar];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+- (void)viewWillTransitionToSize:(CGSize)size
+      withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 
-    [self sendNAWS];
+    SSTextTableView *tableView = self.mudView.tableView;
+    BOOL wasNearBottom = tableView.nearBottom;
+    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        if (wasNearBottom && tableView.window) {
+            [tableView scrollToBottom];
+        }
+        [self sendNAWS];
+    }];
 }
 
 - (void)setNavVisible:(BOOL)visible {
@@ -951,7 +959,7 @@ typedef void (^SPLSettingsCloseBlock) (void);
             @strongify(self);
 
             if ([self isViewVisible] && [[NSUserDefaults standardUserDefaults] boolForKey:kPrefInitialSetupComplete]) {
-                [[SSAppDelegate sharedApplication].notificationObserver registerForLocalNotifications];
+                [[SSAppDelegate sharedDelegate].notificationObserver registerForLocalNotifications];
             }
 
             if ([operation isCancelled]) {

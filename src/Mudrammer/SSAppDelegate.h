@@ -7,10 +7,14 @@
 //
 
 @import UIKit;
-#import <SSApplication.h>
 #import "SPLNotificationManager.h"
 
-@interface SSAppDelegate : SSApplication
+@interface SSAppDelegate : UIResponder <UIApplicationDelegate>
+
++ (instancetype)sharedDelegate;
+- (UIViewController *)makeRootViewController;
+
+@property (nonatomic, weak, readonly) UIWindow *mainWindow;
 
 @property (nonatomic, strong) SPLNotificationManager *notificationObserver;
 

@@ -54,8 +54,8 @@ typedef NS_ENUM(NSUInteger, SPLClientStatus) {
 
         // backgrounding notification
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationDidEnterBackground:)
-                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                 selector:@selector(sceneDidEnterBackground:)
+                                                     name:UISceneDidEnterBackgroundNotification
                                                    object:nil];
 
         // Theme changes
@@ -468,10 +468,10 @@ forHeaderFooterViewReuseIdentifier:[SSBaseHeaderFooterView identifier]];
     }].count;
 }
 
-- (void)applicationDidEnterBackground:(NSNotification *)notification {
+- (void)sceneDidEnterBackground:(NSNotification *)notification {
     for (NSInteger i = 0; i < [self numberOfClients]; i++) {
         if ([[self clientAtIndex:i] isConnected]) {
-            [[SSAppDelegate sharedApplication].notificationObserver scheduleTimeoutNotification];
+            [[SSAppDelegate sharedDelegate].notificationObserver scheduleTimeoutNotification];
             return;
         }
     }

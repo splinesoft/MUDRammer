@@ -257,39 +257,21 @@
     NSShadow *titleShadow = [NSShadow new];
     [titleShadow setShadowColor:[UIColor darkTextColor]];
     [titleShadow setShadowOffset:CGSizeMake(0, 1)];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{
-           NSForegroundColorAttributeName : [UIColor whiteColor],
-           NSShadowAttributeName : titleShadow,
-           NSFontAttributeName : [UIFont boldSystemFontOfSize:([[UIDevice currentDevice] isIPad]
-                                                               ? 18.0f
-                                                               : 16.0f)]
-    }];
-    [[UINavigationBar appearance] setBackgroundImage:bgImage
-                                       forBarMetrics:UIBarMetricsDefault];
+    UINavigationBarAppearance *navigationAppearance = [UINavigationBarAppearance new];
+    [navigationAppearance configureWithOpaqueBackground];
+    navigationAppearance.backgroundColor = [UIColor colorWithWhite:0.18 alpha:1.0];
+    navigationAppearance.backgroundImage = bgImage;
+    navigationAppearance.titleTextAttributes = @{
+        NSForegroundColorAttributeName : [UIColor whiteColor],
+        NSShadowAttributeName : titleShadow,
+        NSFontAttributeName : [UIFont boldSystemFontOfSize:([[UIDevice currentDevice] isIPad] ? 18.0 : 16.0)]
+    };
 
-    // iPad navbar
-    NSShadow *iPadShadow = [NSShadow new];
-    [iPadShadow setShadowColor:[UIColor whiteColor]];
-    [iPadShadow setShadowOffset:CGSizeMake(0, 1)];
-    [[UINavigationBar appearanceWhenContainedIn:[UIPopoverController class], nil]
-     setBackgroundImage:nil
-     forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearanceWhenContainedIn:[UIPopoverController class], nil]
-     setTitleTextAttributes:@{
-          NSForegroundColorAttributeName : [UIColor darkTextColor],
-          NSShadowAttributeName : iPadShadow
-    }];
-
-    if ([UIPopoverPresentationController class]) {
-        [[UINavigationBar appearanceWhenContainedIn:[UIPopoverPresentationController class], nil]
-         setBackgroundImage:nil
-         forBarMetrics:UIBarMetricsDefault];
-        [[UINavigationBar appearanceWhenContainedIn:[UIPopoverPresentationController class], nil]
-         setTitleTextAttributes:@{
-              NSForegroundColorAttributeName : [UIColor darkTextColor],
-              NSShadowAttributeName : iPadShadow
-          }];
-    }
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    navigationBar.standardAppearance = navigationAppearance;
+    navigationBar.scrollEdgeAppearance = navigationAppearance;
+    navigationBar.compactAppearance = navigationAppearance;
+    navigationBar.compactScrollEdgeAppearance = navigationAppearance;
 
     // UIToolbar
     [[UIToolbar appearance] setBackgroundImage:bgImage

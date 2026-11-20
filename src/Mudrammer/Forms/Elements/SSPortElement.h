@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Jonathan Hersh. All rights reserved.
 //
 
-#import "QDecimalElement.h"
+#import "QEntryElement.h"
 
-@interface SSPortElement : QDecimalElement
+@interface SSPortElement : QEntryElement
+
+- (instancetype)initWithTitle:(NSString *)title value:(NSNumber *)value;
 
 @end

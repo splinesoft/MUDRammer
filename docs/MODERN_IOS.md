@@ -1,19 +1,21 @@
 # Modern iPhone update
 
-This checkout contains a compatibility update targeting iOS 15 and later. The
-Objective-C app, saved-world data model, terminal, aliases, triggers, and gags
-are retained. It needs a build and device test on a Mac before it can be called
-working on current iPhones. Source and project checks on Windows are not a
-substitute for that validation.
+This branch targets iOS 15 and later. It retains the Objective-C app,
+saved-world data model, terminal, aliases, triggers, and gags. The simulator
+build has been verified with Xcode 27.1. Use the device checklist below after
+signing and installing on your iPhone.
 
 ## Build on your Mac
 
 1. Install a current full version of Xcode and an iOS Simulator runtime. Open
-   Xcode once to finish installing its components. Select it under **Xcode >
-   Settings > Locations > Command Line Tools**.
-2. Copy this entire updated folder to your Mac, or extract the supplied ZIP.
-   Cloning the upstream GitHub repository alone will not include these local
-   changes.
+   Xcode once to review its license and complete first-launch setup. Select it
+   under **Xcode > Settings > Locations > Command Line Tools**.
+2. Clone the fork's modernization branch, or use an existing checkout of it.
+
+   ```sh
+   git clone --branch codex/modern-iphone-support https://github.com/raspberryhead/MUDRammer.git
+   cd MUDRammer
+   ```
 3. In Terminal, open this folder and run:
 
    ```sh
@@ -39,9 +41,8 @@ substitute for that validation.
 5. Open `src/Mudrammer.xcworkspace`, select **MUDRammer Dev**, select an iPhone
    simulator, and press Run.
 
-If a build fails, the first compiler error and `output/ios-build.log` identify
-the next compatibility issue to resolve. This update has not been compiled
-with Xcode in the Windows development environment.
+The build and test logs are written to `output/ios-build.log` and
+`output/ios-test.log`.
 
 ## Install on your iPhone
 
@@ -63,6 +64,9 @@ Copying the project does not copy saved worlds or settings off an existing phone
 - iOS 15 minimum for the app, tests, and bundled dependency targets; current
   SDK selection; automatic signing; valid version/build values; modern zlib stub.
 - A launch storyboard replaces fixed-size launch images and the old splash SDK.
+- UIKit's scene lifecycle creates the app window and routes Telnet links and
+  foreground/background events. Apps built with the iOS 27 SDK need scene
+  support to launch on iOS 27.
 - Terminal content stays within the safe area in portrait and landscape. The
   input bar follows UIKit's keyboard layout guide, supports interactive dismissal,
   and retains the Bluetooth keyboard setting.

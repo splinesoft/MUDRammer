@@ -10,14 +10,13 @@
 
 @implementation SPLTestAppDelegate
 
-#pragma mark - SSApplication
-
-- (void)ss_willFinishLaunchingWithOptions:(NSDictionary *)options {
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelAll];
     [MagicalRecord setupCoreDataStackWithInMemoryStore];
+    return YES;
 }
 
-- (UIViewController *)ss_appRootViewController {
+- (UIViewController *)makeRootViewController {
     return [UIViewController new];
 }
 

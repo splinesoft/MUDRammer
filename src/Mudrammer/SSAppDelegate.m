@@ -12,10 +12,22 @@
 #import "SSWorldDisplayController.h"
 
 @interface SSAppDelegate ()
-+ (void) setupCoreData;
+@property (nonatomic, weak, readwrite) UIWindow *mainWindow;
+
++ (void)setupCoreData;
+- (void)handleURL:(NSURL *)url;
+- (void)handleSceneActivation;
+@end
+
+@interface SSSceneDelegate : UIResponder <UIWindowSceneDelegate>
+@property (nonatomic, strong) UIWindow *window;
 @end
 
 @implementation SSAppDelegate
+
++ (instancetype)sharedDelegate {
+    return (SSAppDelegate *)[UIApplication sharedApplication].delegate;
+}
 
 #pragma mark - setup and scaffolding
 
@@ -30,21 +42,8 @@
 
 #pragma mark - URL tapped
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-    return [self application:application openURL:url sourceApplication:nil annotation:nil];
-}
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-
-    if (!url || ![url host]) {
-        return NO;
-    }
-
-    if ([[url scheme] isEqualToString:@"telnet"]) {
-
+- (void)handleURL:(NSURL *)url {
+    if (url.host.length > 0 && [url.scheme isEqualToString:@"telnet"]) {
         // Is this world already saved?
         World *existing = [World MR_findFirstWithPredicate:[NSPredicate predicateWithFormat:@"hostname == %@ AND isHidden == NO",
                                                             [[url host] lowercaseString]]
@@ -64,16 +63,12 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationWorldChanged
                                                                 object:[existing objectID]];
         }
-
-        return YES;
     }
-
-    return NO;
 }
 
-#pragma mark - SSApplication
+#pragma mark - Application lifecycle
 
-- (void) ss_willFinishLaunchingWithOptions:(NSDictionary *)options {
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[NSUserDefaults standardUserDefaults] registerDefaults:[self ss_defaultUserDefaults]];
     [self.class setupCoreData];
 
@@ -81,21 +76,18 @@
 
     [SSThemes sharedThemer]; // UIAppearance™ Inside®
 
-    self.idleTimerDisabled = YES;
-    self.applicationSupportsShakeToEdit = NO;
+    application.idleTimerDisabled = YES;
+    application.applicationSupportsShakeToEdit = NO;
 
     // disallow webview cache
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
 
     _notificationObserver = [SPLNotificationManager new];
+    return YES;
 }
 
-- (void) ss_willLaunchBackgroundSetup {
-
-}
-
-- (UIViewController *) ss_appRootViewController {
+- (UIViewController *)makeRootViewController {
     return [SSClientContainer new];
 }
 
@@ -118,34 +110,46 @@
     };
 }
 
-- (void) ss_receivedApplicationEvent:(SSApplicationEvent)eventType {
+- (void)handleSceneActivation {
+    [self.notificationObserver cancelTimeoutNotification];
+    [SSRadialControl validateRadialPositions];
+}
 
-    switch (eventType) {
-        case SSApplicationEventDidBecomeActive:
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [self.notificationObserver cancelTimeoutNotification];
+    [MagicalRecord cleanUp];
+}
 
-            [self.notificationObserver cancelTimeoutNotification];
+@end
 
-            [SSRadialControl validateRadialPositions];
+@implementation SSSceneDelegate
 
-            break;
-
-        case SSApplicationEventWillEnterForeground:
-        case SSApplicationEventDidEnterBackground:
-        case SSApplicationEventWillResignActive:
-
-            break;
-
-        case SSApplicationEventWillTerminate:
-
-            [self.notificationObserver cancelTimeoutNotification];
-
-            [MagicalRecord cleanUp];
-
-            break;
-
-        default:
-            break;
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions {
+    if (![scene isKindOfClass:[UIWindowScene class]]) {
+        return;
     }
+
+    SSAppDelegate *appDelegate = [SSAppDelegate sharedDelegate];
+    self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    self.window.backgroundColor = [UIColor blackColor];
+    appDelegate.mainWindow = self.window;
+    self.window.rootViewController = [appDelegate makeRootViewController];
+    [self.window makeKeyAndVisible];
+
+    [self scene:scene openURLContexts:connectionOptions.URLContexts];
+}
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    SSAppDelegate *appDelegate = [SSAppDelegate sharedDelegate];
+    for (UIOpenURLContext *context in URLContexts) {
+        [appDelegate handleURL:context.URL];
+    }
+}
+
+- (void)sceneDidBecomeActive:(UIScene *)scene {
+    [[SSAppDelegate sharedDelegate] handleSceneActivation];
 }
 
 @end

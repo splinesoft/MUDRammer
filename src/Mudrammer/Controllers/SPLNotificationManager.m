@@ -11,11 +11,16 @@
 
 static NSString * const SPLTimeoutNotificationIdentifier = @"session-timeout";
 
+@interface SPLNotificationManager ()
+@property (nonatomic, strong) dispatch_queue_t notificationQueue;
+@end
+
 @implementation SPLNotificationManager
 
 - (instancetype) init {
     if ((self = [super init])) {
-        _askedForLocalNotifications = NO;
+        // Keep notification service calls off the UI thread and preserve their order.
+        _notificationQueue = dispatch_queue_create("org.mudrammer.notifications", DISPATCH_QUEUE_SERIAL);
     }
 
     return self;
@@ -28,11 +33,13 @@ static NSString * const SPLTimeoutNotificationIdentifier = @"session-timeout";
     }
 
     _askedForLocalNotifications = YES;
-    [[UNUserNotificationCenter currentNotificationCenter]
-     requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionSound
-     completionHandler:^(BOOL granted, NSError *error) {
-         if (error) DLog(@"Notification authorization failed: %@", error);
-     }];
+    dispatch_async(self.notificationQueue, ^{
+        [[UNUserNotificationCenter currentNotificationCenter]
+         requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionSound
+         completionHandler:^(BOOL granted, NSError *error) {
+             if (error) DLog(@"Notification authorization failed: %@", error);
+         }];
+    });
 }
 
 - (void)scheduleTimeoutNotification {
@@ -46,16 +53,20 @@ static NSString * const SPLTimeoutNotificationIdentifier = @"session-timeout";
     UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:8 * 60 repeats:NO];
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:SPLTimeoutNotificationIdentifier
                                                                         content:content trigger:trigger];
-    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
-                                                         withCompletionHandler:^(NSError *error) {
-        if (error) DLog(@"Could not schedule session notification: %@", error);
-    }];
+    dispatch_async(self.notificationQueue, ^{
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                             withCompletionHandler:^(NSError *error) {
+            if (error) DLog(@"Could not schedule session notification: %@", error);
+        }];
+    });
 }
 
 - (void)cancelTimeoutNotification {
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    [center removePendingNotificationRequestsWithIdentifiers:@[SPLTimeoutNotificationIdentifier]];
-    [center removeDeliveredNotificationsWithIdentifiers:@[SPLTimeoutNotificationIdentifier]];
+    dispatch_async(self.notificationQueue, ^{
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removePendingNotificationRequestsWithIdentifiers:@[SPLTimeoutNotificationIdentifier]];
+        [center removeDeliveredNotificationsWithIdentifiers:@[SPLTimeoutNotificationIdentifier]];
+    });
 }
 
 @end

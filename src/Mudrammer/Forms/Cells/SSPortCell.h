@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Jonathan Hersh. All rights reserved.
 //
 
-#import "QDecimalTableViewCell.h"
+#import "QEntryTableViewCell.h"
 
-@interface SSPortCell : QDecimalTableViewCell
+@interface SSPortCell : QEntryTableViewCell
 
 @end

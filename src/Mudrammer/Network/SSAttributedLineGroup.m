@@ -111,11 +111,10 @@
     SSAttributedLineGroupItem *groupLine = [SSAttributedLineGroupItem new];
     groupLine.line = [string mutableCopy];
 
-    BOOL endsInNewLine = [[NSCharacterSet newlineCharacterSet] characterIsMember:
-                          [[string string] characterAtIndex:([[string string] length] - 1)]];
-
-    if (endsInNewLine) {
-        [groupLine.line deleteCharactersInRange:NSMakeRange(groupLine.line.length - 1, 1)];
+    NSString *plainText = string.string;
+    NSUInteger length = plainText.length;
+    if (length > 0 && [[NSCharacterSet newlineCharacterSet] characterIsMember:[plainText characterAtIndex:length - 1]]) {
+        [groupLine.line deleteCharactersInRange:NSMakeRange(length - 1, 1)];
         groupLine.endsInNewLine = YES;
     }
 

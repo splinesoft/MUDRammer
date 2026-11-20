@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
                                   : [SSAppDelegate class]);
 
         return UIApplicationMain(argc, argv,
-                                 NSStringFromClass(appDelegateClass),
-                                 NSStringFromClass(appDelegateClass));
+                                 nil, NSStringFromClass(appDelegateClass));
     }
 }

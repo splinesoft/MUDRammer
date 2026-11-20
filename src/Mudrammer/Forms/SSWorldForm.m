@@ -66,8 +66,6 @@ NSUInteger const kFormMaxInputLength = 1024;
 
     SSPortElement *portElement = [[SSPortElement alloc] initWithTitle:NSLocalizedString(@"PORT", @"World Port")
                                                                 value:_world.port];
-    portElement.fractionDigits = 0;
-    portElement.keyboardType = UIKeyboardTypeNumberPad;
     portElement.key = @"port";
     [section addElement:portElement];
 

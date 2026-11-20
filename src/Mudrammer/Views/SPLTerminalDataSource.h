@@ -9,11 +9,12 @@
 #import <SSDataSources.h>
 #import "SSAttributedLineGroup.h"
 
-// Maximum number of lines in the table before enqueuing a partial clear.
-UIKIT_EXTERN NSUInteger const kMaxLineHistory;
-
-// Number of lines cleared when the maximum line limit is hit.
-UIKIT_EXTERN NSUInteger const kLineDeleteAmount;
+enum : NSUInteger {
+    // Maximum number of lines in the table before enqueuing a partial clear.
+    kMaxLineHistory = 2000,
+    // Number of lines cleared when the maximum line limit is hit.
+    kLineDeleteAmount = kMaxLineHistory / 5,
+};
 
 @interface SPLTerminalDataSource : SSArrayDataSource
 

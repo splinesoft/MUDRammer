@@ -21,6 +21,7 @@
 @interface SSClientContainer ()
 
 @property (nonatomic, strong) FBKVOController *kvoController;
+@property (nonatomic, assign) BOOL didPresentWelcome;
 
 // notifications
 - (void) URLTapped:(NSNotification *)notification;
@@ -82,7 +83,7 @@
 }
 
 + (instancetype)sharedClientContainer {
-    id rootVC = [SSAppDelegate sharedApplication].window.rootViewController;
+    id rootVC = [SSAppDelegate sharedDelegate].mainWindow.rootViewController;
 
     if ([rootVC isKindOfClass:[SSClientContainer class]]) {
         return (SSClientContainer *)rootVC;
@@ -104,19 +105,22 @@
     SSWorldDisplayController *displayController = [SSWorldDisplayController new];
     self.rightPanel = displayController;
     [displayController addClientWithWorld:nil];
+}
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:kPrefInitialSetupComplete]) {
-            SSWelcomeViewController *welcome = [SSWelcomeViewController new];
-            UINavigationController *nav = [welcome wrappedNavigationController];
-            nav.modalPresentationStyle = UIModalPresentationFormSheet;
-            nav.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 
-            [self presentViewController:nav
-                               animated:NO
-                             completion:nil];
-        }
-    });
+    if (self.didPresentWelcome || self.presentedViewController ||
+        [[NSUserDefaults standardUserDefaults] boolForKey:kPrefInitialSetupComplete]) {
+        return;
+    }
+
+    self.didPresentWelcome = YES;
+    SSWelcomeViewController *welcome = [SSWelcomeViewController new];
+    UINavigationController *nav = [welcome wrappedNavigationController];
+    nav.modalPresentationStyle = UIModalPresentationFormSheet;
+    nav.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:nav animated:NO completion:nil];
 }
 
 - (BOOL)shouldAutorotate {
